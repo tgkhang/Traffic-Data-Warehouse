@@ -404,3 +404,88 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# ==========================================================================
+# SQL Server Integration Services (SSIS) and Analysis Services (SSAS)
+# ==========================================================================
+
+# SSIS Package deployment files
+*.ispac
+*.dtsx.user
+
+# SSIS Project deployment manifest
+*.deploymentmanifest
+
+# SSIS Package configurations
+*.dtsConfig
+
+# SSIS Package passwords and connection strings (contains sensitive data)
+*.dtsx.conmgr
+*.dtproj.user
+
+# SSIS Catalog database files
+SSISDB.mdf
+SSISDB.ldf
+
+# SQL Server Data Tools (SSDT) temporary files
+*.rptproj.rsuser
+*.rdl.data
+
+# SSAS temporary files and folders
+*.asdatabase
+*.deploymenttargets
+*.configsettings
+*.cube.user
+*.dwproj.user
+
+# SSAS deployment files
+*.xmla
+Model.bim.user
+
+# SQL Server database files (if you have local test databases)
+*.mdf
+*.ldf
+*.ndf
+
+# SQL Server backup files
+*.bak
+*.trn
+
+# Data files (exclude large datasets)
+*.csv
+*.txt
+*.xlsx
+*.xls
+# Uncomment the line below if you want to include small sample datasets
+# !dataset/sample_*.csv
+
+# Temporary data processing files
+temp_*
+tmp_*
+
+# Log files from ETL processes
+etl_*.log
+ssis_*.log
+
+# Connection strings and configuration files with sensitive data
+connectionStrings.config
+appsettings.json
+appsettings.*.json
+config.json
+.env
+
+# Business Intelligence development temporary files
+*.cache
+*.schemaview
+
+# SQL Server Reporting Services
+*.rdl.data
+*.rds
+
+# Power BI files (if used in the warehouse solution)
+*.pbix
+*.pbit
+
+# Excel files used for ad-hoc analysis (usually temporary)
+~$*.xlsx
+~$*.xls
