@@ -281,5 +281,5 @@ SELECT
 FROM Staging_Violation sv
 JOIN VehicleType_CTE vt
     -- Join on cleaned vehicle type name
-    ON LTRIM(SUBSTRING(sv.vehicle_type, CHARINDEX('-', sv.vehicle_type) + 1, LEN(sv.vehicle_type))) = vt.old_type_name;
+    ON LTRIM(SUBSTRING(sv.vehicle_type, CHARINDEX('-', sv.vehicle_type) + 1, LEN(sv.vehicle_type))) = vt.old_type_name
 

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{93A5057F-D99A-4FCA-9E43-793C5F03F7BA}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{3C238E90-8075-439E-8AA3-83BC051A45F0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,301 +44,6 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{642fa288-1e7f-47be-95cb-b6e375d05992}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Data Flow Task\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[NDS].[Vehicle_Type]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vehicle_type_id]"
-                      cachedDataType="i4"
-                      cachedName="vehicle_type_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type_id]"
-                      lineageId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[vehicle_type_id]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[type_name]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="type_name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type_name]"
-                      lineageId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[type_name]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type_id]"
-                      dataType="i4"
-                      name="vehicle_type_id" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type_name]"
-                      dataType="wstr"
-                      length="50"
-                      name="type_name" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\Vehicle Type"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Vehicle Type"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
-    ROW_NUMBER() OVER (ORDER BY cleaned_type) AS vehicle_type_id,
-    cleaned_type AS type_name
-FROM (
-    SELECT DISTINCT
-        LTRIM(
-            CASE 
-                WHEN CHARINDEX('(', raw_type) &gt; 0 
-                    THEN LEFT(raw_type, CHARINDEX('(', raw_type) - 1)
-                ELSE raw_type
-            END
-        ) AS cleaned_type
-    FROM (
-        SELECT distinct
-            LTRIM(SUBSTRING(vehicle_type, CHARINDEX('-', vehicle_type) + 1, LEN(vehicle_type))) AS raw_type
-        FROM Staging_Violation
-    ) AS base
-) AS final
-ORDER BY vehicle_type_id;</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\Vehicle Type.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.StagingDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.StagingDB]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[vehicle_type_id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[vehicle_type_id]"
-                      lineageId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[vehicle_type_id]"
-                      name="vehicle_type_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[type_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[type_name]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[type_name]"
-                      name="type_name"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[vehicle_type_id]"
-                      dataType="i8"
-                      name="vehicle_type_id" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[type_name]"
-                      dataType="wstr"
-                      length="50"
-                      name="type_name" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[vehicle_type_id]"
-                      dataType="i8"
-                      lineageId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[vehicle_type_id]"
-                      name="vehicle_type_id" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[type_name]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[type_name]"
-                      name="type_name" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Finish"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
@@ -350,13 +55,13 @@ ORDER BY vehicle_type_id;</property>
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Finish\Data Flow Task"
+          DTS:refId="Package\Finish\Vehicle type"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
           DTS:DTSID="{68012894-62EB-4763-B23D-CCD6E69F8A80}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Data Flow Task"
+          DTS:ObjectName="Vehicle type"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -364,7 +69,7 @@ ORDER BY vehicle_type_id;</property>
               version="1">
               <components>
                 <component
-                  refId="Package\Finish\Data Flow Task\OLE DB Destination"
+                  refId="Package\Finish\Vehicle type\OLE DB Destination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
@@ -421,7 +126,7 @@ ORDER BY vehicle_type_id;</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Finish\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      refId="Package\Finish\Vehicle type\OLE DB Destination.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
                       connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
                       description="The OLE DB runtime connection used to access the database."
@@ -429,34 +134,34 @@ ORDER BY vehicle_type_id;</property>
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Finish\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      refId="Package\Finish\Vehicle type\OLE DB Destination.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Finish\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vehicle_type_id]"
+                          refId="Package\Finish\Vehicle type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vehicle_type_id]"
                           cachedDataType="i4"
                           cachedName="vehicle_type_id"
-                          externalMetadataColumnId="Package\Finish\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type_id]"
-                          lineageId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[vehicle_type_id]" />
+                          externalMetadataColumnId="Package\Finish\Vehicle type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type_id]"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].Columns[vehicle_type_id]" />
                         <inputColumn
-                          refId="Package\Finish\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[type_name]"
+                          refId="Package\Finish\Vehicle type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[type_name]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="type_name"
-                          externalMetadataColumnId="Package\Finish\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type_name]"
-                          lineageId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[type_name]" />
+                          externalMetadataColumnId="Package\Finish\Vehicle type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type_name]"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].Columns[type_name]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Finish\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type_id]"
+                          refId="Package\Finish\Vehicle type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type_id]"
                           dataType="i4"
                           name="vehicle_type_id" />
                         <externalMetadataColumn
-                          refId="Package\Finish\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type_name]"
+                          refId="Package\Finish\Vehicle type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type_name]"
                           dataType="wstr"
                           length="50"
                           name="type_name" />
@@ -465,22 +170,22 @@ ORDER BY vehicle_type_id;</property>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Finish\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Finish\Vehicle type\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Finish\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Finish\Vehicle type\OLE DB Destination.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Finish\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Finish\Vehicle type\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Finish\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Finish\Vehicle type\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Finish\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Finish\Vehicle type\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Finish\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Finish\Vehicle type\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -489,7 +194,7 @@ ORDER BY vehicle_type_id;</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Finish\Data Flow Task\Vehicle Type"
+                  refId="Package\Finish\Vehicle type\Vehicle Type"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
                   description="OLE DB Source"
@@ -515,7 +220,8 @@ ORDER BY vehicle_type_id;</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
     ROW_NUMBER() OVER (ORDER BY cleaned_type) AS vehicle_type_id,
-    cleaned_type AS type_name
+    cleaned_type AS type_name,
+    old_type_name 
 FROM (
     SELECT DISTINCT
         LTRIM(
@@ -524,7 +230,8 @@ FROM (
                     THEN LEFT(raw_type, CHARINDEX('(', raw_type) - 1)
                 ELSE raw_type
             END
-        ) AS cleaned_type
+        ) AS cleaned_type,
+        raw_type as old_type_name
     FROM (
         SELECT distinct
             LTRIM(SUBSTRING(vehicle_type, CHARINDEX('-', vehicle_type) + 1, LEN(vehicle_type))) AS raw_type
@@ -556,7 +263,7 @@ ORDER BY vehicle_type_id;</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Finish\Data Flow Task\Vehicle Type.Connections[OleDbConnection]"
+                      refId="Package\Finish\Vehicle type\Vehicle Type.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[localhost.StagingDB]"
                       connectionManagerRefId="Package.ConnectionManagers[localhost.StagingDB]"
                       description="The OLE DB runtime connection used to access the database."
@@ -564,68 +271,89 @@ ORDER BY vehicle_type_id;</property>
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output]"
+                      refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output]"
                       name="OLE DB Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[vehicle_type_id]"
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].Columns[vehicle_type_id]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[vehicle_type_id]"
-                          lineageId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[vehicle_type_id]"
+                          externalMetadataColumnId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[vehicle_type_id]"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].Columns[vehicle_type_id]"
                           name="vehicle_type_id"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[type_name]"
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].Columns[type_name]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[type_name]"
+                          externalMetadataColumnId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[type_name]"
                           length="50"
-                          lineageId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].Columns[type_name]"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].Columns[type_name]"
                           name="type_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].Columns[old_type_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[old_type_name]"
+                          length="50"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].Columns[old_type_name]"
+                          name="old_type_name"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[vehicle_type_id]"
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[vehicle_type_id]"
                           dataType="i8"
                           name="vehicle_type_id" />
                         <externalMetadataColumn
-                          refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[type_name]"
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[type_name]"
                           dataType="wstr"
                           length="50"
                           name="type_name" />
+                        <externalMetadataColumn
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output].ExternalColumns[old_type_name]"
+                          dataType="wstr"
+                          length="50"
+                          name="old_type_name" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output]"
+                      refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output]"
                       isErrorOut="true"
                       name="OLE DB Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[vehicle_type_id]"
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[vehicle_type_id]"
                           dataType="i8"
-                          lineageId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[vehicle_type_id]"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[vehicle_type_id]"
                           name="vehicle_type_id" />
                         <outputColumn
-                          refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[type_name]"
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[type_name]"
                           dataType="wstr"
                           length="50"
-                          lineageId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[type_name]"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[type_name]"
                           name="type_name" />
                         <outputColumn
-                          refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[old_type_name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[old_type_name]"
+                          name="old_type_name" />
+                        <outputColumn
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          refId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -636,15 +364,464 @@ ORDER BY vehicle_type_id;</property>
               </components>
               <paths>
                 <path
-                  refId="Package\Finish\Data Flow Task.Paths[OLE DB Source Output]"
-                  endId="Package\Finish\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Finish\Vehicle type.Paths[OLE DB Source Output]"
+                  endId="Package\Finish\Vehicle type\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
-                  startId="Package\Finish\Data Flow Task\Vehicle Type.Outputs[OLE DB Source Output]" />
+                  startId="Package\Finish\Vehicle type\Vehicle Type.Outputs[OLE DB Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Vehicle"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AE753714-8349-41DA-90F2-AD347A08D9B4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Vehicle"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Vehicle\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[NDS].[Vehicle]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Vehicle\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[commercial_vehicle]"
+                      cachedDataType="bool"
+                      cachedName="commercial_vehicle"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle]"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle]" />
+                    <inputColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year]"
+                      cachedDataType="i4"
+                      cachedName="year"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]" />
+                    <inputColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[make]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="make"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[make]"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[make]" />
+                    <inputColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[color]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="color"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[color]" />
+                    <inputColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[model]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="model"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[model]"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]" />
+                    <inputColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vehicle_type_id]"
+                      cachedDataType="i8"
+                      cachedName="vehicle_type_id"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type_id]"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_type_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_id]"
+                      dataType="i4"
+                      name="vehicle_id" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type_id]"
+                      dataType="i4"
+                      name="vehicle_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                      dataType="i2"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[make]"
+                      dataType="wstr"
+                      length="50"
+                      name="make" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[model]"
+                      dataType="wstr"
+                      length="50"
+                      name="model" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                      dataType="wstr"
+                      length="50"
+                      name="color" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle]"
+                      dataType="bool"
+                      name="commercial_vehicle" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Vehicle\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH VehicleType_CTE AS (
+    -- Create vehicle type lookup as CTE
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY cleaned_type) AS vehicle_type_id,
+        cleaned_type AS type_name,
+        old_type_name 
+    FROM (
+        SELECT DISTINCT
+            LTRIM(
+                CASE 
+                    WHEN CHARINDEX('(', raw_type) &gt; 0 
+                        THEN LEFT(raw_type, CHARINDEX('(', raw_type) - 1)
+                    ELSE raw_type
+                END
+            ) AS cleaned_type,
+            raw_type AS old_type_name
+        FROM (
+            SELECT DISTINCT
+                LTRIM(SUBSTRING(vehicle_type, CHARINDEX('-', vehicle_type) + 1, LEN(vehicle_type))) AS raw_type
+            FROM Staging_Violation
+        ) AS base
+    ) AS final
+)
+-- Main ETL query with all transformations and type mapping
+SELECT 
+    vt.vehicle_type_id,                     -- Mapped vehicle type ID
+    sv.commercial_vehicle,                  -- Commercial vehicle flag (no nulls)
+    CASE 
+        WHEN sv.[year] IS NULL THEN 1900
+        ELSE sv.[year]
+    END AS [year],                          -- Year with null handling
+    CASE 
+        WHEN sv.[make] IS NULL THEN 'n/a'
+        ELSE sv.[make]
+    END AS [make],                          -- Make with null handling
+    CASE 
+        WHEN sv.[color] IS NULL THEN 'n/a'
+        ELSE sv.[color]
+    END AS [color],                         -- Color with null handling
+    CASE 
+        WHEN sv.[model] IS NULL THEN 'n/a'
+        ELSE sv.[model]
+    END AS [model]                          -- Model with null handling
+FROM Staging_Violation sv
+JOIN VehicleType_CTE vt
+    -- Join on cleaned vehicle type name
+    ON LTRIM(SUBSTRING(sv.vehicle_type, CHARINDEX('-', sv.vehicle_type) + 1, LEN(sv.vehicle_type))) = vt.old_type_name;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Vehicle\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.StagingDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.StagingDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_type_id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vehicle_type_id]"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_type_id]"
+                      name="vehicle_type_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_vehicle]"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle]"
+                      name="commercial_vehicle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                      name="year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[make]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[make]"
+                      length="50"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[make]"
+                      name="make"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[color]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[color]"
+                      length="50"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[color]"
+                      name="color"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[model]"
+                      length="50"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]"
+                      name="model"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vehicle_type_id]"
+                      dataType="i8"
+                      name="vehicle_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_vehicle]"
+                      dataType="bool"
+                      name="commercial_vehicle" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                      dataType="i4"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[make]"
+                      dataType="wstr"
+                      length="50"
+                      name="make" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[color]"
+                      dataType="wstr"
+                      length="50"
+                      name="color" />
+                    <externalMetadataColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[model]"
+                      dataType="wstr"
+                      length="50"
+                      name="model" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vehicle_type_id]"
+                      dataType="i8"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vehicle_type_id]"
+                      name="vehicle_type_id" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_vehicle]"
+                      dataType="bool"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_vehicle]"
+                      name="commercial_vehicle" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                      dataType="i4"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                      name="year" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[make]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[make]"
+                      name="make" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[color]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[color]"
+                      name="color" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[model]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[model]"
+                      name="model" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Vehicle.Paths[OLE DB Source Output]"
+              endId="Package\Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Vehicle\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -660,50 +837,50 @@ ORDER BY vehicle_type_id;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Finish\Data Flow Task"
-          TopLeft="12.4571429909491,23.0352940385523" />
+          Size="135.2,41.6"
+          Id="Package\Finish\Vehicle type"
+          TopLeft="48.8857144970673,23.799999920235" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="204.8,183.2"
-          Size="204.8,226.4"
+          PanelSize="204.8,195.2"
+          Size="204.8,238.4"
           Id="Package\Finish"
           TopLeft="50.0000001064369,22.9411764504794" />
         <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Data Flow Task"
-          TopLeft="363.571429345377,58.1176470078812" />
+          Size="112,41.6"
+          Id="Package\Vehicle"
+          TopLeft="364.285715061183,100.176470500427" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Finish\Data Flow Task">
+    design-time-name="Package\Finish\Vehicle type">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="138.4,41.6"
-          Id="Package\Finish\Data Flow Task\Vehicle Type"
-          TopLeft="77.8571430228802,66.5294117063902" />
+          Id="Package\Finish\Vehicle type\Vehicle Type"
+          TopLeft="77.8571430228802,65.7647058247076" />
         <NodeLayout
           Size="170.4,41.6"
-          Id="Package\Finish\Data Flow Task\OLE DB Destination"
+          Id="Package\Finish\Vehicle type\OLE DB Destination"
           TopLeft="63.5714287067554,211.058823344411" />
         <EdgeLayout
-          Id="Package\Finish\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="147.914285864818,108.12941170639">
+          Id="Package\Finish\Vehicle type.Paths[OLE DB Source Output]"
+          TopLeft="147.914285864818,107.364705824708">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,102.92941163802"
+              EndConnector="0,103.694117519703"
               Start="0,0"
-              End="0,95.4294116380203">
+              End="0,96.1941175197034">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,95.4294116380203" />
+                    End="0,96.1941175197034" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -716,15 +893,7 @@ ORDER BY vehicle_type_id;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Finish\Data Flow Task\Vehicle Type">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Finish\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Finish\Vehicle type\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -736,45 +905,72 @@ ORDER BY vehicle_type_id;</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finish\Vehicle type\Vehicle Type">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\Vehicle">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170.4,41.6"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="63.5714287067554,211.058823344411" />
+          Id="Package\Vehicle\OLE DB Destination"
+          TopLeft="283.99999576807,241.999996393919" />
         <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\Data Flow Task\Vehicle Type"
-          TopLeft="77.8571430228802,66.5294117063902" />
+          Size="149.6,41.6"
+          Id="Package\Vehicle\OLE DB Source"
+          TopLeft="296.999995574355,80.999998793006" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="147.914285864818,108.12941170639">
+          Id="Package\Vehicle.Paths[OLE DB Source Output]"
+          TopLeft="370.499995671213,122.599998793006">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,102.92941163802"
+              EndConnector="0,119.399997600913"
               Start="0,0"
-              End="0,95.4294116380203">
+              End="0,111.899997600913">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,95.4294116380203" />
+                    End="0,111.899997600913" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Vehicle\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Vehicle\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
