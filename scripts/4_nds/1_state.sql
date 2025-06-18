@@ -17,13 +17,19 @@ IF OBJECT_ID('NDS.State', 'U') IS NOT NULL
     DROP TABLE NDS.State;
 GO
 
+-- CREATE TABLE NDS.State (
+--     state_id INT IDENTITY(1,1) PRIMARY KEY,
+--     state_code NVARCHAR(10),
+--     state_name NVARCHAR(100),
+--     country NVARCHAR(50)
+-- );
+-- GO
+
 CREATE TABLE NDS.State (
-    state_id INT IDENTITY(1,1) PRIMARY KEY,
-    state_code NVARCHAR(10),
+    state_code NVARCHAR(10) PRIMARY KEY,
     state_name NVARCHAR(100),
     country NVARCHAR(50)
 );
-GO
 
 -- Insert state data
 INSERT INTO NDS.State (state_code, state_name, country) VALUES 

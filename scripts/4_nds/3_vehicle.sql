@@ -30,8 +30,8 @@ CREATE TABLE NDS.Vehicle (
     [model] NVARCHAR(50) NULL,                   -- Vehicle model (e.g., Camry, F-150)
     [color] NVARCHAR(50) NULL,                   -- Vehicle color
     [commercial_vehicle] BIT NULL,               -- Flag indicating if vehicle is commercial
-    CONSTRAINT FK_Vehicle_VehicleType FOREIGN KEY (vehicle_type_id)
-        REFERENCES NDS.Vehicle_Type(vehicle_type_id)
+    -- CONSTRAINT FK_Vehicle_VehicleType FOREIGN KEY (vehicle_type_id)
+    --     REFERENCES NDS.Vehicle_Type(vehicle_type_id)
 );
 GO
 
