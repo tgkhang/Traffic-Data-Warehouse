@@ -100,6 +100,21 @@ FROM Staging_City
 WHERE country = 'United States'
 ORDER BY city ASC
 
+
+SELECT DISTINCT 
+    CASE 
+        WHEN driver_city IS NULL THEN 'n/a'
+        WHEN LTRIM(RTRIM(driver_city)) IN ('', '.', '00', '000') THEN 'n/a'
+        WHEN PATINDEX('%[^a-zA-Z0-9 ]%', driver_city) > 0 THEN 'n/a'
+        WHEN ISNUMERIC(driver_city) = 1 THEN 'n/a'
+        WHEN PATINDEX('[0-9]%', driver_city) = 1 THEN 'n/a'
+        ELSE UPPER(LEFT(driver_city, 1)) + LOWER(SUBSTRING(driver_city, 2, LEN(driver_city)))
+    END AS city
+FROM Staging_Violation
+ORDER BY city ASC;
+
+
+
 /*
 --------------------------------------------------------------------------------
 COUNTY REFERENCE DATA EXTRACTION
