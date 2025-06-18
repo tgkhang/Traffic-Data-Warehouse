@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{480E17D6-A61C-48A4-A18C-82B0C87AFF55}">
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{3B8157B7-180E-4CE3-93F6-879C88D8F097}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2986,6 +2986,2074 @@ ORDER BY vehicle_type_id;</property>
           DTS:To="Package\Finish\Driver Type" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Weather snapshot"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A6FB4566-3A1B-49C5-ABC9-210CAECFE51D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Weather snapshot"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Weather snapshot\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Weather snapshot\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Inputs[Data Conversion Input].Columns[pressure_pa]"
+                      cachedDataType="r8"
+                      cachedName="pressure_pa"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[pressure_pa]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Inputs[Data Conversion Input].Columns[wind_direction_deg]"
+                      cachedDataType="numeric"
+                      cachedName="wind_direction_deg"
+                      cachedPrecision="4"
+                      cachedScale="1"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wind_direction_deg]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Inputs[Data Conversion Input].Columns[weather_description]"
+                      cachedDataType="wstr"
+                      cachedLength="71"
+                      cachedName="weather_description"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[weather_description]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Inputs[Data Conversion Input].Columns[visibility_m]"
+                      cachedDataType="r8"
+                      cachedName="visibility_m"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[visibility_m]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Weather snapshot\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pressure_pa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pressure_pa]"
+                      name="Copy of pressure_pa"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[pressure_pa]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of wind_direction_deg]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of wind_direction_deg]"
+                      name="Copy of wind_direction_deg"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wind_direction_deg]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of weather_description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="71"
+                      lineageId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of weather_description]"
+                      name="Copy of weather_description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[weather_description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of visibility_m]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of visibility_m]"
+                      name="Copy of visibility_m"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[visibility_m]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Weather snapshot\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Weather snapshot\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Weather snapshot\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Data Conversion 1.Inputs[Data Conversion Input].Columns[pressure_pa]"
+                      cachedDataType="i4"
+                      cachedName="pressure_pa"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[pressure_pa]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\Data Conversion 1.Inputs[Data Conversion Input].Columns[wind_direction_deg]"
+                      cachedDataType="r8"
+                      cachedName="wind_direction_deg"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[wind_direction_deg]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\Data Conversion 1.Inputs[Data Conversion Input].Columns[visibility_m]"
+                      cachedDataType="i4"
+                      cachedName="visibility_m"
+                      lineageId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Output].Columns[visibility_m]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Weather snapshot\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of pressure_pa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of pressure_pa]"
+                      name="Copy of pressure_pa"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[pressure_pa]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of wind_direction_deg]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of wind_direction_deg]"
+                      name="Copy of wind_direction_deg"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[wind_direction_deg]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of visibility_m]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of visibility_m]"
+                      name="Copy of visibility_m"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Weather snapshot\Derived Column.Outputs[Derived Column Output].Columns[visibility_m]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Weather snapshot\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Weather snapshot\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Weather snapshot\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Weather snapshot\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Output].Columns[visibility_m]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Output].Columns[visibility_m]"
+                      name="visibility_m"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">10</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">10</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Weather snapshot\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Weather snapshot\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select city_id,city_name, co.county_name
+  from nds.City c
+  join NDS.County co on c.county_id= co.county_id</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select city_id,city_name, co.county_name
+  from nds.City c
+  join NDS.County co on c.county_id= co.county_id) [refTable]
+where [refTable].[city_name] = ? and [refTable].[county_name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="city_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city_name" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="county_name" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[city_name]};#{Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[county_name]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Weather snapshot\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Weather snapshot\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Lookup.Inputs[Lookup Input].Columns[city_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="city_name"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[city_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">city_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Lookup.Inputs[Lookup Input].Columns[county_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="county_name"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[county_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">county_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Weather snapshot\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Weather snapshot\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Lookup.Outputs[Lookup Match Output].Columns[city_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Weather snapshot\Lookup.Outputs[Lookup Match Output].Columns[city_id]"
+                      name="city_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">city_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Weather snapshot\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Weather snapshot\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Weather snapshot\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Weather snapshot\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Weather snapshot\Lookup 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select city_id,city_name, co.county_name
+  from nds.City c
+  join NDS.County co on c.county_id= co.county_id</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select city_id,city_name, co.county_name
+  from nds.City c
+  join NDS.County co on c.county_id= co.county_id) [refTable]
+where [refTable].[city_name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="city_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city_name" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="county_name" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Weather snapshot\Lookup 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Weather snapshot\Lookup 1.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Lookup 1.Inputs[Lookup Input].Columns[city_name]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="city_name"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">city_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Weather snapshot\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Match Output].Columns[city_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Match Output].Columns[city_id]"
+                      name="city_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">city_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Weather snapshot\Lookup 1.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Weather snapshot\Lookup 1.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Weather snapshot\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Weather snapshot\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[NDS].[Weather_Snapshot]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Weather snapshot\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[datetime]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="datetime"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[datetime]"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[datetime]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[temperature_c]"
+                      cachedDataType="r8"
+                      cachedName="temperature_c"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_c]"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[temperature_c]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[humidity]"
+                      cachedDataType="r8"
+                      cachedName="humidity"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[humidity]"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[humidity]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wind_speed_mps]"
+                      cachedDataType="r8"
+                      cachedName="wind_speed_mps"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wind_speed_mps]"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[wind_speed_mps]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[weather_description]"
+                      cachedDataType="wstr"
+                      cachedLength="51"
+                      cachedName="weather_description"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[weather_description]"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[weather_description]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of pressure_pa]"
+                      cachedDataType="r8"
+                      cachedName="Copy of pressure_pa"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pressure_pa]"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of pressure_pa]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of wind_direction_deg]"
+                      cachedDataType="r8"
+                      cachedName="Copy of wind_direction_deg"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wind_direction_deg]"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of wind_direction_deg]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of visibility_m]"
+                      cachedDataType="r8"
+                      cachedName="Copy of visibility_m"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[visibility_m]"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of visibility_m]" />
+                    <inputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city_id]"
+                      cachedDataType="i4"
+                      cachedName="city_id"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_id]"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[city_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[weather_snapshot_id]"
+                      dataType="i4"
+                      name="weather_snapshot_id" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[datetime]"
+                      dataType="dbTimeStamp"
+                      name="datetime" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[humidity]"
+                      dataType="r8"
+                      name="humidity" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pressure_pa]"
+                      dataType="r8"
+                      name="pressure_pa" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_c]"
+                      dataType="r8"
+                      name="temperature_c" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[weather_description]"
+                      dataType="wstr"
+                      length="255"
+                      name="weather_description" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wind_speed_mps]"
+                      dataType="r8"
+                      name="wind_speed_mps" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wind_direction_deg]"
+                      dataType="r8"
+                      name="wind_direction_deg" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[visibility_m]"
+                      dataType="r8"
+                      name="visibility_m" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="city_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Weather snapshot\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Weather snapshot\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH Temp_CTE AS (
+    SELECT 
+        datetime,
+        REPLACE(city, '_', ' ') AS city,
+        temperature
+    FROM (
+        SELECT *
+        FROM Staging_Temperature
+    ) AS t
+    UNPIVOT (
+        temperature FOR city IN (
+            vancouver, portland, san_francisco, seattle, los_angeles, san_diego,
+            las_vegas, phoenix, albuquerque, denver, san_antonio, dallas, houston,
+            kansas_city, minneapolis, saint_louis, chicago, nashville, indianapolis,
+            atlanta, detroit, jacksonville, charlotte, miami, pittsburgh, toronto,
+            philadelphia, new_york, montreal, boston, beersheba, tel_aviv_district,
+            eilat, haifa, nahariyya, jerusalem
+        )
+    ) AS temp_unpivot
+), Humidity_CTE AS (
+    SELECT 
+        datetime,
+        REPLACE(city, '_', ' ') AS city,
+        humidity
+    FROM (
+        SELECT *
+        FROM Staging_Humidity
+    ) AS h
+    UNPIVOT (
+        humidity FOR city IN (
+            vancouver, portland, san_francisco, seattle, los_angeles, san_diego,
+            las_vegas, phoenix, albuquerque, denver, san_antonio, dallas, houston,
+            kansas_city, minneapolis, saint_louis, chicago, nashville, indianapolis,
+            atlanta, detroit, jacksonville, charlotte, miami, pittsburgh, toronto,
+            philadelphia, new_york, montreal, boston, beersheba, tel_aviv_district,
+            eilat, haifa, nahariyya, jerusalem
+        )
+    ) AS humidity_unpivot
+),Pressure_CTE AS (
+    SELECT 
+        datetime,
+        REPLACE(city, '_', ' ') AS city,
+        pressure
+    FROM (
+        SELECT *
+        FROM Staging_Pressure
+    ) AS p
+    UNPIVOT (
+        pressure FOR city IN (
+            vancouver, portland, san_francisco, seattle, los_angeles, san_diego,
+            las_vegas, phoenix, albuquerque, denver, san_antonio, dallas, houston,
+            kansas_city, minneapolis, saint_louis, chicago, nashville, indianapolis,
+            atlanta, detroit, jacksonville, charlotte, miami, pittsburgh, toronto,
+            philadelphia, new_york, montreal, boston, beersheba, tel_aviv_district,
+            eilat, haifa, nahariyya, jerusalem
+        )
+    ) AS pressure_unpivot
+),WindSpeed_CTE AS (
+    SELECT 
+        datetime,
+        REPLACE(city, '_', ' ') AS city,
+        wind_speed
+    FROM (
+        SELECT *
+        FROM Staging_Wind_Speed
+    ) AS ws
+    UNPIVOT (
+        wind_speed FOR city IN (
+            vancouver, portland, san_francisco, seattle, los_angeles, san_diego,
+            las_vegas, phoenix, albuquerque, denver, san_antonio, dallas, houston,
+            kansas_city, minneapolis, saint_louis, chicago, nashville, indianapolis,
+            atlanta, detroit, jacksonville, charlotte, miami, pittsburgh, toronto,
+            philadelphia, new_york, montreal, boston, beersheba, tel_aviv_district,
+            eilat, haifa, nahariyya, jerusalem
+        )
+    ) AS wind_speed_unpivot
+),WindDirection_CTE AS (
+    SELECT 
+        datetime,
+        REPLACE(city, '_', ' ') AS city,
+        wind_direction
+    FROM (
+        SELECT *
+        FROM Staging_Wind_Direction
+    ) AS wd
+    UNPIVOT (
+        wind_direction FOR city IN (
+            vancouver, portland, san_francisco, seattle, los_angeles, san_diego,
+            las_vegas, phoenix, albuquerque, denver, san_antonio, dallas, houston,
+            kansas_city, minneapolis, saint_louis, chicago, nashville, indianapolis,
+            atlanta, detroit, jacksonville, charlotte, miami, pittsburgh, toronto,
+            philadelphia, new_york, montreal, boston, beersheba, tel_aviv_district,
+            eilat, haifa, nahariyya, jerusalem
+        )
+    ) AS wind_direction_unpivot
+),WeatherDescription_CTE AS (
+    SELECT 
+        datetime,
+        REPLACE(city, '_', ' ') AS city,
+        weather_description
+    FROM (
+        SELECT *
+        FROM Staging_Weather_Description
+    ) AS wde
+    UNPIVOT (
+        weather_description FOR city IN (
+            vancouver, portland, san_francisco, seattle, los_angeles, san_diego,
+            las_vegas, phoenix, albuquerque, denver, san_antonio, dallas, houston,
+            kansas_city, minneapolis, saint_louis, chicago, nashville, indianapolis,
+            atlanta, detroit, jacksonville, charlotte, miami, pittsburgh, toronto,
+            philadelphia, new_york, montreal, boston, beersheba, tel_aviv_district,
+            eilat, haifa, nahariyya, jerusalem
+        )
+    ) AS weather_description_unpivot
+)
+SELECT distinct 
+    t.datetime,
+    t.city,
+    CASE 
+        WHEN t.temperature IS NOT NULL THEN t.temperature - 273.15 
+        ELSE NULL 
+    END AS temperature_c,
+    h.humidity, 
+    CASE 
+        WHEN p.pressure IS NOT NULL THEN p.pressure * 100 
+        ELSE NULL 
+    END AS pressure_pa,
+    ws.wind_speed,
+    wd.wind_direction,
+    UPPER(LEFT(wde.weather_description, 1)) + LOWER(SUBSTRING(wde.weather_description, 2, LEN(wde.weather_description))) AS weather_description
+FROM Temp_CTE t
+LEFT JOIN Humidity_CTE h ON t.datetime = h.datetime AND t.city = h.city
+LEFT JOIN Pressure_CTE p ON t.datetime = p.datetime AND t.city = p.city
+left join WindSpeed_CTE ws on t.datetime = ws.datetime and t.city = ws.city
+left join WindDirection_CTE wd on t.datetime = wd.datetime and t.city= wd.city
+left join WeatherDescription_CTE wde on t.datetime= wde.datetime and t.city = wde.city
+where t.datetime is not null
+order by t.datetime</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Weather snapshot\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.StagingDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.StagingDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[datetime]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[datetime]"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[datetime]"
+                      name="datetime"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      length="4000"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]"
+                      name="city_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[temperature_c]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[temperature_c]"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[temperature_c]"
+                      name="temperature_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[humidity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[humidity]"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[humidity]"
+                      name="humidity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[pressure_pa]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pressure_pa]"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[pressure_pa]"
+                      name="pressure_pa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[wind_speed_mps]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wind_speed]"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[wind_speed_mps]"
+                      name="wind_speed_mps"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[wind_direction_deg]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wind_direction]"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[wind_direction_deg]"
+                      name="wind_direction_deg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[weather_description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weather_description]"
+                      length="51"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[weather_description]"
+                      name="weather_description"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[datetime]"
+                      dataType="dbTimeStamp2"
+                      name="datetime"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="4000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[temperature_c]"
+                      dataType="r8"
+                      name="temperature_c" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[humidity]"
+                      dataType="r8"
+                      name="humidity" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pressure_pa]"
+                      dataType="i4"
+                      name="pressure_pa" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wind_speed]"
+                      dataType="r8"
+                      name="wind_speed" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wind_direction]"
+                      dataType="r8"
+                      name="wind_direction" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weather_description]"
+                      dataType="wstr"
+                      length="51"
+                      name="weather_description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[datetime]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[datetime]"
+                      name="datetime"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[temperature_c]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[temperature_c]"
+                      name="temperature_c" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[humidity]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[humidity]"
+                      name="humidity" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pressure_pa]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pressure_pa]"
+                      name="pressure_pa" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wind_speed]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wind_speed]"
+                      name="wind_speed" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wind_direction]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wind_direction]"
+                      name="wind_direction" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weather_description]"
+                      dataType="wstr"
+                      length="51"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weather_description]"
+                      name="weather_description" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Weather snapshot\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT distinct 
+    weather_timestamp,
+    CASE 
+        WHEN femperature_f IS NOT NULL THEN (femperature_f - 32) * 5.0 / 9.0 
+        ELSE NULL 
+    END AS temperature_c,
+    CASE 
+        WHEN humidity IS NOT NULL THEN humidity
+        ELSE NULL 
+    END AS humidity,
+    CASE 
+        WHEN visibility_mi IS NOT NULL THEN visibility_mi * 1609.34 
+        ELSE NULL 
+    END AS visibility_m,
+    CASE 
+        WHEN pressure_in IS NOT NULL THEN pressure_in * 3386.39 
+        ELSE NULL 
+    END AS pressure_pa,
+
+    CASE 
+        WHEN wind_speed_mph IS NOT NULL THEN wind_speed_mph * 0.44704 
+        ELSE NULL 
+    END AS wind_speed_mps,
+    CASE 
+        WHEN wind_direction IN ('N', 'North') THEN 0
+        WHEN wind_direction = 'NNE' THEN 22.5
+        WHEN wind_direction IN ('NE') THEN 45
+        WHEN wind_direction = 'ENE' THEN 67.5
+        WHEN wind_direction IN ('E', 'East') THEN 90
+        WHEN wind_direction = 'ESE' THEN 112.5
+        WHEN wind_direction = 'SE' THEN 135
+        WHEN wind_direction = 'SSE' THEN 157.5
+        WHEN wind_direction IN ('S', 'South') THEN 180
+        WHEN wind_direction = 'SSW' THEN 202.5
+        WHEN wind_direction = 'SW' THEN 225
+        WHEN wind_direction = 'WSW' THEN 247.5
+        WHEN wind_direction IN ('W', 'West') THEN 270
+        WHEN wind_direction = 'WNW' THEN 292.5
+        WHEN wind_direction = 'NW' THEN 315
+        WHEN wind_direction = 'NNW' THEN 337.5
+        WHEN wind_direction IN ('Variable', 'VAR', 'Calm') THEN NULL
+        ELSE NULL
+    END AS wind_direction_deg,
+    city,
+    county as county_name,
+    UPPER(LEFT(weather_condition, 1)) + LOWER(SUBSTRING(weather_condition, 2, LEN(weather_condition))) AS weather_description
+FROM Staging_Accident
+where weather_timestamp is not null
+order by weather_timestamp</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Weather snapshot\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.StagingDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.StagingDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[weather_timestamp]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[weather_timestamp]"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[weather_timestamp]"
+                      name="weather_timestamp"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[temperature_c]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[temperature_c]"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[temperature_c]"
+                      name="temperature_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[humidity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[humidity]"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[humidity]"
+                      name="humidity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[visibility_m]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[visibility_m]"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[visibility_m]"
+                      name="visibility_m"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[pressure_pa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[pressure_pa]"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[pressure_pa]"
+                      name="pressure_pa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wind_speed_mps]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[wind_speed_mps]"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wind_speed_mps]"
+                      name="wind_speed_mps"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wind_direction_deg]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[wind_direction_deg]"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wind_direction_deg]"
+                      name="wind_direction_deg"
+                      precision="4"
+                      scale="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[weather_description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[weather_description]"
+                      length="71"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[weather_description]"
+                      name="weather_description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[city_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      length="50"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[city_name]"
+                      name="city_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[county_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                      length="50"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[county_name]"
+                      name="county_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[weather_timestamp]"
+                      dataType="dbTimeStamp2"
+                      name="weather_timestamp"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[temperature_c]"
+                      dataType="r8"
+                      name="temperature_c" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[humidity]"
+                      dataType="r8"
+                      name="humidity" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[visibility_m]"
+                      dataType="r8"
+                      name="visibility_m" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[pressure_pa]"
+                      dataType="r8"
+                      name="pressure_pa" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[wind_speed_mps]"
+                      dataType="r8"
+                      name="wind_speed_mps" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[wind_direction_deg]"
+                      dataType="numeric"
+                      name="wind_direction_deg"
+                      precision="4"
+                      scale="1" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[weather_description]"
+                      dataType="wstr"
+                      length="71"
+                      name="weather_description" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="50"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="county_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[weather_timestamp]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[weather_timestamp]"
+                      name="weather_timestamp"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[temperature_c]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[temperature_c]"
+                      name="temperature_c" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[humidity]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[humidity]"
+                      name="humidity" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[visibility_m]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[visibility_m]"
+                      name="visibility_m" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[pressure_pa]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[pressure_pa]"
+                      name="pressure_pa" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[wind_speed_mps]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[wind_speed_mps]"
+                      name="wind_speed_mps" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[wind_direction_deg]"
+                      dataType="numeric"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[wind_direction_deg]"
+                      name="wind_direction_deg"
+                      precision="4"
+                      scale="1" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                      name="county_name" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[weather_description]"
+                      dataType="wstr"
+                      length="71"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[weather_description]"
+                      name="weather_description" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Weather snapshot\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[datetime]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="datetime"
+                      cachedScale="7"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[datetime]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[datetime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[city_name]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="city_name"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[city_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[temperature_c]"
+                      cachedDataType="r8"
+                      cachedName="temperature_c"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[temperature_c]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[temperature_c]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[humidity]"
+                      cachedDataType="r8"
+                      cachedName="humidity"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[humidity]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[humidity]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[pressure_pa]"
+                      cachedDataType="i4"
+                      cachedName="pressure_pa"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[pressure_pa]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[pressure_pa]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[wind_speed_mps]"
+                      cachedDataType="r8"
+                      cachedName="wind_speed_mps"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[wind_speed_mps]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[wind_speed_mps]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[wind_direction_deg]"
+                      cachedDataType="r8"
+                      cachedName="wind_direction_deg"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[wind_direction_deg]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[wind_direction_deg]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[weather_description]"
+                      cachedDataType="wstr"
+                      cachedLength="51"
+                      cachedName="weather_description"
+                      lineageId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output].Columns[weather_description]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[weather_description]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[visibility_m]"
+                      cachedDataType="i4"
+                      cachedName="visibility_m"
+                      lineageId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Output].Columns[visibility_m]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[visibility_m]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[city_id]"
+                      cachedDataType="i4"
+                      cachedName="city_id"
+                      lineageId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Match Output].Columns[city_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[city_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[Copy of pressure_pa]"
+                      cachedDataType="r8"
+                      cachedName="Copy of pressure_pa"
+                      lineageId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of pressure_pa]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of pressure_pa]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[Copy of wind_direction_deg]"
+                      cachedDataType="r8"
+                      cachedName="Copy of wind_direction_deg"
+                      lineageId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of wind_direction_deg]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of wind_direction_deg]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 1].Columns[Copy of visibility_m]"
+                      cachedDataType="r8"
+                      cachedName="Copy of visibility_m"
+                      lineageId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of visibility_m]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of visibility_m]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2].Columns[temperature_c]"
+                      cachedDataType="r8"
+                      cachedName="temperature_c"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[temperature_c]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[temperature_c]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2].Columns[humidity]"
+                      cachedDataType="r8"
+                      cachedName="humidity"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[humidity]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[humidity]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2].Columns[wind_speed_mps]"
+                      cachedDataType="r8"
+                      cachedName="wind_speed_mps"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wind_speed_mps]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[wind_speed_mps]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2].Columns[city_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="city_name"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[city_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[city_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2].Columns[city_id]"
+                      cachedDataType="i4"
+                      cachedName="city_id"
+                      lineageId="Package\Weather snapshot\Lookup.Outputs[Lookup Match Output].Columns[city_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[city_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2].Columns[Copy of pressure_pa]"
+                      cachedDataType="r8"
+                      cachedName="Copy of pressure_pa"
+                      lineageId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pressure_pa]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of pressure_pa]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2].Columns[Copy of wind_direction_deg]"
+                      cachedDataType="r8"
+                      cachedName="Copy of wind_direction_deg"
+                      lineageId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of wind_direction_deg]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of wind_direction_deg]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2].Columns[Copy of visibility_m]"
+                      cachedDataType="r8"
+                      cachedName="Copy of visibility_m"
+                      lineageId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of visibility_m]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of visibility_m]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Weather snapshot\Union All.Inputs[Union All Input 2].Columns[weather_timestamp]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="weather_timestamp"
+                      cachedScale="7"
+                      lineageId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[weather_timestamp]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[datetime]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Weather snapshot\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[datetime]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[datetime]"
+                      name="datetime"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[city_name]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[city_name]"
+                      name="city_name" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[temperature_c]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[temperature_c]"
+                      name="temperature_c" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[humidity]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[humidity]"
+                      name="humidity" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[pressure_pa]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[pressure_pa]"
+                      name="pressure_pa" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[wind_speed_mps]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[wind_speed_mps]"
+                      name="wind_speed_mps" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[wind_direction_deg]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[wind_direction_deg]"
+                      name="wind_direction_deg" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[weather_description]"
+                      dataType="wstr"
+                      length="51"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[weather_description]"
+                      name="weather_description" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[visibility_m]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[visibility_m]"
+                      name="visibility_m" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[city_id]"
+                      dataType="i4"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[city_id]"
+                      name="city_id" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of pressure_pa]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of pressure_pa]"
+                      name="Copy of pressure_pa" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of wind_direction_deg]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of wind_direction_deg]"
+                      name="Copy of wind_direction_deg" />
+                    <outputColumn
+                      refId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of visibility_m]"
+                      dataType="r8"
+                      lineageId="Package\Weather snapshot\Union All.Outputs[Union All Output 1].Columns[Copy of visibility_m]"
+                      name="Copy of visibility_m" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Weather snapshot.Paths[Data Conversion Output]"
+              endId="Package\Weather snapshot\Union All.Inputs[Union All Input 1]"
+              name="Data Conversion Output"
+              startId="Package\Weather snapshot\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Weather snapshot.Paths[Data Conversion Output1]"
+              endId="Package\Weather snapshot\Union All.Inputs[Union All Input 2]"
+              name="Data Conversion Output"
+              startId="Package\Weather snapshot\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Weather snapshot.Paths[Derived Column Output]"
+              endId="Package\Weather snapshot\Lookup 1.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Weather snapshot\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Weather snapshot.Paths[Lookup Match Output]"
+              endId="Package\Weather snapshot\Data Conversion.Inputs[Data Conversion Input]"
+              name="Lookup Match Output"
+              startId="Package\Weather snapshot\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Weather snapshot.Paths[Lookup Match Output1]"
+              endId="Package\Weather snapshot\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Lookup Match Output"
+              startId="Package\Weather snapshot\Lookup 1.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Weather snapshot.Paths[OLE DB Source Output]"
+              endId="Package\Weather snapshot\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Weather snapshot\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Weather snapshot.Paths[OLE DB Source Output1]"
+              endId="Package\Weather snapshot\Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Weather snapshot\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Weather snapshot.Paths[Union All Output 1]"
+              endId="Package\Weather snapshot\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Weather snapshot\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3007,6 +5075,10 @@ ORDER BY vehicle_type_id;</property>
           Size="111.2,41.6"
           Id="Package\Finish\County"
           TopLeft="48.1142859393235,217.188235347071" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\Finish\Driver Type"
+          TopLeft="190.39682588728,99.656209358193" />
         <NodeLayout
           Size="102.4,41.6"
           Id="Package\Finish\State"
@@ -3085,24 +5157,20 @@ ORDER BY vehicle_type_id;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="132.8,41.6"
-          Id="Package\Finish\Driver Type"
-          TopLeft="190.39682588728,99.656209358193" />
         <EdgeLayout
           Id="Package\Finish.PrecedenceConstraints[Constraint 3]"
           TopLeft="256.3365084643,221.979084714545">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-80.7228753563516"
+              EndConnector="0,-80.722875356352"
               Start="0,0"
-              End="0,-73.2228753563516">
+              End="0,-73.222875356352">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-73.2228753563516" />
+                    End="0,-73.222875356352" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3114,129 +5182,17 @@ ORDER BY vehicle_type_id;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="346.4,313.6"
-          Size="346.4,356.8"
+          PanelSize="665.6,313.6"
+          Size="665.6,356.8"
           Id="Package\Finish"
           TopLeft="39.6031746874794,37.0065359246245" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Weather snapshot"
+          TopLeft="731.485715784954,120.058823424176" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\Finish\Driver Type">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="132.8,41.6"
-          Id="Package\Finish\Driver Type\look up city"
-          TopLeft="772.999988481403,165.999997526407" />
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Finish\Driver Type\OLE DB Source 1"
-          TopLeft="685.999989777803,30.6000010579824" />
-        <EdgeLayout
-          Id="Package\Finish\Driver Type.Paths[OLE DB Source Output]"
-          TopLeft="760.799989777803,72.2000010579824">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="78.5999987035992,93.7999964684249"
-              Start="0,0"
-              End="78.5999987035992,86.2999964684249">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.8999982342124" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,42.8999982342124"
-                    Point2="0,46.8999982342124"
-                    Point3="4,46.8999982342124" />
-                  <mssgle:LineSegment
-                    End="74.5999987035992,46.8999982342124" />
-                  <mssgle:CubicBezierSegment
-                    Point1="74.5999987035992,46.8999982342124"
-                    Point2="78.5999987035992,46.8999982342124"
-                    Point3="78.5999987035992,50.8999982342124" />
-                  <mssgle:LineSegment
-                    End="78.5999987035992,86.2999964684249" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Finish\Driver Type\OLE DB Destination"
-          TopLeft="595.999991118908,324.999995157123" />
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Finish\Driver Type\Data Conversion"
-          TopLeft="605.999990969896,236.999996468425" />
-        <EdgeLayout
-          Id="Package\Finish\Driver Type.Paths[Lookup Match Output]"
-          TopLeft="839.399988481403,207.599997526407">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-155.799997511506,29.3999989420175"
-              Start="0,0"
-              End="-155.799997511506,21.8999989420175">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.6999994710088" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.6999994710088"
-                    Point2="0,14.6999994710088"
-                    Point3="-4,14.6999994710088" />
-                  <mssgle:LineSegment
-                    End="-151.799997511506,14.6999994710088" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-151.799997511506,14.6999994710088"
-                    Point2="-155.799997511506,14.6999994710088"
-                    Point3="-155.799997511506,18.6999994710088" />
-                  <mssgle:LineSegment
-                    End="-155.799997511506,21.8999989420175" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-126.091385474503,19.6999994710088,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Finish\Driver Type.Paths[Data Conversion Output]"
-          TopLeft="682.399991044402,278.599996468425">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46.3999986886978"
-              Start="0,0"
-              End="0,38.8999986886978">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.8999986886978" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <TaskHost
     design-time-name="Package\Finish\City">
     <LayoutInfo>
@@ -3305,7 +5261,9 @@ ORDER BY vehicle_type_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3339,7 +5297,9 @@ ORDER BY vehicle_type_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3373,7 +5333,9 @@ ORDER BY vehicle_type_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3407,7 +5369,9 @@ ORDER BY vehicle_type_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3441,7 +5405,9 @@ ORDER BY vehicle_type_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3475,7 +5441,9 @@ ORDER BY vehicle_type_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3656,10 +5624,174 @@ ORDER BY vehicle_type_id;</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Finish\Driver Type">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\Finish\Driver Type\look up city"
+          TopLeft="772.999988481403,165.999997526407" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Finish\Driver Type\OLE DB Source 1"
+          TopLeft="685.999989777803,30.6000010579824" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Finish\Driver Type\Data Conversion"
+          TopLeft="605.999990969896,236.999996468425" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Finish\Driver Type\OLE DB Destination"
+          TopLeft="595.999991118908,324.999995157123" />
+        <EdgeLayout
+          Id="Package\Finish\Driver Type.Paths[OLE DB Source Output]"
+          TopLeft="760.799989777803,72.2000010579824">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.5999987035992,93.7999964684249"
+              Start="0,0"
+              End="78.5999987035992,86.2999964684249">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8999982342124" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.8999982342124"
+                    Point2="0,46.8999982342124"
+                    Point3="4,46.8999982342124" />
+                  <mssgle:LineSegment
+                    End="74.5999987035992,46.8999982342124" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74.5999987035992,46.8999982342124"
+                    Point2="78.5999987035992,46.8999982342124"
+                    Point3="78.5999987035992,50.8999982342124" />
+                  <mssgle:LineSegment
+                    End="78.5999987035992,86.2999964684249" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Finish\Driver Type.Paths[Lookup Match Output]"
+          TopLeft="839.399988481403,207.599997526407">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-155.799997511506,29.3999989420175"
+              Start="0,0"
+              End="-155.799997511506,21.8999989420175">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.6999994710088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.6999994710088"
+                    Point2="0,14.6999994710088"
+                    Point3="-4,14.6999994710088" />
+                  <mssgle:LineSegment
+                    End="-151.799997511506,14.6999994710088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-151.799997511506,14.6999994710088"
+                    Point2="-155.799997511506,14.6999994710088"
+                    Point3="-155.799997511506,18.6999994710088" />
+                  <mssgle:LineSegment
+                    End="-155.799997511506,21.8999989420175" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-126.091385474503,19.6999994710088,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Finish\Driver Type.Paths[Data Conversion Output]"
+          TopLeft="682.399991044402,278.599996468425">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.3999986886978"
+              Start="0,0"
+              End="0,38.8999986886978">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8999986886978" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finish\Driver Type\look up city">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finish\Driver Type\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finish\Driver Type\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Finish\Vehicle">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Finish\Vehicle\OLE DB Source"
@@ -3687,7 +5819,9 @@ ORDER BY vehicle_type_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3718,7 +5852,7 @@ ORDER BY vehicle_type_id;</property>
     design-time-name="Package\Finish\Vehicle type">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="138.4,41.6"
           Id="Package\Finish\Vehicle type\Vehicle Type"
@@ -3746,7 +5880,9 @@ ORDER BY vehicle_type_id;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3773,8 +5909,309 @@ ORDER BY vehicle_type_id;</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Weather snapshot">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Weather snapshot\OLE DB Destination"
+          TopLeft="475.714286726957,422.952940852718" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Weather snapshot\OLE DB Source"
+          TopLeft="157.857143193179,22.9411764504794" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Weather snapshot\OLE DB Source 1"
+          TopLeft="456.428572400188,22.9411764504794" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Weather snapshot\Derived Column"
+          TopLeft="226.428571910578,120.12941166081" />
+        <EdgeLayout
+          Id="Package\Weather snapshot.Paths[OLE DB Source Output]"
+          TopLeft="232.657143193179,64.5411764504794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.1714287173993,55.5882352103308"
+              Start="0,0"
+              End="70.1714287173993,48.0882352103308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7941176051654" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7941176051654"
+                    Point2="0,27.7941176051654"
+                    Point3="4,27.7941176051654" />
+                  <mssgle:LineSegment
+                    End="66.1714287173993,27.7941176051654" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.1714287173993,27.7941176051654"
+                    Point2="70.1714287173993,27.7941176051654"
+                    Point3="70.1714287173993,31.7941176051654" />
+                  <mssgle:LineSegment
+                    End="70.1714287173993,48.0882352103308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Weather snapshot\Lookup"
+          TopLeft="482.857143885019,100.176470500427" />
+        <EdgeLayout
+          Id="Package\Weather snapshot.Paths[OLE DB Source Output1]"
+          TopLeft="537.442858142604,64.5411764504794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.6352940499473"
+              Start="0,0"
+              End="0,28.1352940499473">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.1352940499473" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Weather snapshot\Lookup 1"
+          TopLeft="247.14285766896,200.352941000853" />
+        <EdgeLayout
+          Id="Package\Weather snapshot.Paths[Derived Column Output]"
+          TopLeft="305.385714789769,161.72941166081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.6235293400431"
+              Start="0,0"
+              End="0,31.1235293400431">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1235293400431" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Weather snapshot\Data Conversion"
+          TopLeft="519.285715391137,201.788235176146" />
+        <EdgeLayout
+          Id="Package\Weather snapshot.Paths[Lookup Match Output]"
+          TopLeft="539.257143885019,141.776470500427">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.6285715061183,60.0117646757191"
+              Start="0,0"
+              End="57.6285715061183,52.5117646757191">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0058823378596" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0058823378596"
+                    Point2="0,30.0058823378596"
+                    Point3="4,30.0058823378596" />
+                  <mssgle:LineSegment
+                    End="53.6285715061183,30.0058823378596" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.6285715061183,30.0058823378596"
+                    Point2="57.6285715061183,30.0058823378596"
+                    Point3="57.6285715061183,34.0058823378596" />
+                  <mssgle:LineSegment
+                    End="57.6285715061183,52.5117646757191" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.3771009656909,35.0058823378596,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Weather snapshot\Data Conversion 1"
+          TopLeft="222.857143331547,293.552940978063" />
+        <EdgeLayout
+          Id="Package\Weather snapshot.Paths[Lookup Match Output1]"
+          TopLeft="306.600000500253,241.952941000853">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.5999999772101"
+              Start="0,0"
+              End="0,44.0999999772101">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.0999999772101" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,16.245312488605,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Weather snapshot\Union All"
+          TopLeft="503.5714296434,343.517646928116" />
+        <EdgeLayout
+          Id="Package\Weather snapshot.Paths[Data Conversion Output]"
+          TopLeft="387.657143331547,314.352940978063">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.914286311853,49.9647059500527"
+              Start="0,0"
+              End="108.414286311853,49.9647059500527">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.9571431559264,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.9571431559264,0"
+                    Point2="57.9571431559264,0"
+                    Point3="57.9571431559264,4" />
+                  <mssgle:LineSegment
+                    End="57.9571431559264,45.9647059500527" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.9571431559264,45.9647059500527"
+                    Point2="57.9571431559264,49.9647059500527"
+                    Point3="61.9571431559264,49.9647059500527" />
+                  <mssgle:LineSegment
+                    End="108.414286311853,49.9647059500527" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Weather snapshot.Paths[Data Conversion Output1]"
+          TopLeft="596.885715391137,243.388235176146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.3142857477374,100.12941175197"
+              Start="0,0"
+              End="-33.3142857477374,92.6294117519703">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.0647058759852" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.0647058759852"
+                    Point2="0,50.0647058759852"
+                    Point3="-4,50.0647058759852" />
+                  <mssgle:LineSegment
+                    End="-29.3142857477374,50.0647058759852" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.3142857477374,50.0647058759852"
+                    Point2="-33.3142857477374,50.0647058759852"
+                    Point3="-33.3142857477374,54.0647058759852" />
+                  <mssgle:LineSegment
+                    End="-33.3142857477374,92.6294117519703" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Weather snapshot.Paths[Union All Output 1]"
+          TopLeft="562.242858185178,385.117646928116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.8352939246023"
+              Start="0,0"
+              End="0,30.3352939246023">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3352939246023" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Finish\Driver Type\look up city">
+    design-time-name="Package\Weather snapshot\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Weather snapshot\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Weather snapshot\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Weather snapshot\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3797,23 +6234,25 @@ ORDER BY vehicle_type_id;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Finish\Driver Type\OLE DB Source 1">
+    design-time-name="Package\Weather snapshot\Lookup 1">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
       </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Finish\Driver Type\OLE DB Destination">
-    <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
