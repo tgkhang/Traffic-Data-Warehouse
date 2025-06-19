@@ -30,10 +30,10 @@ SELECT DISTINCT
     CASE 
         WHEN state IS NULL THEN 'n/a'
         ELSE state
-    END AS state_code,                      -- State code (2-letter abbreviation, e.g., 'MD', 'VA', 'DC')
+    END AS state_code,                      
     CASE 
-        WHEN county IS NULL THEN 'n/a'
-        ELSE county
-    END AS county_name                      -- County name (e.g., 'Montgomery County', 'Prince George''s County')
-FROM Staging_Accident
+        WHEN county_name IS NULL THEN 'n/a'
+        ELSE county_name
+    END AS county_name                      
+FROM Bronze.Accident
 ORDER BY county_name ASC
