@@ -45,6 +45,7 @@ GO
 
 CREATE TABLE Bronze.Violation(
 	[datetime_of_stop] datetime2(7) NULL,
+	city NVARCHAR(100) NULL,  -- City where the violation occurred
 	[agency] [nvarchar](50) NOT NULL,
 	[sub_agency] [nvarchar](50) NOT NULL,
 	[description] [nvarchar](max) NULL,

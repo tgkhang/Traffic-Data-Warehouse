@@ -43,9 +43,16 @@ SELECT DISTINCT
         ELSE UPPER(LEFT(driver_city, 1)) + LOWER(SUBSTRING(driver_city, 2, LEN(driver_city)))
     END AS city
 FROM Bronze.Violation
-ORDER BY city ASC;
+
+Union
+
+select distinct city
+FROM Bronze.Violation
+
+ORDER BY city ASC
 
 
+--===================   ========================
 select distinct
   CASE 
         WHEN city IS NULL THEN 'n/a'
