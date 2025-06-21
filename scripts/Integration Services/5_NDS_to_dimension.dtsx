@@ -1,0 +1,1254 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/21/2025 3:25:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-8ELG7QE"
+  DTS:CreatorName="DESKTOP-8ELG7QE\Admin"
+  DTS:DTSID="{06FED57A-580F-4D0D-8955-1F93C1C6A333}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="5_NDS_to_dimension"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{2A000E0F-6E59-480C-A90B-BCED41AB810D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.DWTraffic]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8C95E8EB-C603-4F08-A063-7A6DAACABFE6}"
+      DTS:ObjectName="localhost.DWTraffic">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=DWTraffic;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-5_NDS_to_dimension-{8C95E8EB-C603-4F08-A063-7A6DAACABFE6}localhost.DWTraffic;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\dim"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{57D372C0-1711-4FFA-B355-82ACFC951940}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dim">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\dim\Dim Date"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C30776FD-7FF8-4EBA-927F-3A26CAE053A3}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Dim Date"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\dim\Dim Date\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Dim].[Date]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\dim\Dim Date\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_key]"
+                          cachedDataType="i4"
+                          cachedName="date_key"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_key]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[full_date]"
+                          cachedDataType="dbDate"
+                          cachedName="full_date"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[full_date]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[full_date]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year]"
+                          cachedDataType="i4"
+                          cachedName="year"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quarter]"
+                          cachedDataType="i4"
+                          cachedName="quarter"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[quarter]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month]"
+                          cachedDataType="i4"
+                          cachedName="month"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month_name]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="month_name"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_name]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_of_month]"
+                          cachedDataType="i4"
+                          cachedName="day_of_month"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_month]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_month]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[week_of_year]"
+                          cachedDataType="i4"
+                          cachedName="week_of_year"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[week_of_year]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[week_of_year]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_of_week]"
+                          cachedDataType="i4"
+                          cachedName="day_of_week"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[day_of_week_name]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="day_of_week_name"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week_name]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week_name]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_weekend]"
+                          cachedDataType="i4"
+                          cachedName="is_weekend"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_weekend]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_weekend]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_key]"
+                          dataType="i4"
+                          name="date_key" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[full_date]"
+                          dataType="dbDate"
+                          name="full_date" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          dataType="i2"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
+                          dataType="ui1"
+                          name="quarter" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                          dataType="ui1"
+                          name="month" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_name]"
+                          dataType="wstr"
+                          length="20"
+                          name="month_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_month]"
+                          dataType="ui1"
+                          name="day_of_month" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[week_of_year]"
+                          dataType="ui1"
+                          name="week_of_year" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week]"
+                          dataType="ui1"
+                          name="day_of_week" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[day_of_week_name]"
+                          dataType="wstr"
+                          length="20"
+                          name="day_of_week_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_weekend]"
+                          dataType="bool"
+                          name="is_weekend" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\dim\Dim Date\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\dim\Dim Date\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH AllDates AS (
+    SELECT CAST([datetime] AS DATE) AS full_date FROM NDS.Weather_Snapshot
+    UNION
+    SELECT CAST([start_time] AS DATE) FROM NDS.Accident
+    UNION
+    SELECT CAST([end_time] AS DATE) FROM NDS.Accident
+    UNION
+    SELECT CAST([datetime_of_stop] AS DATE) FROM NDS.Violation
+)
+SELECT 
+    CONVERT(INT, FORMAT(full_date, 'yyyyMMdd')) AS date_key,
+    full_date,
+    DATEPART(YEAR, full_date) AS year,
+    DATEPART(QUARTER, full_date) AS quarter,
+    DATEPART(MONTH, full_date) AS month,
+    DATENAME(MONTH, full_date) AS month_name,
+    DATEPART(DAY, full_date) AS day_of_month,
+    DATEPART(WEEK, full_date) AS week_of_year,
+    DATEPART(WEEKDAY, full_date) AS day_of_week,
+    DATENAME(WEEKDAY, full_date) AS day_of_week_name,
+    CASE 
+        WHEN DATEPART(WEEKDAY, full_date) IN (1, 7) THEN 1  -- Sunday or Saturday
+        ELSE 0
+    END AS is_weekend
+FROM (
+    SELECT DISTINCT full_date
+    FROM AllDates
+    WHERE full_date IS NOT NULL
+) AS DistinctDates;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\dim\Dim Date\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_key]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_key]"
+                          name="date_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[full_date]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[full_date]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[full_date]"
+                          name="full_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          name="year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[quarter]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[quarter]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[quarter]"
+                          name="quarter"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]"
+                          name="month"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month_name]"
+                          length="30"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]"
+                          name="month_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_month]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day_of_month]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_month]"
+                          name="day_of_month"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[week_of_year]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[week_of_year]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[week_of_year]"
+                          name="week_of_year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day_of_week]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week]"
+                          name="day_of_week"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day_of_week_name]"
+                          length="30"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[day_of_week_name]"
+                          name="day_of_week_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_weekend]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[is_weekend]"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_weekend]"
+                          name="is_weekend"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_key]"
+                          dataType="i4"
+                          name="date_key" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[full_date]"
+                          dataType="dbDate"
+                          name="full_date" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          dataType="i4"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[quarter]"
+                          dataType="i4"
+                          name="quarter" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month]"
+                          dataType="i4"
+                          name="month" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month_name]"
+                          dataType="wstr"
+                          length="30"
+                          name="month_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day_of_month]"
+                          dataType="i4"
+                          name="day_of_month" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[week_of_year]"
+                          dataType="i4"
+                          name="week_of_year" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day_of_week]"
+                          dataType="i4"
+                          name="day_of_week" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[day_of_week_name]"
+                          dataType="wstr"
+                          length="30"
+                          name="day_of_week_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[is_weekend]"
+                          dataType="i4"
+                          name="is_weekend" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_key]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_key]"
+                          name="date_key" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[full_date]"
+                          dataType="dbDate"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[full_date]"
+                          name="full_date" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          name="year" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quarter]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[quarter]"
+                          name="quarter" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month]"
+                          name="month" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month_name]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month_name]"
+                          name="month_name" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day_of_month]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day_of_month]"
+                          name="day_of_month" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[week_of_year]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[week_of_year]"
+                          name="week_of_year" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day_of_week]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day_of_week]"
+                          name="day_of_week" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day_of_week_name]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[day_of_week_name]"
+                          name="day_of_week_name" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[is_weekend]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[is_weekend]"
+                          name="is_weekend" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\dim\Dim Date.Paths[OLE DB Source Output]"
+                  endId="Package\dim\Dim Date\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\dim\Dim Date\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\dim\Dim Vehicle"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6423629B-4029-4F6C-B1F3-706620ACB2A1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Dim Vehicle"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\dim\Dim Vehicle\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Dim].[Vehicle]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\dim\Dim Vehicle\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vehicle_id]"
+                          cachedDataType="i4"
+                          cachedName="vehicle_id"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_id]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_id]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year]"
+                          cachedDataType="i2"
+                          cachedName="year"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[make]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="make"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[make]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[make]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[model]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="model"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[model]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[color]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="color"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[color]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[commercial_vehicle]"
+                          cachedDataType="bool"
+                          cachedName="commercial_vehicle"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[type_name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="type_name"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[type_name]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_key]"
+                          dataType="i4"
+                          name="vehicle_key" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_id]"
+                          dataType="i4"
+                          name="vehicle_id" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type]"
+                          dataType="wstr"
+                          length="255"
+                          name="vehicle_type" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          dataType="i2"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[make]"
+                          dataType="wstr"
+                          length="255"
+                          name="make" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[model]"
+                          dataType="wstr"
+                          length="255"
+                          name="model" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                          dataType="wstr"
+                          length="255"
+                          name="color" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle]"
+                          dataType="bool"
+                          name="commercial_vehicle" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\dim\Dim Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\dim\Dim Vehicle\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+v.vehicle_id, v.year, v.make, v.model, v.color,v.commercial_vehicle, t.type_name
+from NDS.Vehicle v
+join NDS.Vehicle_Type_Map t on t.vehicle_id= v.vehicle_type_id</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\dim\Dim Vehicle\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vehicle_id]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_id]"
+                          name="vehicle_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          name="year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[make]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[make]"
+                          length="50"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[make]"
+                          name="make"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[model]"
+                          length="50"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]"
+                          name="model"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[color]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[color]"
+                          length="50"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[color]"
+                          name="color"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_vehicle]"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle]"
+                          name="commercial_vehicle"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[type_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[type_name]"
+                          length="100"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].Columns[type_name]"
+                          name="type_name"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vehicle_id]"
+                          dataType="i4"
+                          name="vehicle_id" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          dataType="i2"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[make]"
+                          dataType="wstr"
+                          length="50"
+                          name="make" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[model]"
+                          dataType="wstr"
+                          length="50"
+                          name="model" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[color]"
+                          dataType="wstr"
+                          length="50"
+                          name="color" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_vehicle]"
+                          dataType="bool"
+                          name="commercial_vehicle" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[type_name]"
+                          dataType="wstr"
+                          length="100"
+                          name="type_name" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vehicle_id]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vehicle_id]"
+                          name="vehicle_id" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          dataType="i2"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          name="year" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[make]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[make]"
+                          name="make" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[model]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[model]"
+                          name="model" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[color]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[color]"
+                          name="color" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_vehicle]"
+                          dataType="bool"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_vehicle]"
+                          name="commercial_vehicle" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[type_name]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[type_name]"
+                          name="type_name" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\dim\Dim Vehicle.Paths[OLE DB Source Output]"
+                  endId="Package\dim\Dim Vehicle\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\dim\Dim Vehicle\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\dim.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{035D03CA-27B4-4B04-8AAE-316BA1CC2054}"
+          DTS:From="Package\dim\Dim Date"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\dim\Dim Vehicle" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="122.4,41.6"
+          Id="Package\dim\Dim Date"
+          TopLeft="45.4571431718919,6.84705872566636" />
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\dim\Dim Vehicle"
+          TopLeft="44.9142860244733,92.5294115924403" />
+        <EdgeLayout
+          Id="Package\dim.PrecedenceConstraints[Constraint]"
+          TopLeft="109.185714598183,48.4470587256664">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.0823528667739"
+              Start="0,0"
+              End="0,36.5823528667739">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5823528667739" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="385.6,236.8"
+          Size="385.6,280"
+          Id="Package\dim"
+          TopLeft="100.71428592868,61.1764705346118" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\dim\Dim Date">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\dim\Dim Date\OLE DB Destination"
+          TopLeft="138.571428866411,313.529411489885" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\dim\Dim Date\OLE DB Source"
+          TopLeft="258.571429121859,103.082352878169" />
+        <EdgeLayout
+          Id="Package\dim\Dim Date.Paths[OLE DB Source Output]"
+          TopLeft="333.371429121859,144.682352878169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-109.600000255449,168.847058611716"
+              Start="0,0"
+              End="-109.600000255449,161.347058611716">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.4235293058582" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,80.4235293058582"
+                    Point2="0,84.4235293058582"
+                    Point3="-4,84.4235293058582" />
+                  <mssgle:LineSegment
+                    End="-105.600000255449,84.4235293058582" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-105.600000255449,84.4235293058582"
+                    Point2="-109.600000255449,84.4235293058582"
+                    Point3="-109.600000255449,88.4235293058582" />
+                  <mssgle:LineSegment
+                    End="-109.600000255449,161.347058611716" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim\Dim Date\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim\Dim Date\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\dim\Dim Vehicle">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\dim\Dim Vehicle\OLE DB Destination"
+          TopLeft="314.999995306134,346.999994829297" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\dim\Dim Vehicle\OLE DB Source"
+          TopLeft="401.999994009733,136.999997958541" />
+        <EdgeLayout
+          Id="Package\dim\Dim Vehicle.Paths[OLE DB Source Output]"
+          TopLeft="476.799994009733,178.599997958541">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-76.5999987035991,168.399996870756"
+              Start="0,0"
+              End="-76.5999987035991,160.899996870756">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.1999984353781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,80.1999984353781"
+                    Point2="0,84.1999984353781"
+                    Point3="-4,84.1999984353781" />
+                  <mssgle:LineSegment
+                    End="-72.5999987035991,84.1999984353781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-72.5999987035991,84.1999984353781"
+                    Point2="-76.5999987035991,84.1999984353781"
+                    Point3="-76.5999987035991,88.1999984353781" />
+                  <mssgle:LineSegment
+                    End="-76.5999987035991,160.899996870756" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim\Dim Vehicle\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim\Dim Vehicle\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

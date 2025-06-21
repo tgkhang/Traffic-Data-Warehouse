@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="3_bronze_layer"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{EE1832D3-B464-41F5-8DAF-7EA6604DB638}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{634787F4-5C5D-4339-B015-289E76ECF5BF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1536,7 +1536,7 @@ WHERE country = 'US'</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate Accident Table 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1553,7 +1553,7 @@ WHERE country = 'US'</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate Violation Table"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3881,7 +3881,7 @@ order by t.datetime</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate City"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3898,7 +3898,7 @@ order by t.datetime</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate City Weather"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3940,6 +3940,14 @@ order by t.datetime</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="118.4,41.6"
+          Id="Package\Staging accident + violation to bronze\Accident"
+          TopLeft="283.555556147462,126.817974483063" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Staging accident + violation to bronze\Truncate Accident Table 1"
+          TopLeft="239.081964903364,37.6777783557576" />
+        <NodeLayout
           Size="192.8,41.6"
           Id="Package\Staging accident + violation to bronze\Truncate Violation Table"
           TopLeft="26.298517738385,34.4534549855842" />
@@ -3969,10 +3977,6 @@ order by t.datetime</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="118.4,41.6"
-          Id="Package\Staging accident + violation to bronze\Accident"
-          TopLeft="283.555556147462,126.817974483063" />
         <EdgeLayout
           Id="Package\Staging accident + violation to bronze.PrecedenceConstraints[Constraint 1]"
           TopLeft="341.318760525413,79.2777783557578">
@@ -3995,17 +3999,13 @@ order by t.datetime</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\Staging accident + violation to bronze\Truncate Accident Table 1"
-          TopLeft="239.081964903364,37.6777783557576" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="453.6,343.2"
           Size="453.6,386.4"
           Id="Package\Staging accident + violation to bronze"
-          TopLeft="718.928572405511,304.887254887162" />
+          TopLeft="715.35714382648,202.926470662809" />
         <NodeLayout
           Size="96,41.6"
           Id="Package\Staging Weather to bronze (full load)\City"
@@ -4072,7 +4072,7 @@ order by t.datetime</property>
           PanelSize="571.2,347.2"
           Size="571.2,390.4"
           Id="Package\Staging Weather to bronze (full load)"
-          TopLeft="103.095238186977,338.372548877282" />
+          TopLeft="61.4285714316129,189.254901949166" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4126,6 +4126,19 @@ order by t.datetime</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging accident + violation to bronze\Accident\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1">
     <Properties>
@@ -4326,19 +4339,6 @@ order by t.datetime</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Staging accident + violation to bronze\Accident\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
