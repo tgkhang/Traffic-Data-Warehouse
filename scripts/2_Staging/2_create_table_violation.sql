@@ -44,7 +44,6 @@ CREATE TABLE [dbo].[Staging_Violation](
 	[dl_state] [nvarchar](50) NULL,
 	[arrest_type] [nvarchar](50) NULL,
 	[geolocation] [nvarchar](50) NULL,
-	[id] [int] NULL,
     source_system_code INT,
     create_time_stamp DATETIME,
     update_time_stamp DATETIME
@@ -54,7 +53,6 @@ GO
 
 
 CREATE TABLE [dbo].[Staging_Accident](
-	[id] [nvarchar](50) NOT NULL,
 	[source] [nvarchar](50) NULL,
 	[severity] [tinyint] NULL,
 	[start_time] [datetime2](7) NULL,

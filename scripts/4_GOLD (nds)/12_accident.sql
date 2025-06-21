@@ -32,9 +32,9 @@ select distinct
 	street,
 	description	
 from Bronze.Accident acc
-join NDS.City ci on ci.city_name= acc.city
-join NDS.Weather_Snapshot ws on ws.city_id = ci.city_id and ws.datetime= acc.weather_timestamp
-join NDS.Accident_Detail acd on acd.accident_id= acc.id
+left join NDS.City ci on ci.city_name= acc.city
+left join NDS.Weather_Snapshot ws on ws.city_id = ci.city_id and ws.datetime= acc.weather_timestamp
+left join NDS.Accident_Detail acd on acd.accident_id= acc.id
 
 
 

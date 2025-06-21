@@ -19,7 +19,7 @@ for geographical context in traffic data analysis.
 */
 CREATE TABLE NDS.City (
     city_id INT IDENTITY(1,1) PRIMARY KEY,   -- Surrogate key for city records
-    city_name NVARCHAR(100) NULL,            -- Name of the city (e.g., 'Baltimore', 'Rockville')
+    city_name NVARCHAR(255) NULL,            -- Name of the city (e.g., 'Baltimore', 'Rockville')
     county_id INT NULL,                      -- Foreign key to County table
     timezone NVARCHAR(50) NULL,               -- Timezone information (e.g., 'Eastern', 'Pacific')
     longitude FLOAT NULL,            -- Longitude coordinate of the location

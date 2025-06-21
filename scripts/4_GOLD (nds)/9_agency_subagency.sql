@@ -9,7 +9,8 @@ Create table NDS.SubAgency (
     sub_agency_id INT IDENTITY(1,1) PRIMARY KEY,  -- Surrogate key for sub-agency records
     sub_agency_name NVARCHAR(100) NOT NULL,       -- Name of the sub-agency (e.g., 'Baltimore Police Department')
     agency_id INT NOT NULL,                        -- Foreign key to Agency table
-    district NVARCHAR(50) NULL                    -- District or division within the sub-agency
+    district NVARCHAR(50) NULL,                 -- District or division within the sub-agency
+    city_id INT NOT NULL,                        -- Foreign key to City table
 );
 
 select distinct agency from 

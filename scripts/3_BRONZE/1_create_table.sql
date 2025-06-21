@@ -44,6 +44,7 @@ GO
 
 
 CREATE TABLE Bronze.Violation(
+	id int IDENTITY(1,1) PRIMARY KEY,
 	[datetime_of_stop] datetime2(7) NULL,
 	city NVARCHAR(100) NULL,  -- City where the violation occurred
 	[agency] [nvarchar](50) NOT NULL,
@@ -76,14 +77,13 @@ CREATE TABLE Bronze.Violation(
 	[driver_state] [nvarchar](50) NULL,
 	[dl_state] [nvarchar](50) NULL,
 	[arrest_type] [nvarchar](50) NULL,
-	[id] [int] NULL,
 ) ON [PRIMARY]
 GO
 
 
 
 CREATE TABLE Bronze.Accident(
-	[id] [nvarchar](50) NOT NULL,
+	id int IDENTITY(1,1) PRIMARY KEY,
 	[severity] [tinyint] NULL,
 	start_time datetime2(7) NULL,
 	[end_time] [datetime2](7) NULL,

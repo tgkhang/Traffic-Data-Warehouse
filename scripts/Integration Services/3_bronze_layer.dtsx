@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="3_bronze_layer"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{892593B8-AD45-4739-8B1C-69A2FA3E2D73}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{EE1832D3-B464-41F5-8DAF-7EA6604DB638}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -81,11 +81,11 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1"
+                  refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="OLE DB Destination 1"
+                  name="OLE DB Destination"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -138,7 +138,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Connections[OleDbConnection]"
+                      refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
                       connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
                       description="The OLE DB runtime connection used to access the database."
@@ -146,439 +146,431 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                      refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[id]"
-                          cachedDataType="wstr"
-                          cachedLength="50"
-                          cachedName="id"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                          lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[id]" />
-                        <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[severity]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[severity]"
                           cachedDataType="ui1"
                           cachedName="severity"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[severity]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severity]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[severity]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[start_time]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_time]"
                           cachedDataType="dbTimeStamp2"
                           cachedName="start_time"
                           cachedScale="7"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[start_time]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_time]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[start_time]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[end_time]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_time]"
                           cachedDataType="dbTimeStamp2"
                           cachedName="end_time"
                           cachedScale="7"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[end_time]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_time]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[end_time]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[start_lat]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_lat]"
                           cachedDataType="r8"
                           cachedName="start_lat"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[start_lat]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_lat]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[start_lat]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[start_lng]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_lng]"
                           cachedDataType="r8"
                           cachedName="start_lng"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[start_lng]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_lng]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[start_lng]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[end_lat]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_lat]"
                           cachedDataType="r8"
                           cachedName="end_lat"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[end_lat]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_lat]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[end_lat]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[end_lng]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_lng]"
                           cachedDataType="r8"
                           cachedName="end_lng"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[end_lng]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_lng]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[end_lng]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[distance_m]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[distance_m]"
                           cachedDataType="r8"
                           cachedName="distance_m"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[distance_m]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[distance_m]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[distance_m]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[pressure_pa]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pressure_pa]"
                           cachedDataType="r8"
                           cachedName="pressure_pa"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[pressure_pa]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pressure_pa]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[pressure_pa]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[description]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[description]"
                           cachedDataType="nText"
                           cachedName="description"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[description]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[street]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[street]"
                           cachedDataType="nText"
                           cachedName="street"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[street]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[city]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="city"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[city]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[county_name]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_name]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="county_name"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[county_name]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[state]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state]"
                           cachedDataType="wstr"
                           cachedLength="70"
                           cachedName="state"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[state]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[timezone]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[timezone]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="timezone"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[timezone]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[weather_description]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[weather_description]"
                           cachedDataType="wstr"
                           cachedLength="71"
                           cachedName="weather_description"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[weather_description]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[weather_description]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[weather_description]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[weather_timestamp]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[weather_timestamp]"
                           cachedDataType="dbTimeStamp2"
                           cachedName="weather_timestamp"
                           cachedScale="7"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[weather_timestamp]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[weather_timestamp]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[weather_timestamp]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[temperature_c]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[temperature_c]"
                           cachedDataType="r8"
                           cachedName="temperature_c"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[temperature_c]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_c]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[temperature_c]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[humidity]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[humidity]"
                           cachedDataType="r8"
                           cachedName="humidity"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[humidity]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[humidity]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[humidity]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[visibility_m]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[visibility_m]"
                           cachedDataType="r8"
                           cachedName="visibility_m"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[visibility_m]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[visibility_m]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[visibility_m]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[wind_direction_deg]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wind_direction_deg]"
                           cachedDataType="numeric"
                           cachedName="wind_direction_deg"
                           cachedPrecision="4"
                           cachedScale="1"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[wind_direction_deg]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wind_direction_deg]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wind_direction_deg]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[wind_speed_mps]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wind_speed_mps]"
                           cachedDataType="r8"
                           cachedName="wind_speed_mps"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[wind_speed_mps]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wind_speed_mps]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[wind_speed_mps]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[amenity]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[amenity]"
                           cachedDataType="bool"
                           cachedName="amenity"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[amenity]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[amenity]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[amenity]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[crossing]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[crossing]"
                           cachedDataType="bool"
                           cachedName="crossing"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[crossing]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[crossing]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[crossing]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[junction]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[junction]"
                           cachedDataType="bool"
                           cachedName="junction"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[junction]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[junction]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[junction]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[railway]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[railway]"
                           cachedDataType="bool"
                           cachedName="railway"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[railway]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[railway]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[railway]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[station]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[station]"
                           cachedDataType="bool"
                           cachedName="station"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[station]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[station]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[station]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[stop]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[stop]"
                           cachedDataType="bool"
                           cachedName="stop"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[stop]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stop]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[stop]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[give_way]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[give_way]"
                           cachedDataType="i4"
                           cachedName="give_way"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[give_way]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[give_way]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[give_way]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[bump]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bump]"
                           cachedDataType="i4"
                           cachedName="bump"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[bump]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bump]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[bump]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[no_exit]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[no_exit]"
                           cachedDataType="i4"
                           cachedName="no_exit"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[no_exit]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[no_exit]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[no_exit]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[roundabout]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[roundabout]"
                           cachedDataType="i4"
                           cachedName="roundabout"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[roundabout]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[roundabout]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[roundabout]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[traffic_calming]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[traffic_calming]"
                           cachedDataType="i4"
                           cachedName="traffic_calming"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[traffic_calming]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traffic_calming]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[traffic_calming]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[traffic_signal]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[traffic_signal]"
                           cachedDataType="bool"
                           cachedName="traffic_signal"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[traffic_signal]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traffic_signal]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[traffic_signal]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[turning_loop]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[turning_loop]"
                           cachedDataType="i4"
                           cachedName="turning_loop"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[turning_loop]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[turning_loop]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[turning_loop]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[sunrise_sunset]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sunrise_sunset]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="sunrise_sunset"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[sunrise_sunset]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sunrise_sunset]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[sunrise_sunset]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[civil_twilight]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[civil_twilight]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="civil_twilight"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[civil_twilight]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[civil_twilight]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[civil_twilight]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[nautical_twilight]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nautical_twilight]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="nautical_twilight"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[nautical_twilight]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nautical_twilight]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[nautical_twilight]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[astronomical_twilight]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[astronomical_twilight]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="astronomical_twilight"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[astronomical_twilight]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[astronomical_twilight]"
                           lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[astronomical_twilight]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                          dataType="wstr"
-                          length="50"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          dataType="i4"
                           name="id" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[severity]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severity]"
                           dataType="ui1"
                           name="severity" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[start_time]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_time]"
                           dataType="dbTimeStamp2"
                           name="start_time"
                           scale="7" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[end_time]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_time]"
                           dataType="dbTimeStamp2"
                           name="end_time"
                           scale="7" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[start_lat]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_lat]"
                           dataType="r8"
                           name="start_lat" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[start_lng]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_lng]"
                           dataType="r8"
                           name="start_lng" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[end_lat]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_lat]"
                           dataType="r8"
                           name="end_lat" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[end_lng]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_lng]"
                           dataType="r8"
                           name="end_lng" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[distance_m]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[distance_m]"
                           dataType="r8"
                           name="distance_m" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[pressure_pa]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pressure_pa]"
                           dataType="r8"
                           name="pressure_pa" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
                           dataType="nText"
                           name="description" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street]"
                           dataType="nText"
                           name="street" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
                           dataType="wstr"
                           length="50"
                           name="city" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
                           dataType="wstr"
                           length="50"
                           name="county_name" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state]"
                           dataType="wstr"
                           length="70"
                           name="state" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[weather_description]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[weather_description]"
                           dataType="nText"
                           name="weather_description" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[timezone]"
                           dataType="wstr"
                           length="50"
                           name="timezone" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[weather_timestamp]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[weather_timestamp]"
                           dataType="dbTimeStamp2"
                           name="weather_timestamp"
                           scale="7" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[temperature_c]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[temperature_c]"
                           dataType="r8"
                           name="temperature_c" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[humidity]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[humidity]"
                           dataType="r8"
                           name="humidity" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[visibility_m]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[visibility_m]"
                           dataType="r8"
                           name="visibility_m" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[wind_direction_deg]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wind_direction_deg]"
                           dataType="r8"
                           name="wind_direction_deg" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[wind_speed_mps]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wind_speed_mps]"
                           dataType="r8"
                           name="wind_speed_mps" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[amenity]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[amenity]"
                           dataType="bool"
                           name="amenity" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[bump]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bump]"
                           dataType="bool"
                           name="bump" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[crossing]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[crossing]"
                           dataType="bool"
                           name="crossing" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[give_way]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[give_way]"
                           dataType="bool"
                           name="give_way" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[junction]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[junction]"
                           dataType="bool"
                           name="junction" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[no_exit]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[no_exit]"
                           dataType="bool"
                           name="no_exit" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[railway]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[railway]"
                           dataType="bool"
                           name="railway" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[roundabout]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[roundabout]"
                           dataType="bool"
                           name="roundabout" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[station]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[station]"
                           dataType="bool"
                           name="station" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[stop]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[stop]"
                           dataType="bool"
                           name="stop" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[traffic_calming]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traffic_calming]"
                           dataType="bool"
                           name="traffic_calming" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[traffic_signal]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traffic_signal]"
                           dataType="bool"
                           name="traffic_signal" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[turning_loop]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[turning_loop]"
                           dataType="bool"
                           name="turning_loop" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[sunrise_sunset]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sunrise_sunset]"
                           dataType="wstr"
                           length="50"
                           name="sunrise_sunset" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[civil_twilight]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[civil_twilight]"
                           dataType="wstr"
                           length="50"
                           name="civil_twilight" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[nautical_twilight]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nautical_twilight]"
                           dataType="wstr"
                           length="50"
                           name="nautical_twilight" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[astronomical_twilight]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[astronomical_twilight]"
                           dataType="wstr"
                           length="50"
                           name="astronomical_twilight" />
@@ -587,22 +579,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -635,8 +627,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT distinct
-    id,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
     severity,
     start_time,
     end_time,
@@ -718,8 +709,7 @@
     nautical_twilight,
     astronomical_twilight
 FROM Staging_Accident
-WHERE id IS NOT NULL and country = 'US'
-ORDER BY id</property>
+WHERE country = 'US'</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -755,16 +745,6 @@ ORDER BY id</property>
                       refId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output]"
                       name="OLE DB Source Output">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[id]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[id]"
-                          length="50"
-                          lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[id]"
-                          name="id"
-                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[severity]"
                           dataType="ui1"
@@ -1134,11 +1114,6 @@ ORDER BY id</property>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[id]"
-                          dataType="wstr"
-                          length="50"
-                          name="id" />
-                        <externalMetadataColumn
                           refId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[severity]"
                           dataType="ui1"
                           name="severity" />
@@ -1315,12 +1290,6 @@ ORDER BY id</property>
                       isErrorOut="true"
                       name="OLE DB Source Error Output">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[id]"
-                          dataType="wstr"
-                          length="50"
-                          lineageId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[id]"
-                          name="id" />
                         <outputColumn
                           refId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[severity]"
                           dataType="ui1"
@@ -1551,7 +1520,7 @@ ORDER BY id</property>
               <paths>
                 <path
                   refId="Package\Staging accident + violation to bronze\Accident.Paths[OLE DB Source Output]"
-                  endId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  endId="Package\Staging accident + violation to bronze\Accident\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1.Outputs[OLE DB Source Output]" />
               </paths>
@@ -1567,7 +1536,7 @@ ORDER BY id</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate Accident Table 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1584,7 +1553,7 @@ ORDER BY id</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate Violation Table"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1607,11 +1576,11 @@ ORDER BY id</property>
               version="1">
               <components>
                 <component
-                  refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1"
+                  refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="OLE DB Destination 1"
+                  name="OLE DB Destination"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -1664,7 +1633,7 @@ ORDER BY id</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Connections[OleDbConnection]"
+                      refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
                       connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
                       description="The OLE DB runtime connection used to access the database."
@@ -1672,399 +1641,393 @@ ORDER BY id</property>
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                      refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[datetime_of_stop]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[datetime_of_stop]"
                           cachedDataType="dbTimeStamp"
                           cachedName="datetime_of_stop"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[datetime_of_stop]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[datetime_of_stop]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[datetime_of_stop]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[description]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[description]"
                           cachedDataType="wstr"
                           cachedLength="151"
                           cachedName="description"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[location]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[location]"
                           cachedDataType="wstr"
                           cachedLength="51"
                           cachedName="location"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[location]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[location]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[location]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[agency]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[agency]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="agency"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[agency]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[agency]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[agency]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[sub_agency]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sub_agency]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="sub_agency"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[sub_agency]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sub_agency]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[sub_agency]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[latitude]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latitude]"
                           cachedDataType="r8"
                           cachedName="latitude"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[latitude]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[longitude]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[longitude]"
                           cachedDataType="r8"
                           cachedName="longitude"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[longitude]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[accident]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[accident]"
                           cachedDataType="i4"
                           cachedName="accident"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[accident]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accident]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[accident]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[belts]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[belts]"
                           cachedDataType="bool"
                           cachedName="belts"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[belts]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[belts]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[belts]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[personal_injury]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[personal_injury]"
                           cachedDataType="bool"
                           cachedName="personal_injury"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[personal_injury]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[personal_injury]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[personal_injury]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[property_damage]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[property_damage]"
                           cachedDataType="bool"
                           cachedName="property_damage"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[property_damage]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[property_damage]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[property_damage]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[fatal]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fatal]"
                           cachedDataType="i4"
                           cachedName="fatal"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[fatal]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fatal]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[fatal]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[commercial_license]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[commercial_license]"
                           cachedDataType="bool"
                           cachedName="commercial_license"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[commercial_license]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_license]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_license]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[hazmat]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hazmat]"
                           cachedDataType="i4"
                           cachedName="hazmat"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[hazmat]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazmat]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[hazmat]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[commercial_vehicle]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[commercial_vehicle]"
                           cachedDataType="bool"
                           cachedName="commercial_vehicle"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[alcohol]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[alcohol]"
                           cachedDataType="i4"
                           cachedName="alcohol"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[alcohol]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alcohol]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[alcohol]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[work_zone]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[work_zone]"
                           cachedDataType="i4"
                           cachedName="work_zone"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[work_zone]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[work_zone]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_zone]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[state]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="state"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[state]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[vehicle_type]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vehicle_type]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="vehicle_type"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_type]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[year]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year]"
                           cachedDataType="i2"
                           cachedName="year"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[make]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[make]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="make"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[make]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[make]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[make]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[model]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[model]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="model"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[model]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[model]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[model]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[color]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[color]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="color"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[color]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[violation_type]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[violation_type]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="violation_type"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[violation_type]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violation_type]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[violation_type]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[contributed_to_accident]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[contributed_to_accident]"
                           cachedDataType="bool"
                           cachedName="contributed_to_accident"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[contributed_to_accident]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contributed_to_accident]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[contributed_to_accident]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[race]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[race]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="race"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[race]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[race]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[race]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[gender]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gender]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="gender"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[gender]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[driver_city]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[driver_city]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="driver_city"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[driver_city]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_city]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_city]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[driver_state]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[driver_state]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="driver_state"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[driver_state]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_state]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_state]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[dl_state]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dl_state]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="dl_state"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[dl_state]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dl_state]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[dl_state]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[arrest_type]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[arrest_type]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="arrest_type"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[arrest_type]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[arrest_type]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[arrest_type]" />
                         <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[id]"
-                          cachedDataType="i4"
-                          cachedName="id"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                          lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]" />
-                        <inputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[city]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
                           cachedDataType="wstr"
                           cachedLength="50"
                           cachedName="city"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[datetime_of_stop]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[datetime_of_stop]"
                           dataType="dbTimeStamp2"
                           name="datetime_of_stop"
                           scale="7" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[agency]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                          dataType="wstr"
+                          length="100"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[agency]"
                           dataType="wstr"
                           length="50"
                           name="agency" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[sub_agency]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sub_agency]"
                           dataType="wstr"
                           length="50"
                           name="sub_agency" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
                           dataType="nText"
                           name="description" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[location]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[location]"
                           dataType="nText"
                           name="location" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
                           dataType="r8"
                           name="latitude" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
                           dataType="r8"
                           name="longitude" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[accident]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accident]"
                           dataType="bool"
                           name="accident" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[belts]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[belts]"
                           dataType="bool"
                           name="belts" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[personal_injury]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[personal_injury]"
                           dataType="bool"
                           name="personal_injury" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[property_damage]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[property_damage]"
                           dataType="bool"
                           name="property_damage" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[fatal]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fatal]"
                           dataType="bool"
                           name="fatal" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[commercial_license]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_license]"
                           dataType="bool"
                           name="commercial_license" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[hazmat]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hazmat]"
                           dataType="bool"
                           name="hazmat" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle]"
                           dataType="bool"
                           name="commercial_vehicle" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[alcohol]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alcohol]"
                           dataType="bool"
                           name="alcohol" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[work_zone]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[work_zone]"
                           dataType="bool"
                           name="work_zone" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state]"
                           dataType="wstr"
                           length="50"
                           name="state" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_type]"
                           dataType="wstr"
                           length="50"
                           name="vehicle_type" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
                           dataType="i2"
                           name="year" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[make]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[make]"
                           dataType="wstr"
                           length="50"
                           name="make" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[model]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[model]"
                           dataType="wstr"
                           length="50"
                           name="model" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[color]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[color]"
                           dataType="wstr"
                           length="50"
                           name="color" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[violation_type]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violation_type]"
                           dataType="wstr"
                           length="50"
                           name="violation_type" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[contributed_to_accident]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contributed_to_accident]"
                           dataType="bool"
                           name="contributed_to_accident" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[race]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[race]"
                           dataType="wstr"
                           length="50"
                           name="race" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
                           dataType="wstr"
                           length="50"
                           name="gender" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[driver_city]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_city]"
                           dataType="wstr"
                           length="50"
                           name="driver_city" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[driver_state]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_state]"
                           dataType="wstr"
                           length="50"
                           name="driver_state" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[dl_state]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dl_state]"
                           dataType="wstr"
                           length="50"
                           name="dl_state" />
                         <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[arrest_type]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[arrest_type]"
                           dataType="wstr"
                           length="50"
                           name="arrest_type" />
-                        <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                          dataType="i4"
-                          name="id" />
-                        <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                          dataType="wstr"
-                          length="100"
-                          name="city" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -2131,7 +2094,14 @@ ORDER BY id</property>
     
     violation_type, contributed_to_accident, 
     
-    gender,
+   CAST(
+        CASE 
+            WHEN UPPER(LTRIM(RTRIM(gender))) = 'M' THEN 'Male'
+            WHEN UPPER(LTRIM(RTRIM(gender))) = 'F' THEN 'Female'
+            ELSE 'n/a'
+        END AS NVARCHAR(50)
+    ) AS gender,
+
 
     CASE 
        WHEN driver_city IS NULL THEN 'n/a'
@@ -2148,15 +2118,14 @@ ORDER BY id</property>
            WHERE s.value &lt;&gt; ''
        )
    END AS driver_city,
-driver_state, dl_state, arrest_type, id,
+driver_state, dl_state, arrest_type, 
 
     LTRIM(RTRIM(
         SUBSTRING(sub_agency, CHARINDEX(',', sub_agency) + 1, LEN(sub_agency))
     )) AS city
 
 
-from Staging_Violation
-order by id</property>
+from Staging_Violation</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2488,15 +2457,6 @@ order by id</property>
                           name="arrest_type"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
-                          lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
-                          name="id"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
                           refId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]"
                           dataType="wstr"
                           errorOrTruncationOperation="Conversion"
@@ -2649,10 +2609,6 @@ order by id</property>
                           dataType="wstr"
                           length="50"
                           name="arrest_type" />
-                        <externalMetadataColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
-                          dataType="i4"
-                          name="id" />
                         <externalMetadataColumn
                           refId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
                           dataType="wstr"
@@ -2837,17 +2793,6 @@ order by id</property>
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[arrest_type]"
                           name="arrest_type" />
                         <outputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
-                          dataType="i4"
-                          lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[id]"
-                          name="id" />
-                        <outputColumn
-                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
-                          dataType="wstr"
-                          length="50"
-                          lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
-                          name="city" />
-                        <outputColumn
                           refId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -2859,6 +2804,12 @@ order by id</property>
                           lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
+                        <outputColumn
+                          refId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
+                          name="city" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -2868,7 +2819,7 @@ order by id</property>
               <paths>
                 <path
                   refId="Package\Staging accident + violation to bronze\Violation.Paths[OLE DB Source Output]"
-                  endId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  endId="Package\Staging accident + violation to bronze\Violation\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\Staging accident + violation to bronze\Violation\OLE DB Source.Outputs[OLE DB Source Output]" />
               </paths>
@@ -3930,7 +3881,7 @@ order by t.datetime</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate City"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3947,7 +3898,7 @@ order by t.datetime</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate City Weather"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -3989,65 +3940,27 @@ order by t.datetime</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="118.4,41.6"
-          Id="Package\Staging accident + violation to bronze\Accident"
-          TopLeft="265.222222775102,114.398366241996" />
-        <NodeLayout
-          Size="201.6,43.2"
-          Id="Package\Staging accident + violation to bronze\Truncate Accident Table 1"
-          TopLeft="232.653393461107,31.6307191287111" />
-        <EdgeLayout
-          Id="Package\Staging accident + violation to bronze.PrecedenceConstraints[Constraint 1]"
-          TopLeft="333.453393461108,74.8307191287112">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.031170686005,39.5676471132848"
-              Start="0,0"
-              End="-9.031170686005,32.0676471132848">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.7838235566425" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.7838235566425"
-                    Point2="0,19.7838235566425"
-                    Point3="-4,19.7838235566425" />
-                  <mssgle:LineSegment
-                    End="-5.031170686005,19.7838235566425" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.031170686005,19.7838235566425"
-                    Point2="-9.031170686005,19.7838235566425"
-                    Point3="-9.031170686005,23.7838235566425" />
-                  <mssgle:LineSegment
-                    End="-9.031170686005,32.0676471132848" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="192.8,41.6"
+          Id="Package\Staging accident + violation to bronze\Truncate Violation Table"
+          TopLeft="26.298517738385,34.4534549855842" />
         <NodeLayout
           Size="118.4,41.6"
           Id="Package\Staging accident + violation to bronze\Violation"
-          TopLeft="58.6292518137778,141.325677318275" />
+          TopLeft="60.0578232453902,131.495611890279" />
         <EdgeLayout
           Id="Package\Staging accident + violation to bronze.PrecedenceConstraints[Constraint]"
-          TopLeft="119.549599060275,86.6482262952628">
+          TopLeft="120.978170491888,76.0534549855842">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54.6774510230124"
+              EndConnector="0,55.4421569046949"
               Start="0,0"
-              End="0,47.1774510230124">
+              End="0,47.9421569046949">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.1774510230124" />
+                    End="0,47.9421569046949" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4057,16 +3970,42 @@ order by t.datetime</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="192.8,41.6"
-          Id="Package\Staging accident + violation to bronze\Truncate Violation Table"
-          TopLeft="24.8699463067728,45.0482262952629" />
+          Size="118.4,41.6"
+          Id="Package\Staging accident + violation to bronze\Accident"
+          TopLeft="283.555556147462,126.817974483063" />
+        <EdgeLayout
+          Id="Package\Staging accident + violation to bronze.PrecedenceConstraints[Constraint 1]"
+          TopLeft="341.318760525413,79.2777783557578">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.5401961273056"
+              Start="0,0"
+              End="0,40.0401961273056">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.0401961273056" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Staging accident + violation to bronze\Truncate Accident Table 1"
+          TopLeft="239.081964903364,37.6777783557576" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="453.6,252"
-          Size="453.6,295.2"
+          PanelSize="453.6,343.2"
+          Size="453.6,386.4"
           Id="Package\Staging accident + violation to bronze"
-          TopLeft="742.738096265719,411.946078322732" />
+          TopLeft="718.928572405511,304.887254887162" />
         <NodeLayout
           Size="96,41.6"
           Id="Package\Staging Weather to bronze (full load)\City"
@@ -4133,7 +4072,7 @@ order by t.datetime</property>
           PanelSize="571.2,347.2"
           Size="571.2,390.4"
           Id="Package\Staging Weather to bronze (full load)"
-          TopLeft="116.190476310091,422.490195862373" />
+          TopLeft="103.095238186977,338.372548877282" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4141,41 +4080,87 @@ order by t.datetime</property>
     design-time-name="Package\Staging accident + violation to bronze\Accident">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="179.2,41.6"
-          Id="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1"
-          TopLeft="623.999990701676,205.399997273088" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1"
-          TopLeft="647.999990344048,71.9999989271164" />
+          TopLeft="318.714275357371,62.8235283469246" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Staging accident + violation to bronze\Accident\OLE DB Destination"
+          TopLeft="198.571428994135,172.058823378596" />
         <EdgeLayout
           Id="Package\Staging accident + violation to bronze\Accident.Paths[OLE DB Source Output]"
-          TopLeft="727.199990344048,113.599998927116">
+          TopLeft="397.914275357371,104.423528346925">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.5999996423719,91.7999983459711"
+              EndConnector="-114.142846363236,67.6352950316709"
               Start="0,0"
-              End="-13.5999996423719,84.2999983459711">
+              End="-114.142846363236,60.1352950316709">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.8999991729856" />
+                    End="0,29.8176475158355" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,41.8999991729856"
-                    Point2="0,45.8999991729856"
-                    Point3="-4,45.8999991729856" />
+                    Point1="0,29.8176475158355"
+                    Point2="0,33.8176475158355"
+                    Point3="-4,33.8176475158355" />
                   <mssgle:LineSegment
-                    End="-9.59999964237193,45.8999991729856" />
+                    End="-110.142846363236,33.8176475158355" />
                   <mssgle:CubicBezierSegment
-                    Point1="-9.59999964237193,45.8999991729856"
-                    Point2="-13.5999996423719,45.8999991729856"
-                    Point3="-13.5999996423719,49.8999991729856" />
+                    Point1="-110.142846363236,33.8176475158355"
+                    Point2="-114.142846363236,33.8176475158355"
+                    Point3="-114.142846363236,37.8176475158355" />
                   <mssgle:LineSegment
-                    End="-13.5999996423719,84.2999983459711" />
+                    End="-114.142846363236,60.1352950316709" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Staging accident + violation to bronze\Violation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Staging accident + violation to bronze\Violation\OLE DB Destination"
+          TopLeft="247.142857668959,201.117646882536" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Staging accident + violation to bronze\Violation\OLE DB Source"
+          TopLeft="252.142851974587,68.1529404828189" />
+        <EdgeLayout
+          Id="Package\Staging accident + violation to bronze\Violation.Paths[OLE DB Source Output]"
+          TopLeft="329.642854821773,109.752940482819">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,91.3647063997172"
+              Start="0,0"
+              End="0,83.8647063997172">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,83.8647063997172" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4190,66 +4175,7 @@ order by t.datetime</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Staging accident + violation to bronze\Accident\OLE DB Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Staging accident + violation to bronze\Accident\OLE DB Source 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Staging accident + violation to bronze\Violation">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Staging accident + violation to bronze\Violation\OLE DB Source"
-          TopLeft="252.142851974587,68.1529404828189" />
-        <NodeLayout
-          Size="179.2,41.6"
-          Id="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1"
-          TopLeft="239.999994380133,252.823526062664" />
-        <EdgeLayout
-          Id="Package\Staging accident + violation to bronze\Violation.Paths[OLE DB Source Output]"
-          TopLeft="328.27142317736,109.752940482819">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,143.070585579845"
-              Start="0,0"
-              End="0,135.570585579845">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,135.570585579845" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Staging accident + violation to bronze\Violation\OLE DB Destination 1">
+    design-time-name="Package\Staging accident + violation to bronze\Violation\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4400,6 +4326,19 @@ order by t.datetime</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging accident + violation to bronze\Accident\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

@@ -174,7 +174,13 @@ select distinct top 100
     
     violation_type, contributed_to_accident, 
     
-    gender,
+    CAST(
+        CASE 
+            WHEN UPPER(LTRIM(RTRIM(gender))) = 'M' THEN 'Male'
+            WHEN UPPER(LTRIM(RTRIM(gender))) = 'F' THEN 'Female'
+            ELSE 'n/a'
+        END AS NVARCHAR(50)
+    ) AS gender,
 
     CASE 
        WHEN driver_city IS NULL THEN 'n/a'
@@ -203,7 +209,7 @@ order by id
 
 
 
-SELECT distinct TOP 100
+SELECT 
     id,
     severity,
     start_time,

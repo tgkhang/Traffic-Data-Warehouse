@@ -19,7 +19,7 @@ GO
 
 
 
-select 
+select distinct
 	m.vehicle_id as vehicle_type_id,
 	v.commercial_vehicle,
 	CASE 
