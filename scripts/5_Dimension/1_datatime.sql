@@ -3,9 +3,11 @@ IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'Dim')
 GO
 
 
-CREATE TABLE DIM.Date (
-    date_key INT PRIMARY KEY,              -- Format: YYYYMMDD
+CREATE TABLE DIM.Datetime (
+    datetime_key BIGINT PRIMARY KEY,       -- Format: YYYYMMDDHHMISS
+    full_datetime DATETIME2 NOT NULL,      -- Combined date and time
     full_date DATE NOT NULL,
+    full_time TIME NOT NULL,
     year SMALLINT NOT NULL,
     quarter TINYINT NOT NULL,
     month TINYINT NOT NULL,
@@ -14,7 +16,13 @@ CREATE TABLE DIM.Date (
     week_of_year TINYINT NOT NULL,
     day_of_week TINYINT NOT NULL,          -- 1 = Monday, 7 = Sunday
     day_of_week_name NVARCHAR(20) NOT NULL,
-    is_weekend BIT NOT NULL
+    is_weekend BIT NOT NULL,
+    hour TINYINT NOT NULL,                 -- 0-23
+    minute TINYINT NOT NULL,               -- 0-59
+    second TINYINT NOT NULL,               -- 0-59
+    hour_12 TINYINT NOT NULL,              -- 1-12
+    am_pm CHAR(2) NOT NULL,                -- AM or PM
+    time_of_day_description NVARCHAR(20) NOT NULL  -- Morning, Afternoon, Evening, Night
 )
 
 ----
@@ -37,35 +45,55 @@ from NDS.Violation
 
 -----
 
-WITH AllDates AS (
-    SELECT CAST([datetime] AS DATE) AS full_date FROM NDS.Weather_Snapshot
+WITH AllDateTimes AS (
+    SELECT [datetime] AS full_datetime FROM NDS.Weather_Snapshot WHERE [datetime] IS NOT NULL
     UNION
-    SELECT CAST([start_time] AS DATE) FROM NDS.Accident
+    SELECT [start_time] FROM NDS.Accident WHERE [start_time] IS NOT NULL
     UNION
-    SELECT CAST([end_time] AS DATE) FROM NDS.Accident
+    SELECT [end_time] FROM NDS.Accident WHERE [end_time] IS NOT NULL
     UNION
-    SELECT CAST([datetime_of_stop] AS DATE) FROM NDS.Violation
+    SELECT [datetime_of_stop] FROM NDS.Violation WHERE [datetime_of_stop] IS NOT NULL
 )
 SELECT 
-    CONVERT(INT, FORMAT(full_date, 'yyyyMMdd')) AS date_key,
-    full_date,
-    DATEPART(YEAR, full_date) AS year,
-    DATEPART(QUARTER, full_date) AS quarter,
-    DATEPART(MONTH, full_date) AS month,
-    DATENAME(MONTH, full_date) AS month_name,
-    DATEPART(DAY, full_date) AS day_of_month,
-    DATEPART(WEEK, full_date) AS week_of_year,
-    DATEPART(WEEKDAY, full_date) AS day_of_week,
-    DATENAME(WEEKDAY, full_date) AS day_of_week_name,
+    CONVERT(BIGINT, FORMAT(full_datetime, 'yyyyMMddHHmmss')) AS datetime_key,
+    full_datetime,
+    CAST(full_datetime AS DATE) AS full_date,
+    CAST(full_datetime AS TIME) AS full_time,
+    DATEPART(YEAR, full_datetime) AS year,
+    DATEPART(QUARTER, full_datetime) AS quarter,
+    DATEPART(MONTH, full_datetime) AS month,
+    DATENAME(MONTH, full_datetime) AS month_name,
+    DATEPART(DAY, full_datetime) AS day_of_month,
+    DATEPART(WEEK, full_datetime) AS week_of_year,
+    DATEPART(WEEKDAY, full_datetime) AS day_of_week,
+    DATENAME(WEEKDAY, full_datetime) AS day_of_week_name,
     CASE 
-        WHEN DATEPART(WEEKDAY, full_date) IN (1, 7) THEN 1  -- Sunday or Saturday
+        WHEN DATEPART(WEEKDAY, full_datetime) IN (1, 7) THEN 1  -- Sunday or Saturday
         ELSE 0
-    END AS is_weekend
+    END AS is_weekend,
+    DATEPART(HOUR, full_datetime) AS hour,
+    DATEPART(MINUTE, full_datetime) AS minute,
+    DATEPART(SECOND, full_datetime) AS second,
+    CASE 
+        WHEN DATEPART(HOUR, full_datetime) = 0 THEN 12
+        WHEN DATEPART(HOUR, full_datetime) > 12 THEN DATEPART(HOUR, full_datetime) - 12
+        ELSE DATEPART(HOUR, full_datetime)
+    END AS hour_12,
+    CASE 
+        WHEN DATEPART(HOUR, full_datetime) < 12 THEN 'AM'
+        ELSE 'PM'
+    END AS am_pm,
+    CASE 
+        WHEN DATEPART(HOUR, full_datetime) BETWEEN 5 AND 11 THEN 'Morning'
+        WHEN DATEPART(HOUR, full_datetime) BETWEEN 12 AND 17 THEN 'Afternoon'
+        WHEN DATEPART(HOUR, full_datetime) BETWEEN 18 AND 21 THEN 'Evening'
+        ELSE 'Night'
+    END AS time_of_day_description
 FROM (
-    SELECT DISTINCT full_date
-    FROM AllDates
-    WHERE full_date IS NOT NULL
-) AS DistinctDates;
+    SELECT DISTINCT full_datetime
+    FROM AllDateTimes
+    WHERE full_datetime IS NOT NULL
+) AS DistinctDateTimes;
 
 
 
