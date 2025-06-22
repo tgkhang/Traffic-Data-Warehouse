@@ -79,5 +79,5 @@ left join Dim.Driver_Type didr on didr.driver_type_id = v.driver_type_id
 left join Dim.Agency diag on diag.sub_agency_id = v.sub_agency_id
 left JOIN Dim.Geography dig
   ON dig.city_id = v.city_id
-	 AND ROUND(dig.longitude, 4) = ROUND(v.longitude, 4)
-	 AND ROUND(dig.latitude, 4) = ROUND(v.latitude, 4)
+	 AND ROUND(dig.longitude, 7) = ROUND(v.longitude, 7)
+	 AND ROUND(dig.latitude, 7) = ROUND(v.latitude, 7)

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="5_NDS_to_dimension"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{C4C462E9-C914-4704-BBC4-FC3FCDD74F23}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{67B61714-7EDD-4956-92CC-97392563363C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4899,6 +4899,7 @@ JOIN NDS.State s ON s.state_code = co.state_code;</property>
       DTS:refId="Package\Sequence Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{33B16375-AEB1-444F-BA08-755F8C869003}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -4906,20 +4907,1086 @@ JOIN NDS.State s ON s.state_code = co.state_code;</property>
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Sequence Container\Execute SQL Task"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{1264570A-1E10-4684-9B49-C724B9FDD254}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:refId="Package\Sequence Container\Fact accident"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6137E3F1-FBDB-4254-BA89-C8C81B416782}"
+          DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Execute SQL Task"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ObjectName="Fact accident"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{8C95E8EB-C603-4F08-A063-7A6DAACABFE6}"
-              SQLTask:SqlStatementSource="truncate table Fact.Violation" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Fact accident\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Fact].[Accident]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Fact accident\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[weather_snapshot_key]"
+                          cachedDataType="i4"
+                          cachedName="weather_snapshot_key"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[weather_snapshot_key]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[weather_snapshot_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_datetime_key]"
+                          cachedDataType="i8"
+                          cachedName="start_datetime_key"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_datetime_key]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_datetime_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_datetime_key]"
+                          cachedDataType="i8"
+                          cachedName="end_datetime_key"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_datetime_key]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_datetime_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_location_key]"
+                          cachedDataType="i4"
+                          cachedName="start_location_key"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_location_key]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_location_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_location_key]"
+                          cachedDataType="i4"
+                          cachedName="end_location_key"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_location_key]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_location_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[accident_id]"
+                          cachedDataType="i4"
+                          cachedName="accident_id"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accident_id]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[accident_id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_lat]"
+                          cachedDataType="r8"
+                          cachedName="start_lat"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_lat]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_lat]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_lng]"
+                          cachedDataType="r8"
+                          cachedName="start_lng"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_lng]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_lng]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_lat]"
+                          cachedDataType="r8"
+                          cachedName="end_lat"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_lat]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_lat]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_lng]"
+                          cachedDataType="r8"
+                          cachedName="end_lng"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_lng]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_lng]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[severity]"
+                          cachedDataType="ui1"
+                          cachedName="severity"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severity]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[severity]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[distance_m]"
+                          cachedDataType="r8"
+                          cachedName="distance_m"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[distance_m]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[distance_m]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[description]"
+                          cachedDataType="nText"
+                          cachedName="description"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[description]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[street]"
+                          cachedDataType="nText"
+                          cachedName="street"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[street]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accident_id]"
+                          dataType="i4"
+                          name="accident_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[weather_snapshot_key]"
+                          dataType="i4"
+                          name="weather_snapshot_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_datetime_key]"
+                          dataType="i8"
+                          name="start_datetime_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_datetime_key]"
+                          dataType="i8"
+                          name="end_datetime_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_location_key]"
+                          dataType="i4"
+                          name="start_location_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_location_key]"
+                          dataType="i4"
+                          name="end_location_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_lat]"
+                          dataType="r8"
+                          name="start_lat" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_lng]"
+                          dataType="r8"
+                          name="start_lng" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_lat]"
+                          dataType="r8"
+                          name="end_lat" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_lng]"
+                          dataType="r8"
+                          name="end_lng" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severity]"
+                          dataType="ui1"
+                          name="severity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[distance_m]"
+                          dataType="r8"
+                          name="distance_m" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                          dataType="nText"
+                          name="description" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street]"
+                          dataType="nText"
+                          name="street" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Fact accident\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Fact accident\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select
+diw.weather_snapshot_key,
+didt.datetime_key as start_datetime_key,
+didt1.datetime_key as end_datetime_key,
+dig.geography_key as start_location_key,
+dig1.geography_key as end_location_key,
+
+a.accident_id, 
+a.start_lat, a.start_lng, a.end_lat, a.end_lng,
+a.street,
+a.severity,
+a.distance_m, a.description
+from NDS.Accident a
+join NDS.Accident_Detail ad on ad.accident_id= a.accident_id
+join Dim.Weather_Snapshot diw on diw.weather_snapshot_id= a.weather_snapshot_id
+left join Dim.Datetime didt on didt.datetime_key = CONVERT(BIGINT, FORMAT(a.start_time, 'yyyyMMddHHmmss'))
+left join Dim.Datetime didt1 on didt1.datetime_key = CONVERT(BIGINT, FORMAT(a.end_time, 'yyyyMMddHHmmss'))
+left JOIN Dim.Geography dig
+  ON dig.city_id = a.city_id
+	 AND ROUND(dig.longitude, 7) = ROUND(a.start_lng, 7)
+	 AND ROUND(dig.latitude, 7) = ROUND(a.start_lat, 7)
+left JOIN Dim.Geography dig1
+  ON dig1.city_id = a.city_id
+	 AND ROUND(dig1.longitude, 7) = ROUND(a.end_lng, 7)
+	 AND ROUND(dig1.latitude, 7) = ROUND(a.end_lat, 7)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Fact accident\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[weather_snapshot_key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weather_snapshot_key]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[weather_snapshot_key]"
+                          name="weather_snapshot_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_datetime_key]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_datetime_key]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_datetime_key]"
+                          name="start_datetime_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_datetime_key]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_datetime_key]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_datetime_key]"
+                          name="end_datetime_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_location_key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_location_key]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_location_key]"
+                          name="start_location_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_location_key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_location_key]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_location_key]"
+                          name="end_location_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[accident_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accident_id]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[accident_id]"
+                          name="accident_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_lat]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_lat]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_lat]"
+                          name="start_lat"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_lng]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_lng]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_lng]"
+                          name="start_lng"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_lat]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_lat]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_lat]"
+                          name="end_lat"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_lng]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_lng]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_lng]"
+                          name="end_lng"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[severity]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[severity]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[severity]"
+                          name="severity"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[distance_m]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[distance_m]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[distance_m]"
+                          name="distance_m"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]"
+                          name="description"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[street]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[street]"
+                          name="street"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weather_snapshot_key]"
+                          dataType="i4"
+                          name="weather_snapshot_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_datetime_key]"
+                          dataType="i8"
+                          name="start_datetime_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_datetime_key]"
+                          dataType="i8"
+                          name="end_datetime_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_location_key]"
+                          dataType="i4"
+                          name="start_location_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_location_key]"
+                          dataType="i4"
+                          name="end_location_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accident_id]"
+                          dataType="i4"
+                          name="accident_id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_lat]"
+                          dataType="r8"
+                          name="start_lat" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[start_lng]"
+                          dataType="r8"
+                          name="start_lng" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_lat]"
+                          dataType="r8"
+                          name="end_lat" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[end_lng]"
+                          dataType="r8"
+                          name="end_lng" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[severity]"
+                          dataType="ui1"
+                          name="severity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[distance_m]"
+                          dataType="r8"
+                          name="distance_m" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                          dataType="nText"
+                          name="description" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[street]"
+                          dataType="nText"
+                          name="street" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weather_snapshot_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weather_snapshot_key]"
+                          name="weather_snapshot_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_datetime_key]"
+                          dataType="i8"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_datetime_key]"
+                          name="start_datetime_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_datetime_key]"
+                          dataType="i8"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_datetime_key]"
+                          name="end_datetime_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_location_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_location_key]"
+                          name="start_location_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_location_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_location_key]"
+                          name="end_location_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accident_id]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accident_id]"
+                          name="accident_id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_lat]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_lat]"
+                          name="start_lat" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_lng]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[start_lng]"
+                          name="start_lng" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_lat]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_lat]"
+                          name="end_lat" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_lng]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[end_lng]"
+                          name="end_lng" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[severity]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[severity]"
+                          name="severity" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[distance_m]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[distance_m]"
+                          name="distance_m" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[description]"
+                          dataType="nText"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[description]"
+                          name="description" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[street]"
+                          dataType="nText"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[street]"
+                          name="street" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Fact accident\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[weather_snapshot_key]"
+                          cachedDataType="i4"
+                          cachedName="weather_snapshot_key"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[weather_snapshot_key]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[start_datetime_key]"
+                          cachedDataType="i8"
+                          cachedName="start_datetime_key"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_datetime_key]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[end_datetime_key]"
+                          cachedDataType="i8"
+                          cachedName="end_datetime_key"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_datetime_key]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[start_location_key]"
+                          cachedDataType="i4"
+                          cachedName="start_location_key"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_location_key]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[end_location_key]"
+                          cachedDataType="i4"
+                          cachedName="end_location_key"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_location_key]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[accident_id]"
+                          cachedDataType="i4"
+                          cachedName="accident_id"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[accident_id]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[start_lat]"
+                          cachedDataType="r8"
+                          cachedName="start_lat"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_lat]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[start_lng]"
+                          cachedDataType="r8"
+                          cachedName="start_lng"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_lng]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[end_lat]"
+                          cachedDataType="r8"
+                          cachedName="end_lat"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_lat]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[end_lng]"
+                          cachedDataType="r8"
+                          cachedName="end_lng"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_lng]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[severity]"
+                          cachedDataType="ui1"
+                          cachedName="severity"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[severity]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[distance_m]"
+                          cachedDataType="r8"
+                          cachedName="distance_m"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[distance_m]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[description]"
+                          cachedDataType="nText"
+                          cachedName="description"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input].Columns[street]"
+                          cachedDataType="nText"
+                          cachedName="street"
+                          lineageId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[street]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[weather_snapshot_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[weather_snapshot_key]"
+                          name="weather_snapshot_key">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[weather_snapshot_key]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_datetime_key]"
+                          dataType="i8"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_datetime_key]"
+                          name="start_datetime_key">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_datetime_key]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_datetime_key]"
+                          dataType="i8"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_datetime_key]"
+                          name="end_datetime_key">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_datetime_key]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_location_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_location_key]"
+                          name="start_location_key">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_location_key]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_location_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_location_key]"
+                          name="end_location_key">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_location_key]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[accident_id]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[accident_id]"
+                          name="accident_id"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[accident_id]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_lat]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_lat]"
+                          name="start_lat">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_lat]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_lng]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[start_lng]"
+                          name="start_lng">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[start_lng]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_lat]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_lat]"
+                          name="end_lat">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_lat]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_lng]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[end_lng]"
+                          name="end_lng">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[end_lng]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[severity]"
+                          dataType="ui1"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[severity]"
+                          name="severity">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[severity]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[distance_m]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[distance_m]"
+                          name="distance_m">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[distance_m]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[description]"
+                          dataType="nText"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[description]"
+                          name="description">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[description]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[street]"
+                          dataType="nText"
+                          lineageId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output].Columns[street]"
+                          name="street">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output].Columns[street]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Fact accident.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Fact accident\Sort.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Fact accident\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Sequence Container\Fact accident.Paths[Sort Output]"
+                  endId="Package\Sequence Container\Fact accident\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Sort Output"
+                  startId="Package\Sequence Container\Fact accident\Sort.Outputs[Sort Output]" />
+              </paths>
+            </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -5306,8 +6373,8 @@ left join Dim.Driver_Type didr on didr.driver_type_id = v.driver_type_id
 left join Dim.Agency diag on diag.sub_agency_id = v.sub_agency_id
 left JOIN Dim.Geography dig
   ON dig.city_id = v.city_id
-	 AND ROUND(dig.longitude, 5) = ROUND(v.longitude, 5)
-	 AND ROUND(dig.latitude, 5) = ROUND(v.latitude, 5)</property>
+	 AND ROUND(dig.longitude, 7) = ROUND(v.longitude, 7)
+	 AND ROUND(dig.latitude, 7) = ROUND(v.latitude, 7)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -6423,16 +7490,24 @@ left JOIN Dim.Geography dig
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{F5D5DB69-FD47-43E1-AF8B-C08034EAEE3E}"
-          DTS:From="Package\Sequence Container\Execute SQL Task"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\Sequence Container\Fact Violation" />
-      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate fact"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{1264570A-1E10-4684-9B49-C724B9FDD254}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate fact"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8C95E8EB-C603-4F08-A063-7A6DAACABFE6}"
+          SQLTask:SqlStatementSource="truncate table Fact.Violation&#xA;truncate table Fact.Accident" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -6444,6 +7519,14 @@ left JOIN Dim.Geography dig
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\dim" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3029A3A4-7721-413A-B415-355C50BF10BD}"
+      DTS:From="Package\truncate fact"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Sequence Container" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -6487,51 +7570,29 @@ left JOIN Dim.Geography dig
           PanelSize="385.6,347.2"
           Size="385.6,390.4"
           Id="Package\dim"
-          TopLeft="60.7653062518023,115.033613344547" />
+          TopLeft="60.7653062518023,118.310924266044" />
         <NodeLayout
           Size="141.6,41.6"
           Id="Package\Sequence Container\Fact Violation"
           TopLeft="27.2000012772428,110.373949487906" />
-        <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="101.669389029087,47.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,63.2739494879059"
-              Start="0,0"
-              End="0,55.7739494879059">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,55.7739494879059" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Sequence Container\Execute SQL Task"
-          TopLeft="24.1387767809304,5.5" />
+          Size="140,41.6"
+          Id="Package\Sequence Container\Fact accident"
+          TopLeft="24.3918379684926,27.7445376561706" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="204.8,207.2"
           Size="204.8,250.4"
           Id="Package\Sequence Container"
-          TopLeft="572.44898081043,178.067226734674" />
+          TopLeft="555.102041997993,110.336134357068" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Execute SQL Task"
-          TopLeft="161.310204508466,12.0957983276585" />
+          TopLeft="161.310204508466,15.3731092491556" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="242.510204508466,53.6957983276585">
+          TopLeft="242.510204508466,56.9731092491555">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6555,6 +7616,44 @@ left JOIN Dim.Geography dig
                     Point3="11.0551017433362,34.6689075084441" />
                   <mssgle:LineSegment
                     End="11.0551017433362,53.8378150168882" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\truncate fact"
+          TopLeft="602.808164585992,3.97394971580594" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="672.008164585992,45.5739497158059">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5061225879994,64.7621846412617"
+              Start="0,0"
+              End="-14.5061225879994,57.2621846412617">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3810923206308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.3810923206308"
+                    Point2="0,32.3810923206308"
+                    Point3="-4,32.3810923206308" />
+                  <mssgle:LineSegment
+                    End="-10.5061225879994,32.3810923206308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5061225879994,32.3810923206308"
+                    Point2="-14.5061225879994,32.3810923206308"
+                    Point3="-14.5061225879994,36.3810923206308" />
+                  <mssgle:LineSegment
+                    End="-14.5061225879994,57.2621846412617" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7218,6 +8317,115 @@ left JOIN Dim.Geography dig
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Fact Violation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Fact accident">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Sequence Container\Fact accident\OLE DB Source"
+          TopLeft="521.999992221594,77.9999988377094" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Sequence Container\Fact accident\Sort"
+          TopLeft="418.999993756414,158.999997630715" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Fact accident.Paths[OLE DB Source Output]"
+          TopLeft="596.799992221594,119.599998837709">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-128.99999846518,39.3999987930059"
+              Start="0,0"
+              End="-128.99999846518,31.8999987930059">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.699999396503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.699999396503"
+                    Point2="0,19.699999396503"
+                    Point3="-4,19.699999396503" />
+                  <mssgle:LineSegment
+                    End="-124.99999846518,19.699999396503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.99999846518,19.699999396503"
+                    Point2="-128.99999846518,19.699999396503"
+                    Point3="-128.99999846518,23.699999396503" />
+                  <mssgle:LineSegment
+                    End="-128.99999846518,31.8999987930059" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Sequence Container\Fact accident\OLE DB Destination"
+          TopLeft="455.999993205071,254.999996200204" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Fact accident.Paths[Sort Output]"
+          TopLeft="467.799993756414,200.599997630715">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.3999994486571,54.3999985694886"
+              Start="0,0"
+              End="73.3999994486571,46.8999985694886">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.1999992847443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.1999992847443"
+                    Point2="0,27.1999992847443"
+                    Point3="4,27.1999992847443" />
+                  <mssgle:LineSegment
+                    End="69.3999994486571,27.1999992847443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.3999994486571,27.1999992847443"
+                    Point2="73.3999994486571,27.1999992847443"
+                    Point3="73.3999994486571,31.1999992847443" />
+                  <mssgle:LineSegment
+                    End="73.3999994486571,46.8999985694886" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Fact accident\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Fact accident\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
