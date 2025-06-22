@@ -6,7 +6,7 @@ Create table NDS.Violation(
     violation_detail_id INT NULL,             -- Foreign key to Violation_Detail table
     sub_agency_id INT NULL,                -- Foreign key to SubAgency table
     datetime_of_stop DATETIME2(7) NULL,         -- Date and time of the stop
-    city NVARCHAR(100) NULL,                    -- City where the violation occurred
+    city_id INT NULL,                     -- Foreign key to City table
     vehicle_id int NULL,                -- Foreign key to Vehicle table
     driver_type_id int NULL,                -- Foreign key to Driver_Type table
     longitude FLOAT NULL,                     -- Longitude coordinate of the violation location

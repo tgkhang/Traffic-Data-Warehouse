@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="227"
-  DTS:VersionGUID="{0D8604BE-DD99-439B-AF12-A71A9FE50D1E}">
+  DTS:VersionBuild="233"
+  DTS:VersionGUID="{1D9D1DFE-C6DB-4A6E-9DA5-9D1FEB737722}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,6 +35,7 @@
       DTS:refId="Package\Finish"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{061C9E9C-B08C-4966-BAAC-9FFF2FB77F09}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -2052,6 +2053,155 @@ ORDER BY city ASC</property>
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Finish\City\City from weather"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="City from weather"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct
+city , latitude, longitude
+from Bronze.City
+where country= 'United States'
+order by city asc</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Finish\City\City from weather.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].Columns[city]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                          length="100"
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].Columns[city]"
+                          name="city"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].Columns[latitude]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].Columns[latitude]"
+                          name="latitude"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].Columns[longitude]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].Columns[longitude]"
+                          name="longitude"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                          dataType="wstr"
+                          length="100"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                          dataType="r8"
+                          name="latitude" />
+                        <externalMetadataColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                          dataType="r8"
+                          name="longitude" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[city]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[city]"
+                          name="city" />
+                        <outputColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                          dataType="r8"
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                          name="latitude" />
+                        <outputColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                          dataType="r8"
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                          name="longitude" />
+                        <outputColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Finish\City\Derived Column 2"
                   componentClassID="Microsoft.DerivedColumn"
                   contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -2449,155 +2599,6 @@ ORDER BY city ASC</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Finish\City\OLE DB Source"
-                  componentClassID="Microsoft.OLEDBSource"
-                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-                  description="OLE DB Source"
-                  name="OLE DB Source"
-                  usesDispositions="true"
-                  version="7">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset"></property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct
-city , latitude, longitude
-from Bronze.City
-where country= 'United States'
-order by city asc</property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">2</property>
-                    <property
-                      dataType="System.String"
-                      description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Finish\City\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output]"
-                      name="OLE DB Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
-                          length="100"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]"
-                          name="city"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].Columns[latitude]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].Columns[latitude]"
-                          name="latitude"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].Columns[longitude]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].Columns[longitude]"
-                          name="longitude"
-                          truncationRowDisposition="FailComponent" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
-                          dataType="wstr"
-                          length="100"
-                          name="city" />
-                        <externalMetadataColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
-                          dataType="r8"
-                          name="latitude" />
-                        <externalMetadataColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
-                          dataType="r8"
-                          name="longitude" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output]"
-                      isErrorOut="true"
-                      name="OLE DB Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
-                          dataType="wstr"
-                          length="100"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
-                          name="city" />
-                        <outputColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latitude]"
-                          dataType="r8"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latitude]"
-                          name="latitude" />
-                        <outputColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[longitude]"
-                          dataType="r8"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[longitude]"
-                          name="longitude" />
-                        <outputColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
                   refId="Package\Finish\City\Sort"
                   componentClassID="Microsoft.Sort"
                   contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -2953,7 +2954,7 @@ order by city asc</property>
                           cachedDataType="wstr"
                           cachedLength="100"
                           cachedName="city"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]">
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].Columns[city]">
                           <properties>
                             <property
                               containsID="true"
@@ -2966,7 +2967,7 @@ order by city asc</property>
                           refId="Package\Finish\City\Union All.Inputs[Union All Input 4].Columns[latitude]"
                           cachedDataType="r8"
                           cachedName="latitude"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].Columns[latitude]">
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].Columns[latitude]">
                           <properties>
                             <property
                               containsID="true"
@@ -2979,7 +2980,7 @@ order by city asc</property>
                           refId="Package\Finish\City\Union All.Inputs[Union All Input 4].Columns[longitude]"
                           cachedDataType="r8"
                           cachedName="longitude"
-                          lineageId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output].Columns[longitude]">
+                          lineageId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output].Columns[longitude]">
                           <properties>
                             <property
                               containsID="true"
@@ -3094,7 +3095,7 @@ order by city asc</property>
                   refId="Package\Finish\City.Paths[OLE DB Source Output2]"
                   endId="Package\Finish\City\add.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
-                  startId="Package\Finish\City\OLE DB Source.Outputs[OLE DB Source Output]" />
+                  startId="Package\Finish\City\City from weather.Outputs[OLE DB Source Output]" />
                 <path
                   refId="Package\Finish\City.Paths[Sort Output]"
                   endId="Package\Finish\City\OLE DB Destination.Inputs[OLE DB Destination Input]"
@@ -5042,13 +5043,6 @@ ORDER BY t.vehicle_id, d.old_type_name;</property>
                           externalMetadataColumnId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[datetime_of_stop]"
                           lineageId="Package\Finish\Violation\Sort.Outputs[Sort Output].Columns[datetime_of_stop]" />
                         <inputColumn
-                          refId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="city"
-                          externalMetadataColumnId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                          lineageId="Package\Finish\Violation\Sort.Outputs[Sort Output].Columns[city]" />
-                        <inputColumn
                           refId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vehicle_id]"
                           cachedDataType="i4"
                           cachedName="vehicle_id"
@@ -5124,6 +5118,12 @@ ORDER BY t.vehicle_id, d.old_type_name;</property>
                           externalMetadataColumnId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sub_agency_id]"
                           lineageId="Package\Finish\Violation\Sort.Outputs[Sort Output].Columns[sub_agency_id]" />
                         <inputColumn
+                          refId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city_id]"
+                          cachedDataType="i4"
+                          cachedName="city_id"
+                          externalMetadataColumnId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_id]"
+                          lineageId="Package\Finish\Violation\Sort.Outputs[Sort Output].Columns[city_id]" />
+                        <inputColumn
                           refId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
                           cachedDataType="i4"
                           cachedName="id"
@@ -5154,11 +5154,6 @@ ORDER BY t.vehicle_id, d.old_type_name;</property>
                           dataType="dbTimeStamp2"
                           name="datetime_of_stop"
                           scale="7" />
-                        <externalMetadataColumn
-                          refId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                          dataType="wstr"
-                          length="100"
-                          name="city" />
                         <externalMetadataColumn
                           refId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_id]"
                           dataType="i4"
@@ -5198,6 +5193,10 @@ ORDER BY t.vehicle_id, d.old_type_name;</property>
                           dataType="wstr"
                           length="50"
                           name="arrest_type" />
+                        <externalMetadataColumn
+                          refId="Package\Finish\Violation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_id]"
+                          dataType="i4"
+                          name="city_id" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -5253,7 +5252,7 @@ ORDER BY t.vehicle_id, d.old_type_name;</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select
 v.id, 
-v.datetime_of_stop, v.city,
+v.datetime_of_stop,ci1.city_id,
 ve.vehicle_id,d.driver_type_id, v.longitude, v.latitude, v.description, 
 v.location, v.state, v.violation_type,v.arrest_type,vo.violation_outcome_id,
 vd.violation_detail_id, sa.sub_agency_id
@@ -5311,16 +5310,6 @@ left join NDS.Driver_Type d on v.race=d.race and v.gender=d.gender and ci.city_i
                           lineageId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[datetime_of_stop]"
                           name="datetime_of_stop"
                           scale="7"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]"
-                          dataType="wstr"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
-                          length="100"
-                          lineageId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]"
-                          name="city"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_id]"
@@ -5442,6 +5431,15 @@ left join NDS.Driver_Type d on v.race=d.race and v.gender=d.gender and ci.city_i
                           lineageId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]"
                           name="id"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city_id]"
+                          lineageId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_id]"
+                          name="city_id"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -5450,11 +5448,6 @@ left join NDS.Driver_Type d on v.race=d.race and v.gender=d.gender and ci.city_i
                           dataType="dbTimeStamp2"
                           name="datetime_of_stop"
                           scale="7" />
-                        <externalMetadataColumn
-                          refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
-                          dataType="wstr"
-                          length="100"
-                          name="city" />
                         <externalMetadataColumn
                           refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vehicle_id]"
                           dataType="i4"
@@ -5510,6 +5503,10 @@ left join NDS.Driver_Type d on v.race=d.race and v.gender=d.gender and ci.city_i
                           refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[id]"
                           dataType="i4"
                           name="id" />
+                        <externalMetadataColumn
+                          refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city_id]"
+                          dataType="i4"
+                          name="city_id" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -5529,11 +5526,10 @@ left join NDS.Driver_Type d on v.race=d.race and v.gender=d.gender and ci.city_i
                           name="datetime_of_stop"
                           scale="7" />
                         <outputColumn
-                          refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
-                          dataType="wstr"
-                          length="100"
-                          lineageId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
-                          name="city" />
+                          refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city_id]"
+                          dataType="i4"
+                          lineageId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city_id]"
+                          name="city_id" />
                         <outputColumn
                           refId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vehicle_id]"
                           dataType="i4"
@@ -5643,23 +5639,6 @@ left join NDS.Driver_Type d on v.race=d.race and v.gender=d.gender and ci.city_i
                           cachedName="datetime_of_stop"
                           cachedScale="7"
                           lineageId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[datetime_of_stop]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">0</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\Finish\Violation\Sort.Inputs[Sort Input].Columns[city]"
-                          cachedDataType="wstr"
-                          cachedLength="100"
-                          cachedName="city"
-                          lineageId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]">
                           <properties>
                             <property
                               dataType="System.Int32"
@@ -5882,6 +5861,22 @@ left join NDS.Driver_Type d on v.race=d.race and v.gender=d.gender and ci.city_i
                               name="NewSortKeyPosition">1</property>
                           </properties>
                         </inputColumn>
+                        <inputColumn
+                          refId="Package\Finish\Violation\Sort.Inputs[Sort Input].Columns[city_id]"
+                          cachedDataType="i4"
+                          cachedName="city_id"
+                          lineageId="Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_id]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -5904,20 +5899,6 @@ left join NDS.Driver_Type d on v.race=d.race and v.gender=d.gender and ci.city_i
                               dataType="System.Int32"
                               description="Specifies the lineage identifier of the input column that is associated with this output column."
                               name="SortColumnId">#{Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[datetime_of_stop]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Finish\Violation\Sort.Outputs[Sort Output].Columns[city]"
-                          dataType="wstr"
-                          length="100"
-                          lineageId="Package\Finish\Violation\Sort.Outputs[Sort Output].Columns[city]"
-                          name="city">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]}</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -6091,6 +6072,19 @@ left join NDS.Driver_Type d on v.race=d.race and v.gender=d.gender and ci.city_i
                               dataType="System.Int32"
                               description="Specifies the lineage identifier of the input column that is associated with this output column."
                               name="SortColumnId">#{Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[id]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Finish\Violation\Sort.Outputs[Sort Output].Columns[city_id]"
+                          dataType="i4"
+                          lineageId="Package\Finish\Violation\Sort.Outputs[Sort Output].Columns[city_id]"
+                          name="city_id">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Finish\Violation\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_id]}</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -8521,7 +8515,7 @@ order by weather_timestamp</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Finish.PrecedenceConstraints[Constraint 12]"
           DTS:CreationName=""
-          DTS:DTSID="{24A155A1-1C9A-49D0-8A43-EEF9B45BD6CB}"
+          DTS:DTSID="{B8004786-8F95-48C3-A347-EA9BC66F758C}"
           DTS:From="Package\Finish\Violation Details"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 12"
@@ -10551,6 +10545,10 @@ left join NDS.Driver_Type d on v.race = d.race
           Id="Package\Finish\Execute SQL Task"
           TopLeft="6.85194885662946,13.1355269970701" />
         <NodeLayout
+          Size="102.4,41.6"
+          Id="Package\Finish\State"
+          TopLeft="22.8469388124373,92.8380953053799" />
+        <NodeLayout
           Size="133.6,41.6"
           Id="Package\Finish\Sub Agency"
           TopLeft="434.126532153081,28.193651308506" />
@@ -10562,10 +10560,6 @@ left join NDS.Driver_Type d on v.race = d.race
           Size="135.2,41.6"
           Id="Package\Finish\Vehicle type"
           TopLeft="14.2918995872532,238.026457634695" />
-        <NodeLayout
-          Size="118.4,41.6"
-          Id="Package\Finish\Violation"
-          TopLeft="647.445580384393,248.717366599741" />
         <NodeLayout
           Size="153.6,41.6"
           Id="Package\Finish\Violation Details"
@@ -10667,19 +10661,19 @@ left join NDS.Driver_Type d on v.race = d.race
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Finish.PrecedenceConstraints[Constraint 12]"
-          TopLeft="710.572451102735,361.917366673809">
+          Id="Package\Finish.PrecedenceConstraints[Constraint 13]"
+          TopLeft="77.2481448114123,134.43809530538">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-71.6000000740677"
+              EndConnector="0,28.6235292260926"
               Start="0,0"
-              End="0,-64.1000000740677">
+              End="0,21.1235292260926">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-64.1000000740677" />
+                    End="0,21.1235292260926" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10842,10 +10836,6 @@ left join NDS.Driver_Type d on v.race = d.race
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="102.4,41.6"
-          Id="Package\Finish\State"
-          TopLeft="22.8469388124373,92.8380953053799" />
         <EdgeLayout
           Id="Package\Finish.PrecedenceConstraints[Constraint 9]"
           TopLeft="88.0519488566295,54.7355269970701">
@@ -10880,20 +10870,24 @@ left join NDS.Driver_Type d on v.race = d.race
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="118.4,41.6"
+          Id="Package\Finish\Violation"
+          TopLeft="658.159866121487,244.347618704412" />
         <EdgeLayout
-          Id="Package\Finish.PrecedenceConstraints[Constraint 13]"
-          TopLeft="77.2481448114123,134.43809530538">
+          Id="Package\Finish.PrecedenceConstraints[Constraint 12]"
+          TopLeft="715.929593971282,361.917366673809">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28.6235292260926"
+              EndConnector="0,-75.9697479693972"
               Start="0,0"
-              End="0,21.1235292260926">
+              End="0,-68.4697479693972">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.1235292260926" />
+                    End="0,-68.4697479693972" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10931,7 +10925,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Accident">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\Finish\Accident\OLE DB Source 1"
@@ -10959,7 +10953,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10990,7 +10986,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Accident detail">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Finish\Accident detail\OLE DB Destination"
@@ -11030,7 +11026,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11061,7 +11059,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Agency">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Finish\Agency\OLE DB Destination"
@@ -11089,7 +11087,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11130,21 +11130,21 @@ left join NDS.Driver_Type d on v.race = d.race
           Id="Package\Finish\City\City from accident"
           TopLeft="14.7,5.49999999999984" />
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Finish\City\OLE DB Source"
-          TopLeft="238.9,5.49999999999984" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Finish\City\OLE DB Destination"
-          TopLeft="459.285715263413,303.141176256764" />
+          Size="162.4,41.6"
+          Id="Package\Finish\City\Derived Column 2"
+          TopLeft="422.5,107.1" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Finish\City\Derived Column 3"
           TopLeft="42.5,107.1" />
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Finish\City\Derived Column 2"
-          TopLeft="422.5,107.1" />
+          Size="170.4,41.6"
+          Id="Package\Finish\City\OLE DB Destination"
+          TopLeft="459.285715263413,303.141176256764" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Finish\City\City from weather"
+          TopLeft="238.9,5.49999999999984" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Finish\City\city from violation"
@@ -11215,18 +11215,18 @@ left join NDS.Driver_Type d on v.race = d.race
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Finish\City.Paths[OLE DB Source Output2]"
-          TopLeft="313.7,47.0999999999998">
+          TopLeft="317.1,47.0999999999998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,60.0000000000002"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,52.5000000000002">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,52.5000000000002" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11405,14 +11405,6 @@ left join NDS.Driver_Type d on v.race = d.race
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Finish\City\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Finish\City\OLE DB Destination">
     <Properties>
       <Property>
@@ -11422,6 +11414,14 @@ left join NDS.Driver_Type d on v.race = d.race
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finish\City\City from weather">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -11437,7 +11437,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\County ??">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\Finish\County ??\COunty OLE DB Source"
@@ -11477,7 +11477,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11513,7 +11515,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Driver Type">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Finish\Driver Type\OLE DB Source"
@@ -11541,7 +11543,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11572,15 +11576,15 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Sub Agency">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Finish\Sub Agency\OLE DB Source"
-          TopLeft="231.999996542931,55.999999165535" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Finish\Sub Agency\OLE DB Destination"
           TopLeft="236.999996468425,179.999997317791" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Finish\Sub Agency\OLE DB Source"
+          TopLeft="231.999996542931,55.999999165535" />
         <EdgeLayout
           Id="Package\Finish\Sub Agency.Paths[OLE DB Source Output]"
           TopLeft="306.799996542931,97.599999165535">
@@ -11612,7 +11616,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11643,7 +11649,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Vehicle">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Finish\Vehicle\OLE DB Source"
@@ -11671,7 +11677,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11702,7 +11710,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Vehicle type">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="138.4,41.6"
           Id="Package\Finish\Vehicle type\Vehicle Type"
@@ -11742,7 +11750,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11775,43 +11785,39 @@ left join NDS.Driver_Type d on v.race = d.race
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Finish\Violation\Sort"
-          TopLeft="397.999994069338,173.399998107553" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Finish\Violation\OLE DB Destination"
-          TopLeft="380.999994322658,278.999995842576" />
-        <NodeLayout
           Size="149.6,41.6"
           Id="Package\Finish\Violation\OLE DB Source"
           TopLeft="356.999994680286,100.999998494982" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Finish\Violation\Sort"
+          TopLeft="398.999994054437,183.999997258186" />
         <EdgeLayout
-          Id="Package\Finish\Violation.Paths[Sort Output]"
-          TopLeft="446.799994069338,214.999998107553">
+          Id="Package\Finish\Violation.Paths[OLE DB Source Output]"
+          TopLeft="431.799994680286,142.599998494982">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="19.40000025332,63.9999977350235"
+              EndConnector="15.9999993741508,41.3999987632044"
               Start="0,0"
-              End="19.40000025332,56.4999977350235">
+              End="15.9999993741508,33.8999987632044">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.9999988675117" />
+                    End="0,16.6999993816022" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.9999988675117"
-                    Point2="0,31.9999988675117"
-                    Point3="4,31.9999988675117" />
+                    Point1="0,16.6999993816022"
+                    Point2="0,20.6999993816022"
+                    Point3="4,20.6999993816022" />
                   <mssgle:LineSegment
-                    End="15.40000025332,31.9999988675117" />
+                    End="11.9999993741508,20.6999993816022" />
                   <mssgle:CubicBezierSegment
-                    Point1="15.40000025332,31.9999988675117"
-                    Point2="19.40000025332,31.9999988675117"
-                    Point3="19.40000025332,35.9999988675117" />
+                    Point1="11.9999993741508,20.6999993816022"
+                    Point2="15.9999993741508,20.6999993816022"
+                    Point3="15.9999993741508,24.6999993816022" />
                   <mssgle:LineSegment
-                    End="19.40000025332,56.4999977350235" />
+                    End="15.9999993741508,33.8999987632044" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11820,32 +11826,36 @@ left join NDS.Driver_Type d on v.race = d.race
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Finish\Violation\OLE DB Destination"
+          TopLeft="388.999994203448,341.999994903803" />
         <EdgeLayout
-          Id="Package\Finish\Violation.Paths[OLE DB Source Output]"
-          TopLeft="431.799994680286,142.599998494982">
+          Id="Package\Finish\Violation.Paths[Sort Output]"
+          TopLeft="447.799994054437,225.599997258186">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.9999993890519,30.7999996125706"
+              EndConnector="26.4000001490115,116.399997645617"
               Start="0,0"
-              End="14.9999993890519,23.2999996125706">
+              End="26.4000001490115,108.899997645617">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.3999998062853" />
+                    End="0,54.1999988228083" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.3999998062853"
-                    Point2="0,15.3999998062853"
-                    Point3="4,15.3999998062853" />
+                    Point1="0,54.1999988228083"
+                    Point2="0,58.1999988228083"
+                    Point3="4,58.1999988228083" />
                   <mssgle:LineSegment
-                    End="10.9999993890519,15.3999998062853" />
+                    End="22.4000001490115,58.1999988228083" />
                   <mssgle:CubicBezierSegment
-                    Point1="10.9999993890519,15.3999998062853"
-                    Point2="14.9999993890519,15.3999998062853"
-                    Point3="14.9999993890519,19.3999998062853" />
+                    Point1="22.4000001490115,58.1999988228083"
+                    Point2="26.4000001490115,58.1999988228083"
+                    Point3="26.4000001490115,62.1999988228083" />
                   <mssgle:LineSegment
-                    End="14.9999993890519,23.2999996125706" />
+                    End="26.4000001490115,108.899997645617" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11858,19 +11868,6 @@ left join NDS.Driver_Type d on v.race = d.race
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Finish\Violation\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Finish\Violation\OLE DB Source">
     <Properties>
       <Property>
@@ -11882,7 +11879,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Violation Details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Finish\Violation Details\OLE DB Source"
@@ -11910,7 +11907,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11941,7 +11940,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Violation Outcome">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Finish\Violation Outcome\OLE DB Source"
@@ -11981,7 +11980,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12012,7 +12013,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Finish\Weather snapshot">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Finish\Weather snapshot\Derived Column"
@@ -12072,7 +12073,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12094,7 +12097,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12128,7 +12133,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12150,7 +12157,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12184,7 +12193,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12218,7 +12229,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12574,7 +12587,7 @@ left join NDS.Driver_Type d on v.race = d.race
     design-time-name="Package\Trash\Violation no sort">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Trash\Violation no sort\OLE DB Destination"
@@ -12614,7 +12627,9 @@ left join NDS.Driver_Type d on v.race = d.race
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12638,6 +12653,19 @@ left join NDS.Driver_Type d on v.race = d.race
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finish\Violation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

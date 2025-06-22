@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="5_NDS_to_dimension"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{2A000E0F-6E59-480C-A90B-BCED41AB810D}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{3BC84E8B-0BDD-4327-B180-205B74D71E3C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -605,6 +605,481 @@ FROM (
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\dim\Dim Geography"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{3B0C86A2-7025-4C05-AC8D-A4C0631CEC4E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Dim Geography"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\dim\Dim Geography\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Dim].[Geography]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\dim\Dim Geography\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="city_name"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_name]"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="county_name"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state_code]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="state_code"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_code]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state_name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="state_name"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[country]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="country"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latitude]"
+                          cachedDataType="r8"
+                          cachedName="latitude"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[latitude]" />
+                        <inputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[longitude]"
+                          cachedDataType="r8"
+                          cachedName="longitude"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[longitude]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geography_key]"
+                          dataType="i4"
+                          name="geography_key" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="city_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                          dataType="wstr"
+                          length="50"
+                          name="county_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
+                          dataType="wstr"
+                          length="10"
+                          name="state_code" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          name="state_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                          dataType="wstr"
+                          length="50"
+                          name="country" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
+                          dataType="r8"
+                          name="longitude" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
+                          dataType="r8"
+                          name="latitude" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\dim\Dim Geography\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Geography\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Geography\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\dim\Dim Geography\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select c.city_name, co.county_name, s.state_code,
+s.state_name, s.country, c.latitude,c.longitude
+from NDS.City c
+join NDS.County co on co.county_id= c.county_id
+join NDS.State s on s.state_code= co.state_code
+
+union
+
+select
+c.city_name, co.county_name, s.state_code, 
+s.state_name, s.country, start_lat as latitude, start_lng as longitude
+from NDS.Accident a
+join NDS.City c on a.city_id= c.city_id
+join NDS.County co on co.county_id= c.county_id
+join NDS.State s on s.state_code= co.state_code
+
+union
+
+select
+c.city_name, co.county_name, s.state_code, 
+s.state_name, s.country,end_lat as latitude, end_lng as longitude
+from NDS.Accident a
+join NDS.City c on a.city_id= c.city_id
+join NDS.County co on co.county_id= c.county_id
+join NDS.State s on s.state_code= co.state_code
+
+union 
+
+select
+c.city_name, co.county_name, s.state_code,
+s.state_name, s.country, v.latitude, v.longitude
+from NDS.Violation v
+join NDS.City c on c.city_id= v.city_id
+join NDS.County co on co.county_id = c.county_id
+join NDS.State s on s.state_code= v.state</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\dim\Dim Geography\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city_name]"
+                          length="255"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]"
+                          name="city_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                          length="50"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]"
+                          name="county_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_code]"
+                          length="10"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_code]"
+                          name="state_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                          length="100"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]"
+                          name="state_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                          length="50"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]"
+                          name="country"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[latitude]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[latitude]"
+                          name="latitude"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[longitude]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].Columns[longitude]"
+                          name="longitude"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="city_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                          dataType="wstr"
+                          length="50"
+                          name="county_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_code]"
+                          dataType="wstr"
+                          length="10"
+                          name="state_code" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          name="state_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                          dataType="wstr"
+                          length="50"
+                          name="country" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                          dataType="r8"
+                          name="latitude" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                          dataType="r8"
+                          name="longitude" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city_name]"
+                          name="city_name" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                          name="county_name" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_code]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_code]"
+                          name="state_code" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                          name="state_name" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country]"
+                          name="country" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                          dataType="r8"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                          name="latitude" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                          dataType="r8"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                          name="longitude" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\dim\Dim Geography.Paths[OLE DB Source Output]"
+                  endId="Package\dim\Dim Geography\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\dim\Dim Geography\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\dim\Dim Vehicle"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
@@ -1043,6 +1518,975 @@ join NDS.Vehicle_Type_Map t on t.vehicle_id= v.vehicle_type_id</property>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\dim\Driver Type"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C7FB71B5-C75C-4924-9D8F-CBE4461AE4E5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Driver Type"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\dim\Driver Type\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Dim].[Driver_Type]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\dim\Driver Type\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[driver_type_id]"
+                          cachedDataType="i4"
+                          cachedName="driver_type_id"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_type_id]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[driver_type_id]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gender]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="gender"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[gender]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[driver_state]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="driver_state"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_state]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[driver_state]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[driver_city_id]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="driver_city_id"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_city_id]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[driver_city_id]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[commercial_license]"
+                          cachedDataType="bool"
+                          cachedName="commercial_license"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_license]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[commercial_license]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_id]"
+                          cachedDataType="i4"
+                          cachedName="county_id"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_id]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[county_id]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="county_name"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[county_name]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state_name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="state_name"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[state_name]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[race]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="race"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_race]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[race]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="city_name"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_city_name]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[city_name]" />
+                        <inputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[country]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="country"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[country]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_type_key]"
+                          dataType="i4"
+                          name="driver_type_key" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_type_id]"
+                          dataType="i4"
+                          name="driver_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_race]"
+                          dataType="wstr"
+                          length="255"
+                          name="driver_race" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                          dataType="wstr"
+                          length="50"
+                          name="gender" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_state]"
+                          dataType="wstr"
+                          length="50"
+                          name="driver_state" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_city_id]"
+                          dataType="i4"
+                          name="driver_city_id" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_license]"
+                          dataType="bool"
+                          name="commercial_license" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[driver_city_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="driver_city_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_id]"
+                          dataType="i4"
+                          name="county_id" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="county_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="state_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                          dataType="wstr"
+                          length="255"
+                          name="country" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\dim\Driver Type\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\dim\Driver Type\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\dim\Driver Type\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\dim\Driver Type\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+dt.*, c.city_name, co.county_id, co.county_name,s.state_name, s.country
+from NDS.Driver_Type dt
+join NDS.City c on c.city_id= dt.driver_city_id
+join NDS.County co on co.county_id = c.county_id
+join NDS.State s on s.state_code=dt.driver_state</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\dim\Driver Type\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_type_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[driver_type_id]"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_type_id]"
+                          name="driver_type_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[race]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[race]"
+                          length="100"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[race]"
+                          name="race"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[gender]"
+                          name="gender"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_state]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[driver_state]"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_state]"
+                          name="driver_state"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_city_id]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[driver_city_id]"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_city_id]"
+                          name="driver_city_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_license]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_license]"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_license]"
+                          name="commercial_license"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city_name]"
+                          length="255"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]"
+                          name="city_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[county_id]"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_id]"
+                          name="county_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]"
+                          name="county_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                          length="100"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]"
+                          name="state_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]"
+                          name="country"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[driver_type_id]"
+                          dataType="i4"
+                          name="driver_type_id" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[race]"
+                          dataType="wstr"
+                          length="100"
+                          name="race" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                          dataType="wstr"
+                          length="50"
+                          name="gender" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[driver_state]"
+                          dataType="wstr"
+                          length="50"
+                          name="driver_state" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[driver_city_id]"
+                          dataType="wstr"
+                          length="50"
+                          name="driver_city_id" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_license]"
+                          dataType="bool"
+                          name="commercial_license" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="city_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[county_id]"
+                          dataType="i4"
+                          name="county_id" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                          dataType="wstr"
+                          length="50"
+                          name="county_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          name="state_name" />
+                        <externalMetadataColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                          dataType="wstr"
+                          length="50"
+                          name="country" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[driver_type_id]"
+                          dataType="i4"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[driver_type_id]"
+                          name="driver_type_id" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[race]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[race]"
+                          name="race" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gender]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gender]"
+                          name="gender" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[driver_state]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[driver_state]"
+                          name="driver_state" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[driver_city_id]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[driver_city_id]"
+                          name="driver_city_id" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_license]"
+                          dataType="bool"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_license]"
+                          name="commercial_license" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city_name]"
+                          name="city_name" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[county_id]"
+                          dataType="i4"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[county_id]"
+                          name="county_id" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                          name="county_name" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                          name="state_name" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country]"
+                          name="country" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\dim\Driver Type\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\dim\Driver Type\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[driver_type_id]"
+                          cachedDataType="i4"
+                          cachedName="driver_type_id"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_type_id]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[race]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="race"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[race]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[gender]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="gender"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[gender]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[driver_state]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="driver_state"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_state]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[driver_city_id]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="driver_city_id"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_city_id]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[commercial_license]"
+                          cachedDataType="bool"
+                          cachedName="commercial_license"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_license]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[city_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="city_name"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[county_id]"
+                          cachedDataType="i4"
+                          cachedName="county_id"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_id]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[county_name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="county_name"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[state_name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="state_name"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim\Driver Type\Sort.Inputs[Sort Input].Columns[country]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="country"
+                          lineageId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\dim\Driver Type\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[driver_type_id]"
+                          dataType="i4"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[driver_type_id]"
+                          name="driver_type_id"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_type_id]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[race]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[race]"
+                          name="race">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[race]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[gender]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[gender]"
+                          name="gender">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[gender]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[driver_state]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[driver_state]"
+                          name="driver_state">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_state]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[driver_city_id]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[driver_city_id]"
+                          name="driver_city_id">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[driver_city_id]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[commercial_license]"
+                          dataType="bool"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[commercial_license]"
+                          name="commercial_license">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_license]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[city_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[city_name]"
+                          name="city_name">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[county_id]"
+                          dataType="i4"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[county_id]"
+                          name="county_id">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_id]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[county_name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[county_name]"
+                          name="county_name">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[state_name]"
+                          name="state_name">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[country]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\dim\Driver Type\Sort.Outputs[Sort Output].Columns[country]"
+                          name="country">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output].Columns[country]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\dim\Driver Type.Paths[OLE DB Source Output]"
+                  endId="Package\dim\Driver Type\Sort.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\dim\Driver Type\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\dim\Driver Type.Paths[Sort Output]"
+                  endId="Package\dim\Driver Type\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Sort Output"
+                  startId="Package\dim\Driver Type\Sort.Outputs[Sort Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\dim\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{63F78839-094B-4DCC-9348-B3B05EFAC9FD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{8C95E8EB-C603-4F08-A063-7A6DAACABFE6}"
+              SQLTask:SqlStatementSource="truncate table Dim.Date&#xA;truncate table Dim.Vehicle&#xA;truncate table Dim.Geography&#xA;truncate table Dim.Driver_Type" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
@@ -1053,6 +2497,22 @@ join NDS.Vehicle_Type_Map t on t.vehicle_id= v.vehicle_type_id</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\dim\Dim Vehicle" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\dim.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{D29811B5-1EB2-4972-AC67-B821C7C11980}"
+          DTS:From="Package\dim\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\dim\Dim Date" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\dim.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{BFF466D5-9FEB-40FE-8F58-415AC5833390}"
+          DTS:From="Package\dim\Dim Vehicle"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\dim\Dim Geography" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -1067,29 +2527,37 @@ join NDS.Vehicle_Type_Map t on t.vehicle_id= v.vehicle_type_id</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="122.4,41.6"
           Id="Package\dim\Dim Date"
-          TopLeft="45.4571431718919,6.84705872566636" />
+          TopLeft="45.4571431718919,89.4352939473923" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\dim\Dim Geography"
+          TopLeft="25.9714287919047,250.623529112143" />
         <NodeLayout
           Size="133.6,41.6"
           Id="Package\dim\Dim Vehicle"
-          TopLeft="44.9142860244733,92.5294115924403" />
+          TopLeft="34.9142860031859,175.117646814166" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\dim\Execute SQL Task"
+          TopLeft="24.2000002660921,16.6941175538879" />
         <EdgeLayout
           Id="Package\dim.PrecedenceConstraints[Constraint]"
-          TopLeft="109.185714598183,48.4470587256664">
+          TopLeft="104.185714587539,131.035293947392">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44.0823528667739"
+              EndConnector="0,44.0823528667738"
               Start="0,0"
-              End="0,36.5823528667739">
+              End="0,36.5823528667738">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.5823528667739" />
+                    End="0,36.5823528667738" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1098,13 +2566,61 @@ join NDS.Vehicle_Type_Map t on t.vehicle_id= v.vehicle_type_id</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim.PrecedenceConstraints[Constraint 1]"
+          TopLeft="106.028571718992,58.2941175538879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.1411763935044"
+              Start="0,0"
+              End="0,23.6411763935044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6411763935044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim.PrecedenceConstraints[Constraint 2]"
+          TopLeft="101.642857397545,216.717646814166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.9058822979769"
+              Start="0,0"
+              End="0,26.4058822979769">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4058822979769" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\dim\Driver Type"
+          TopLeft="221.507143493863,17.0647057734301" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="385.6,236.8"
-          Size="385.6,280"
+          PanelSize="385.6,347.2"
+          Size="385.6,390.4"
           Id="Package\dim"
-          TopLeft="100.71428592868,61.1764705346118" />
+          TopLeft="77.8571430228803,64.2352940613424" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1112,47 +2628,49 @@ join NDS.Vehicle_Type_Map t on t.vehicle_id= v.vehicle_type_id</property>
     design-time-name="Package\dim\Dim Date">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\dim\Dim Date\OLE DB Source"
+          TopLeft="173.571428940916,64.8470587940366" />
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\dim\Dim Date\OLE DB Destination"
           TopLeft="138.571428866411,313.529411489885" />
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\dim\Dim Date\OLE DB Source"
-          TopLeft="258.571429121859,103.082352878169" />
         <EdgeLayout
           Id="Package\dim\Dim Date.Paths[OLE DB Source Output]"
-          TopLeft="333.371429121859,144.682352878169">
+          TopLeft="248.371428940916,106.447058794037">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-109.600000255449,168.847058611716"
+              EndConnector="-24.6000000745054,207.082352695848"
               Start="0,0"
-              End="-109.600000255449,161.347058611716">
+              End="-24.6000000745054,199.582352695848">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,80.4235293058582" />
+                    End="0,99.5411763479242" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,80.4235293058582"
-                    Point2="0,84.4235293058582"
-                    Point3="-4,84.4235293058582" />
+                    Point1="0,99.5411763479242"
+                    Point2="0,103.541176347924"
+                    Point3="-4,103.541176347924" />
                   <mssgle:LineSegment
-                    End="-105.600000255449,84.4235293058582" />
+                    End="-20.6000000745054,103.541176347924" />
                   <mssgle:CubicBezierSegment
-                    Point1="-105.600000255449,84.4235293058582"
-                    Point2="-109.600000255449,84.4235293058582"
-                    Point3="-109.600000255449,88.4235293058582" />
+                    Point1="-20.6000000745054,103.541176347924"
+                    Point2="-24.6000000745054,103.541176347924"
+                    Point3="-24.6000000745054,107.541176347924" />
                   <mssgle:LineSegment
-                    End="-109.600000255449,161.347058611716" />
+                    End="-24.6000000745054,199.582352695848" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1180,50 +2698,123 @@ join NDS.Vehicle_Type_Map t on t.vehicle_id= v.vehicle_type_id</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\dim\Dim Vehicle">
+    design-time-name="Package\dim\Dim Geography">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\dim\Dim Vehicle\OLE DB Destination"
-          TopLeft="314.999995306134,346.999994829297" />
-        <NodeLayout
           Size="149.6,41.6"
-          Id="Package\dim\Dim Vehicle\OLE DB Source"
-          TopLeft="401.999994009733,136.999997958541" />
+          Id="Package\dim\Dim Geography\OLE DB Source"
+          TopLeft="299.999995529652,91.9999986290932" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\dim\Dim Geography\OLE DB Destination"
+          TopLeft="310.999995365739,263.999996066094" />
         <EdgeLayout
-          Id="Package\dim\Dim Vehicle.Paths[OLE DB Source Output]"
-          TopLeft="476.799994009733,178.599997958541">
+          Id="Package\dim\Dim Geography.Paths[OLE DB Source Output]"
+          TopLeft="374.799995529652,133.599998629093">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-76.5999987035991,168.399996870756"
+              EndConnector="21.3999998360871,130.399997437"
               Start="0,0"
-              End="-76.5999987035991,160.899996870756">
+              End="21.3999998360871,122.899997437">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,80.1999984353781" />
+                    End="0,61.1999987185002" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,80.1999984353781"
-                    Point2="0,84.1999984353781"
-                    Point3="-4,84.1999984353781" />
+                    Point1="0,61.1999987185002"
+                    Point2="0,65.1999987185002"
+                    Point3="4,65.1999987185002" />
                   <mssgle:LineSegment
-                    End="-72.5999987035991,84.1999984353781" />
+                    End="17.3999998360871,65.1999987185002" />
                   <mssgle:CubicBezierSegment
-                    Point1="-72.5999987035991,84.1999984353781"
-                    Point2="-76.5999987035991,84.1999984353781"
-                    Point3="-76.5999987035991,88.1999984353781" />
+                    Point1="17.3999998360871,65.1999987185002"
+                    Point2="21.3999998360871,65.1999987185002"
+                    Point3="21.3999998360871,69.1999987185002" />
                   <mssgle:LineSegment
-                    End="-76.5999987035991,160.899996870756" />
+                    End="21.3999998360871,122.899997437" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim\Dim Geography\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim\Dim Geography\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\dim\Dim Vehicle">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\dim\Dim Vehicle\OLE DB Source"
+          TopLeft="401.999994009733,136.999997958541" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\dim\Dim Vehicle\OLE DB Destination"
+          TopLeft="314.999995306134,346.999994829297" />
+        <EdgeLayout
+          Id="Package\dim\Dim Vehicle.Paths[OLE DB Source Output]"
+          TopLeft="476.799994009733,178.599997958541">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-76.599998703599,168.399996870756"
+              Start="0,0"
+              End="-76.599998703599,160.899996870756">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.199998435378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,80.199998435378"
+                    Point2="0,84.199998435378"
+                    Point3="-4,84.199998435378" />
+                  <mssgle:LineSegment
+                    End="-72.599998703599,84.199998435378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-72.599998703599,84.199998435378"
+                    Point2="-76.599998703599,84.199998435378"
+                    Point3="-76.599998703599,88.199998435378" />
+                  <mssgle:LineSegment
+                    End="-76.599998703599,160.899996870756" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1247,6 +2838,103 @@ join NDS.Vehicle_Type_Map t on t.vehicle_id= v.vehicle_type_id</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\dim\Driver Type">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\dim\Driver Type\OLE DB Source"
+          TopLeft="411.999993860722,99.9999985098839" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\dim\Driver Type\OLE DB Destination"
+          TopLeft="387.99999421835,314.999995306134" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\dim\Driver Type\Sort"
+          TopLeft="432.999993547797,211.599997109175" />
+        <EdgeLayout
+          Id="Package\dim\Driver Type.Paths[OLE DB Source Output]"
+          TopLeft="484.299993704259,141.599998509884">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69.9999985992909"
+              Start="0,0"
+              End="0,62.4999985992909">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.4999985992909" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim\Driver Type.Paths[Sort Output]"
+          TopLeft="481.799993547797,253.199997109175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.59999932944777,61.7999981969595"
+              Start="0,0"
+              End="-8.59999932944777,54.2999981969595">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8999990984798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.8999990984798"
+                    Point2="0,30.8999990984798"
+                    Point3="-4,30.8999990984798" />
+                  <mssgle:LineSegment
+                    End="-4.59999932944777,30.8999990984798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.59999932944777,30.8999990984798"
+                    Point2="-8.59999932944777,30.8999990984798"
+                    Point3="-8.59999932944777,34.8999990984798" />
+                  <mssgle:LineSegment
+                    End="-8.59999932944777,54.2999981969595" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim\Driver Type\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim\Driver Type\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
