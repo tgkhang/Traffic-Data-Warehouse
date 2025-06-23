@@ -1,0 +1,181 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="ce5d1900-78f6-4fa4-a4b7-c934c1235e40" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Violation</ID>
+  <Name>Violation</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="7952de78-e8e9-4997-90f3-7cc3f0a2eefc">
+    <DataSourceViewID>DW Traffic</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="c4d48614-4ba4-4add-a4c2-3054649ff6ae">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="a3dcb049-b189-4b71-99fa-da8aad1e7e4e">
+      <ID>Violation Id</ID>
+      <Name>Violation Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f603fbb8-08ea-4a4a-9736-9b6daf566d38">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1d6c8356-4fd5-4c8b-a13d-7a73a51e5e8d">
+            <TableID>Fact_Violation</TableID>
+            <ColumnID>violation_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="0fc2b8e7-e7a5-4327-828b-93d5eca0bc6e">
+          <AttributeID>Driver Type Key</AttributeID>
+          <Name>Driver Type Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="783303c1-3884-4f38-9a75-b8a49c6d4dd1">
+          <AttributeID>Datetime Key</AttributeID>
+          <Name>Datetime Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e05307b2-e759-4b4c-8ca4-8dd3b6d13e88">
+          <AttributeID>Vehicle Key</AttributeID>
+          <Name>Vehicle Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3025199e-42cd-427a-befe-08792f79debb">
+          <AttributeID>Agency Key</AttributeID>
+          <Name>Agency Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c065bef4-0f54-4b91-839a-1c1180e31cbe">
+          <AttributeID>Geography Key</AttributeID>
+          <Name>Geography Key</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7a4033f7-2a93-4896-8daf-6be5af8638ed">
+      <ID>Driver Type Key</ID>
+      <Name>Driver Type Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a1e3bff0-04b8-4ea8-af03-79a3fc7b8e91">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fbedc304-f8a5-4abd-933d-ed8f91f8e80a">
+            <TableID>Fact_Violation</TableID>
+            <ColumnID>driver_type_key</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9bf456f1-4ff9-42e3-a153-94230dfad08a">
+      <ID>Datetime Key</ID>
+      <Name>Datetime Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c646c581-e880-486b-b91a-428d2077607a">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6c70d135-833e-4d97-bfec-2fb79a8c6a96">
+            <TableID>Fact_Violation</TableID>
+            <ColumnID>datetime_key</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="4285ef62-14a5-473c-8058-2eb65bc7267f">
+      <ID>Vehicle Key</ID>
+      <Name>Vehicle Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c5990eab-0961-4e1b-aa9e-23878278c2a2">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="656fb072-d360-4936-9956-54e19f0705de">
+            <TableID>Fact_Violation</TableID>
+            <ColumnID>vehicle_key</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bf90ce77-9fc6-4703-89bc-f487a2bb35ad">
+      <ID>Agency Key</ID>
+      <Name>Agency Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a22deb24-8934-4ee6-aab8-980e81b989e4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fc0cdb42-3011-485e-9b21-3ec844bec42a">
+            <TableID>Fact_Violation</TableID>
+            <ColumnID>agency_key</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="97c0ee82-8816-49f5-a61c-ffc194227239">
+      <ID>Geography Key</ID>
+      <Name>Geography Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="87c87439-e63b-4fcd-bcfd-83be159c5a60">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2908701e-7526-4cbc-899e-59aed2f77638">
+            <TableID>Fact_Violation</TableID>
+            <ColumnID>geography_key</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

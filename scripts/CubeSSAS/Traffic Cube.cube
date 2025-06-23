@@ -1,0 +1,1153 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="45306eb5-7ada-4288-847d-d969db0ba0ae" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Traffic Cube</ID>
+  <Name>Traffic Cube</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="c119364b-cfc6-49fd-b3bb-1ba6d1684980">
+      <ID>Accident</ID>
+      <Name>Accident</Name>
+      <DimensionID>Accident</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="cdcf3fea-01a6-4c11-8b07-33ca147bf786">
+          <AttributeID>Accident Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e91f626e-e7e2-4e41-88c1-70ce46e1038b">
+          <AttributeID>Start Location Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d8e9b254-b289-4720-8d0a-d6663a7b9742">
+          <AttributeID>End Datetime Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5397cbee-9cea-45a7-ae3c-e6c55544e1f6">
+          <AttributeID>Start Datetime Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fdcd3299-df26-43dd-9920-7751c4e82c1f">
+          <AttributeID>Weather Snapshot Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ce301cdc-a81f-4600-b82e-c64367751449">
+          <AttributeID>End Location Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="3f51e228-e1fb-4849-b3fa-9d2ad3252b0a">
+      <ID>Start Location</ID>
+      <Name>Start Location</Name>
+      <DimensionID>Geography</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ce068d10-9d1c-40ec-a5ab-2599510b2e91">
+          <AttributeID>Geography Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="7b0aacdb-ea3e-4605-b967-dd293923bf03">
+      <ID>End Datetime</ID>
+      <Name>End Datetime</Name>
+      <DimensionID>Datetime</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="0232a247-d9fe-4274-9746-78ef24a8112d">
+          <AttributeID>Datetime Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="5e34e978-b85f-473b-b0cc-7e0d99859605">
+      <ID>Start Datetime</ID>
+      <Name>Start Datetime</Name>
+      <DimensionID>Datetime</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="23bb5bab-28d5-4fc3-b55c-3245508bb991">
+          <AttributeID>Datetime Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="432ce000-ad87-4d7c-91ab-003c05577da8">
+      <ID>Weather Snapshot</ID>
+      <Name>Weather Snapshot</Name>
+      <DimensionID>Weather Snapshot</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="07c2864f-a077-43ca-a93d-51c67acbbbc4">
+          <AttributeID>Weather Snapshot Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="5d955aee-6867-4764-878c-9127acce48ea">
+      <ID>End Location</ID>
+      <Name>End Location</Name>
+      <DimensionID>Geography</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="4b1edf04-0cb9-4967-a242-00758537106d">
+          <AttributeID>Geography Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="1ccb8c40-2de3-4a3d-8a13-8e7f1a5c711f">
+      <ID>City Traffic Analysis</ID>
+      <Name>City Traffic Analysis</Name>
+      <DimensionID>City Traffic Analysis</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="752f5c9b-0574-4d7b-a7cd-db8cdc25b088">
+          <AttributeID>City Traffic Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a18ed2d2-b740-470b-9024-17abd4a59d6d">
+          <AttributeID>Geography Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="87e40bc4-33f8-4ac3-8342-71fe0ed0aca5">
+      <ID>Geography</ID>
+      <Name>Geography</Name>
+      <DimensionID>Geography</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a134d79f-f05a-4547-952f-e4953c222317">
+          <AttributeID>Geography Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="abf19474-1163-4b9d-a979-a481314b2cdd">
+      <ID>Violation By Vehicle Type Monthly</ID>
+      <Name>Violation By Vehicle Type Monthly</Name>
+      <DimensionID>Violation By Vehicle Type Monthly</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="9f47cfd3-7f93-4c78-a0e0-35754868329e">
+          <AttributeID>Violation Vehicle Monthly Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ba3c14a5-0a7b-4b2b-8645-6d30732f7eca">
+          <AttributeID>Vehicle Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="27662c2a-808d-4283-974c-2277f949e485">
+          <AttributeID>Geography Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="dbc39b9e-9f48-4319-8e83-a290cdc89fec">
+      <ID>Vehicle</ID>
+      <Name>Vehicle</Name>
+      <DimensionID>Vehicle</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="8020a75c-7911-432f-9707-46f9d42e3176">
+          <AttributeID>Vehicle Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="063df722-482f-4525-a446-c8a807128574">
+      <ID>Violation</ID>
+      <Name>Violation</Name>
+      <DimensionID>Violation</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="6291188d-731e-4a7d-89a8-fa7f60fc7bcd">
+          <AttributeID>Violation Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7a3c2dfe-2a5f-4239-99b7-00f0e1cdefd8">
+          <AttributeID>Driver Type Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8f32194c-bf26-4cd9-9dd5-bc873f34e9cc">
+          <AttributeID>Datetime Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c168eaf4-c07c-457b-89af-c4dd5481c719">
+          <AttributeID>Vehicle Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ccaf4464-3186-47fa-bec3-372812be94a3">
+          <AttributeID>Agency Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d9d6a81a-ef9c-4217-adb3-a64b0262b3f8">
+          <AttributeID>Geography Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="e4a8b59b-5dc4-4a52-8ad5-4571cc2203a9">
+      <ID>Driver Type</ID>
+      <Name>Driver Type</Name>
+      <DimensionID>Driver Type</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="70f6a3a9-3355-48a7-8536-78774daeceae">
+          <AttributeID>Driver Type Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="e48daad5-bb81-445a-80b4-6145b84d93a5">
+      <ID>Datetime</ID>
+      <Name>Datetime</Name>
+      <DimensionID>Datetime</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="bcd56bb7-f56e-4760-b126-fc5f62ae8265">
+          <AttributeID>Datetime Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="fc44c566-06e2-4ed2-9ab6-2203829e48b0">
+      <ID>Agency</ID>
+      <Name>Agency</Name>
+      <DimensionID>Agency</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="3b013017-28b1-41e0-b194-0da30d7db54b">
+          <AttributeID>Agency Key</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="c59ba054-57aa-409d-bc6e-e7894de12866">
+      <ID>Accident</ID>
+      <Name>Accident</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="34af7d5a-c0fe-4976-af58-c914cd21b7f6">
+          <ID>Start Lat</ID>
+          <Name>Start Lat</Name>
+          <Source dwd:design-time-name="555806c2-5b4d-4869-8b29-3975f4b8ea20">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="36636f75-03f8-4158-8f6c-8b5ed8d2321c">
+              <TableID>Fact_Accident</TableID>
+              <ColumnID>start_lat</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5cf7a283-8123-4c84-a80f-d809d0703fef">
+          <ID>Start Lng</ID>
+          <Name>Start Lng</Name>
+          <Source dwd:design-time-name="c2e354c8-9942-48a4-8227-f097d573d3df">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="66e742db-5879-4bb0-8cc5-6b9511af178f">
+              <TableID>Fact_Accident</TableID>
+              <ColumnID>start_lng</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="13ac6b13-d9fb-4c92-843c-eb472f723dd9">
+          <ID>End Lat</ID>
+          <Name>End Lat</Name>
+          <Source dwd:design-time-name="f73bf2ee-c1af-4f3a-a653-ec4a017d013b">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="0b6ec780-a216-4f52-882f-51f46ff16b87">
+              <TableID>Fact_Accident</TableID>
+              <ColumnID>end_lat</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="f4f9e1f8-a66d-4eea-8238-bacefafab70e">
+          <ID>End Lng</ID>
+          <Name>End Lng</Name>
+          <Source dwd:design-time-name="8a484c91-5d0e-4460-8206-315a02c3dc1b">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="fa7dad76-d563-45fa-bedf-69ed43e3c3ec">
+              <TableID>Fact_Accident</TableID>
+              <ColumnID>end_lng</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="e20ecdb1-ed80-476b-8158-312aa3793ddb">
+          <ID>Severity</ID>
+          <Name>Severity</Name>
+          <Source dwd:design-time-name="7d71228f-ffa3-4ce5-bb04-0608d9adbf81">
+            <DataType>UnsignedInt</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="07b44b92-ad2b-408c-ad91-001b75fc863b">
+              <TableID>Fact_Accident</TableID>
+              <ColumnID>severity</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="112d56ef-7cf5-49b0-b2a3-1952f25ddaaf">
+          <ID>Distance M</ID>
+          <Name>Distance M</Name>
+          <Source dwd:design-time-name="298b6acc-1737-454c-a038-c53289b0b99c">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7dd7cc8c-e66a-4286-bb52-9eda7a4b8363">
+              <TableID>Fact_Accident</TableID>
+              <ColumnID>distance_m</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="15a6742a-32a9-4196-9504-e1197ade078c">
+          <ID>Accident Count</ID>
+          <Name>Accident Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="3ca924d8-3513-4db9-ad03-43c28887e01a">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="2dea5663-c5d9-4855-9f0d-5a7e9c890025">
+              <TableID>Fact_Accident</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="35a66891-5396-4e10-889e-00fef0118057">
+          <CubeDimensionID>Accident</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6bb37bec-be2e-4e59-be40-204d06a6a126">
+              <AttributeID>Accident Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a3cb4f28-960e-4259-b4ae-ec8d6ee51b99">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="8688bfad-bba9-4a56-b797-9a186d67e6db">
+                    <TableID>Fact_Accident</TableID>
+                    <ColumnID>accident_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0c50526e-20d2-48d2-87b3-0c0dc9dc99a8">
+          <CubeDimensionID>Start Location</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="15523ebd-ad12-4365-8b72-86d61eb1fbc1">
+              <AttributeID>Geography Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9bddbf66-f180-467f-a8fe-bdd80c8f9bbe">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b2afcc0d-583f-49ca-98f3-93dd88dcbf5c">
+                    <TableID>Fact_Accident</TableID>
+                    <ColumnID>start_location_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="04156707-746d-4973-8897-226aba968801">
+          <CubeDimensionID>End Datetime</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ee97c4d0-06bd-4612-b14c-cc1224421192">
+              <AttributeID>Datetime Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0fcbcb70-b75b-4dec-8a41-ed6a9a1090e7">
+                  <DataType>BigInt</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3e134763-c0bb-4e9e-9612-2ef1aeb02e14">
+                    <TableID>Fact_Accident</TableID>
+                    <ColumnID>end_datetime_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a4028ccc-1cf3-4470-ab22-ee68a49fa795">
+          <CubeDimensionID>Start Datetime</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="796a9a67-0f80-4e31-9a0e-27df146b7f49">
+              <AttributeID>Datetime Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9120816c-eec9-4418-9955-347602fd083a">
+                  <DataType>BigInt</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="bcd36dc1-441f-4ffe-9789-449015391122">
+                    <TableID>Fact_Accident</TableID>
+                    <ColumnID>start_datetime_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="576c08db-c792-4d1e-8653-896812a7049e">
+          <CubeDimensionID>Weather Snapshot</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="1e36c258-267d-4888-87c7-b9bda9ed6717">
+              <AttributeID>Weather Snapshot Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="000c0116-143a-4c5d-9b3a-1f7e37e3c046">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="5b9dab7b-da8e-466f-8975-0ac063426d84">
+                    <TableID>Fact_Accident</TableID>
+                    <ColumnID>weather_snapshot_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e285e61a-1f9d-47aa-8003-e73ca0a6df16">
+          <CubeDimensionID>End Location</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d310b8f1-3320-4638-a890-2dbaee3751d7">
+              <AttributeID>Geography Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3d486f9e-7fc0-4a8c-8d3d-22d3f48769ec">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ed6aa316-7c5b-44e5-86cf-86e64d7fdf01">
+                    <TableID>Fact_Accident</TableID>
+                    <ColumnID>end_location_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="8b293cac-1bbf-4664-8ff9-b715fedb9d32">
+      <ID>City Traffic Analysis</ID>
+      <Name>City Traffic Analysis</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="c5062a7e-597a-4386-b550-9028df092eb9">
+          <ID>Year Month Key</ID>
+          <Name>Year Month Key</Name>
+          <Source dwd:design-time-name="e1bdaae6-20a8-4cbd-85c5-b56d3d23d955">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7d4a3073-bb1a-46a5-ad2b-27756692492b">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>year_month_key</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="3d149c77-27d5-4f26-865b-225ec38a8ec6">
+          <ID>Total Violations</ID>
+          <Name>Total Violations</Name>
+          <Source dwd:design-time-name="3ed757e6-4bdb-44ed-9a65-b04d82ae29c4">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="81fc9746-31b3-49e0-a9c9-51f35e7b5b5c">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>total_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="966b64b4-73be-424c-86bb-13349bf0392f">
+          <ID>Severe Violations</ID>
+          <Name>Severe Violations</Name>
+          <Source dwd:design-time-name="50ebbb82-9c76-4378-94b2-23fb0ae4bfaa">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="35e323d0-30d7-4eb0-bfdb-b20dc6ae48a4">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>severe_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5c08aaa5-f119-4a5a-be48-4fa06c3f5b69">
+          <ID>Minor Violations</ID>
+          <Name>Minor Violations</Name>
+          <Source dwd:design-time-name="a6ace695-e5c8-45ad-aae9-4a23890a9558">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="9ac1dbb1-2f95-4dbe-bd4a-bc4a89ff7440">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>minor_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="319cfdc9-cf2c-44b1-b6d4-54f73f661a2f">
+          <ID>Speeding Violations</ID>
+          <Name>Speeding Violations</Name>
+          <Source dwd:design-time-name="53a718bd-9c01-47d9-b537-b5f76f2a27e8">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7743d1a1-9e56-44fa-aa05-f77f6476098a">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>speeding_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="e851252a-8525-4494-91d4-0dc03f6dd325">
+          <ID>Parking Violations</ID>
+          <Name>Parking Violations</Name>
+          <Source dwd:design-time-name="89f684ff-bf14-420a-8b9c-3293495ca109">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="00f0022a-ced0-4564-b2c8-01c1438c6049">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>parking_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="b211f4e2-e101-485f-ae4f-ff1a73576422">
+          <ID>Dui Violations</ID>
+          <Name>Dui Violations</Name>
+          <Source dwd:design-time-name="ea6f9a4d-7a9e-4642-a27d-ecbd4874a7e5">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="01de7421-3bef-42fa-8b22-1048960fbfcb">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>dui_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="37b2e6ad-bcbc-443d-8266-cdd2e9d4285d">
+          <ID>Commercial Violations</ID>
+          <Name>Commercial Violations</Name>
+          <Source dwd:design-time-name="0bacb12b-7dc1-46e6-a273-cec47f0dfa51">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="5de67535-02c9-4341-98ba-5cd3f709b123">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>commercial_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="f7d03331-24a7-47f8-84df-7e841f21b2c2">
+          <ID>Work Zone Violations</ID>
+          <Name>Work Zone Violations</Name>
+          <Source dwd:design-time-name="590eaa07-01b7-45e3-8713-073afc292959">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="74b33fd2-2849-4a60-a972-5dda57d7c316">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>work_zone_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="70684211-dc13-49d8-a409-9348379a947d">
+          <ID>Total Accidents</ID>
+          <Name>Total Accidents</Name>
+          <Source dwd:design-time-name="14aadd11-a4ec-4ab6-9e16-210546b5cfda">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="5b4b7a72-b080-4926-86fb-5da071c55e55">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>total_accidents</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="dbe9cccf-a122-49d8-a2fe-046fcdf68dcb">
+          <ID>Severe Accidents</ID>
+          <Name>Severe Accidents</Name>
+          <Source dwd:design-time-name="935afbbe-fa4c-48b8-ab22-bf37df7e3b24">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="a0860ac5-13c4-47c8-aabf-4018000322b2">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>severe_accidents</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="8d70ff08-fe4e-4007-a352-76c5bf50f0cf">
+          <ID>Moderate Accidents</ID>
+          <Name>Moderate Accidents</Name>
+          <Source dwd:design-time-name="d36e27dd-61b1-44d6-807d-b9be0a9368af">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="343f1462-e58d-4c34-ae0c-cfa0d62905d6">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>moderate_accidents</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="685a6e67-22d7-4d14-a401-0e79319ebaf8">
+          <ID>Minor Accidents</ID>
+          <Name>Minor Accidents</Name>
+          <Source dwd:design-time-name="053db965-450e-4877-b48c-b33df379c4b2">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d7eaa94c-da50-44b9-a99d-435f74f3fa6c">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>minor_accidents</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="7971c5e8-2b2d-443b-a0b6-26e198673498">
+          <ID>Fatal Accidents</ID>
+          <Name>Fatal Accidents</Name>
+          <Source dwd:design-time-name="77923fb6-8621-4eca-8980-35d65f46922d">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="74ad3143-c37c-41a4-a9fa-6037037f62d1">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>fatal_accidents</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="08c63e09-ff03-46b7-885f-9db1ff4aceef">
+          <ID>Injury Accidents</ID>
+          <Name>Injury Accidents</Name>
+          <Source dwd:design-time-name="f09e8bfe-77df-4318-869d-7d08ece81f06">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="f35ed25d-07d0-4d04-8abb-6706754f0d46">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>injury_accidents</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5d955e6e-f18e-431b-929b-f4b11f0d6f9a">
+          <ID>Property Damage Accidents</ID>
+          <Name>Property Damage Accidents</Name>
+          <Source dwd:design-time-name="74e9ed79-3a0b-45ab-b12d-f1811fb04443">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="13475a50-5f1e-45f7-bf41-b4845fd347c0">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>property_damage_accidents</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="d03f1d6e-37e2-42eb-a6d2-d234143bb4a1">
+          <ID>Violations Leading To Accidents</ID>
+          <Name>Violations Leading To Accidents</Name>
+          <Source dwd:design-time-name="0a95fbfe-dc31-47b8-bdd0-97e0cc352227">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="20d2462b-f4c3-4cd8-bc59-8a5e7fced87e">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>violations_leading_to_accidents</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="56c79f12-b722-4c78-aa24-ba9f673bd72c">
+          <ID>Accident Violation Ratio</ID>
+          <Name>Accident Violation Ratio</Name>
+          <Source dwd:design-time-name="be7a6992-2c2b-4d4a-b129-020baf2b76c3">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="0cd4aa79-c4ff-4973-b212-3fe28ed44ee1">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>accident_violation_ratio</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="235fe075-5c00-4849-a854-63bdac128fde">
+          <ID>Avg Accident Severity</ID>
+          <Name>Avg Accident Severity</Name>
+          <Source dwd:design-time-name="ac1967ec-e074-494a-8842-1ce868fbe823">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d08d5c25-1752-42b9-bbce-a6e68b6e637d">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>avg_accident_severity</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5ae0c25e-1a7a-430c-a896-99c3572ec417">
+          <ID>Avg Accident Distance M</ID>
+          <Name>Avg Accident Distance M</Name>
+          <Source dwd:design-time-name="7f2227d9-822f-479c-8fa1-ece3e3b4427c">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="c9e2763b-89c6-4134-a411-9bdec5443408">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>avg_accident_distance_m</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="b4b86a6c-707d-4faf-9aba-20a62709bb0f">
+          <ID>Year</ID>
+          <Name>Year</Name>
+          <Source dwd:design-time-name="1fd7c576-d724-47a3-9770-e4647c7e53ae">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="93f5eddf-bfd1-4d03-a35a-e3f219197617">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>year</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="91a93b9c-f88d-45e6-8071-9956d369bf66">
+          <ID>Month</ID>
+          <Name>Month</Name>
+          <Source dwd:design-time-name="1847d201-ee94-4ca2-b7fc-0aced2ee10d5">
+            <DataType>UnsignedInt</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="97e99f2f-3144-4d83-a07f-2c014e837874">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>month</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="94fadbf7-ab38-47f5-8c2b-12649a326b34">
+          <ID>Safety Score</ID>
+          <Name>Safety Score</Name>
+          <Source dwd:design-time-name="94fa9af9-ef6f-4429-8cc5-bc56f9b4a610">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1a630594-e769-4352-a37f-4e2a0f2aec30">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+              <ColumnID>safety_score</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="2225bc92-8a20-4d25-99bd-08baa5cb45ff">
+          <ID>City Traffic Analysis Count</ID>
+          <Name>City Traffic Analysis Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="8f54d9ab-235e-41e0-824d-4f40a18111d2">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="126727b7-224a-4836-ac86-642afdb2d48c">
+              <TableID>Fact_City_Traffic_Analysis</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="8d688326-c399-4f19-9803-44be47d5fb6f">
+          <CubeDimensionID>City Traffic Analysis</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ef9fcfcb-9339-44b3-87a1-9dc099fa7514">
+              <AttributeID>City Traffic Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b73be4ba-6356-401d-aef7-734cc65aca88">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="74db7f13-4413-4a29-ad21-1c45631762ab">
+                    <TableID>Fact_City_Traffic_Analysis</TableID>
+                    <ColumnID>city_traffic_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f5bea4df-91c9-488f-a121-081c9405101b">
+          <CubeDimensionID>Geography</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="66ee0e23-9eeb-4535-8b9f-f51eb4faa4b8">
+              <AttributeID>Geography Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f39a4bd6-713b-4024-99b6-d5c129e0477f">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="56079ff0-a712-484d-8956-6340d74347fd">
+                    <TableID>Fact_City_Traffic_Analysis</TableID>
+                    <ColumnID>geography_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="fad97545-dfe3-4945-b45e-aa2781be3e5c">
+      <ID>Violation By Vehicle Type Monthly</ID>
+      <Name>Violation By Vehicle Type Monthly</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="5c39871b-6ba1-4cb8-bc9f-6e453809242c">
+          <ID>Year Month Key - Violation By Vehicle Type Monthly</ID>
+          <Name>Year Month Key - Violation By Vehicle Type Monthly</Name>
+          <Source dwd:design-time-name="50c3731b-0e4b-41d5-9b2e-8f1fec33e924">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="2552d80e-37ae-45ea-b1ac-bb78460a2896">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>year_month_key</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="8e0b07fa-f3d6-4001-9b69-b1281ad0b75e">
+          <ID>Total Violations - Violation By Vehicle Type Monthly</ID>
+          <Name>Total Violations - Violation By Vehicle Type Monthly</Name>
+          <Source dwd:design-time-name="77b1060e-315e-48b9-8490-93fb3cd198d4">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d36803e3-5ffb-4c4a-ab59-78180c839e39">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>total_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="9d801b0a-d68e-4563-ab72-85ea67ca1e55">
+          <ID>Speeding Violations - Violation By Vehicle Type Monthly</ID>
+          <Name>Speeding Violations - Violation By Vehicle Type Monthly</Name>
+          <Source dwd:design-time-name="1b620abe-7b52-4f53-aa41-d64785cbcd2e">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="7e6f44cb-b158-40e5-9686-aa856afc9c48">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>speeding_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="d7f6c65c-23d6-4730-adbe-8dd4d9381f44">
+          <ID>Parking Violations - Violation By Vehicle Type Monthly</ID>
+          <Name>Parking Violations - Violation By Vehicle Type Monthly</Name>
+          <Source dwd:design-time-name="8c3e2c16-c974-4c14-8670-812fbe55feda">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d5156e49-6b3f-4b17-837e-6077ca545deb">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>parking_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="85ea0da9-eda5-46ce-b7f3-094fcd603131">
+          <ID>Traffic Violations</ID>
+          <Name>Traffic Violations</Name>
+          <Source dwd:design-time-name="85c3845c-6d19-45b3-bb22-df1f1df75a75">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="46849781-4c04-419e-8912-3276b30467da">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>traffic_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="a9f8bbdc-ff81-45f0-aeac-d2cc21102b8b">
+          <ID>Other Violations</ID>
+          <Name>Other Violations</Name>
+          <Source dwd:design-time-name="5062486e-3c01-4094-91de-8c5443bcc50e">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="f37542c5-27c7-4db4-bd8d-a870de09fa9c">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>other_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5d6ffc8d-4878-45bd-8301-e60f1b6cce8b">
+          <ID>Violations With Accidents</ID>
+          <Name>Violations With Accidents</Name>
+          <Source dwd:design-time-name="d72d9d8c-658a-411f-a74d-a5986f4b7660">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d9ea96d4-f357-48cf-8eac-383a88a05209">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>violations_with_accidents</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="14f1035a-2254-4cc8-9c24-4222888e889b">
+          <ID>Violations With Injury</ID>
+          <Name>Violations With Injury</Name>
+          <Source dwd:design-time-name="5629e9e1-1b86-4a2a-9444-56e390a8cb64">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="fcc2d687-2405-4b63-9c64-281639d1b207">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>violations_with_injury</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="14212cdc-c365-444e-9f36-fa051048dc72">
+          <ID>Violations With Property Damage</ID>
+          <Name>Violations With Property Damage</Name>
+          <Source dwd:design-time-name="ec537503-9ec5-4fee-a920-fd1fb1e250bc">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="3276f193-068e-4073-9b8f-f5d899d8d8d8">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>violations_with_property_damage</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5bf93038-50d0-4172-b0c4-2799f55d83de">
+          <ID>Fatal Violations</ID>
+          <Name>Fatal Violations</Name>
+          <Source dwd:design-time-name="f921e348-0fd0-45f5-8c8e-07eca8c5cdfa">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="6ea92d49-7c3c-4857-a2e3-a0d195722099">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>fatal_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="14c4639a-2113-4d57-9da1-f46b9649b3d7">
+          <ID>Commercial Vehicle Violations</ID>
+          <Name>Commercial Vehicle Violations</Name>
+          <Source dwd:design-time-name="80af1877-7a30-4e77-b6e9-80f7533e1fd1">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d3b1c230-a5ce-4417-a6f4-73942d245b70">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>commercial_vehicle_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="45fe7745-981b-4bd4-bfb3-ed8cdb2b213b">
+          <ID>Alcohol Related Violations</ID>
+          <Name>Alcohol Related Violations</Name>
+          <Source dwd:design-time-name="f68dfc3d-9f20-417c-8c55-3675b46a7c75">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="388a3e9e-2982-4369-99dc-b5e1ecc59db6">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>alcohol_related_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="fae8a94d-1e93-4d7d-8a48-2ec12dedbf24">
+          <ID>Work Zone Violations - Violation By Vehicle Type Monthly</ID>
+          <Name>Work Zone Violations - Violation By Vehicle Type Monthly</Name>
+          <Source dwd:design-time-name="eaf3f5cb-d45a-4c69-9676-421fd36f73f2">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="47c06262-817c-41e2-a3ec-cd57c22b7aee">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>work_zone_violations</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="63579853-f9a3-4959-b1ab-915dedc1a60c">
+          <ID>Avg Violations Per Day</ID>
+          <Name>Avg Violations Per Day</Name>
+          <Source dwd:design-time-name="3016a24c-f0a5-4fe2-ac9d-95cdbb6b9bb0">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="c7c208e1-b955-421c-bcca-6d690509d08c">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>avg_violations_per_day</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="68bf6668-16bf-460b-80e5-f990e4c7e247">
+          <ID>Year - Violation By Vehicle Type Monthly</ID>
+          <Name>Year - Violation By Vehicle Type Monthly</Name>
+          <Source dwd:design-time-name="a7297e24-2010-43a6-9768-f7b552385315">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1087f7ea-0518-40e9-afeb-ac4415ec910f">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>year</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="145c8a71-45e4-4bf1-b894-af50fee1eefe">
+          <ID>Month - Violation By Vehicle Type Monthly</ID>
+          <Name>Month - Violation By Vehicle Type Monthly</Name>
+          <Source dwd:design-time-name="41e595f3-2fdb-4d02-869f-016b0c4fa9f5">
+            <DataType>UnsignedInt</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="92812ade-ed89-4768-825c-34ecd32907a0">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+              <ColumnID>month</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="f5e8bf9b-f047-4fb6-bfea-b8b426dc1171">
+          <ID>Violation By Vehicle Type Monthly Count</ID>
+          <Name>Violation By Vehicle Type Monthly Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="fb0ab57e-77c9-405b-aa77-f9fc9568c001">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="b02f4dce-df12-49c7-878e-49de89622322">
+              <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="1cee3411-daab-4f8c-95f1-7af35fa65cfe">
+          <CubeDimensionID>Violation By Vehicle Type Monthly</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="f933f46a-aa92-4b21-bebe-615002d45c8d">
+              <AttributeID>Violation Vehicle Monthly Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9330a904-d8e6-4cfe-b179-77b45e420f3f">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="a79f1345-4fea-4920-8cb2-b37c6bb05c67">
+                    <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+                    <ColumnID>violation_vehicle_monthly_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="af2f7053-0a42-4daa-93f9-d4d0f6d86640">
+          <CubeDimensionID>Vehicle</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="cf6fce8e-8ec0-4233-95e6-2a6b70e3ce9f">
+              <AttributeID>Vehicle Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d3d13b5a-0b60-4a6d-b4f7-fcc79008d694">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="e1e0150a-c995-4dfa-bbe9-012ef3f2d40b">
+                    <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+                    <ColumnID>vehicle_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a1027be3-7881-468b-a6f8-06196372af9c">
+          <CubeDimensionID>Geography</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ce2cb8ff-28f1-4f93-a45d-3ef5525aa7b9">
+              <AttributeID>Geography Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="7bf89c62-f44b-4265-b853-0664056c490e">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c110c43b-9343-4eb4-bc14-a69aca65ecc1">
+                    <TableID>Fact_Violation_By_Vehicle_Type_Monthly</TableID>
+                    <ColumnID>geography_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="1e56830b-4618-446b-9239-87a2060bb8ca">
+      <ID>Violation</ID>
+      <Name>Violation</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="fdf53a26-bbd1-450a-9838-e2a15534da55">
+          <ID>Violation Count</ID>
+          <Name>Violation Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="f456db24-e734-4501-a831-457ed14cff05">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="b29da079-ff69-4516-99f2-7ca52b1f59ba">
+              <TableID>Fact_Violation</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="DegenerateMeasureGroupDimension" dwd:design-time-name="7124ca77-71af-4f8b-a949-af4316216ea3">
+          <CubeDimensionID>Violation</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="f0edfd16-b3cb-4b4f-9bd1-d47e3a1cb2e8">
+              <AttributeID>Violation Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2418f287-954e-4261-a351-dfe3c95d6139">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3c8c4f29-85a1-40ec-af8a-25a16bf813ff">
+                    <TableID>Fact_Violation</TableID>
+                    <ColumnID>violation_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="99acf9fb-c284-400e-8cd2-3dc543f08e50">
+          <CubeDimensionID>Driver Type</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="97ffb9a0-e2d1-449d-85a8-a5629643ffef">
+              <AttributeID>Driver Type Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="ad4aef05-83a4-435b-9896-552189d1c3d6">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fdea0a82-320e-45b7-9c05-e0e7ad926843">
+                    <TableID>Fact_Violation</TableID>
+                    <ColumnID>driver_type_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="69e6a256-96ad-4243-91b2-a77650c1b458">
+          <CubeDimensionID>Datetime</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6957e06d-6695-4a6a-9af2-7fa9d9c92846">
+              <AttributeID>Datetime Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d5ba0b7e-5015-4a10-ae97-cfc3aed9e5e7">
+                  <DataType>BigInt</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ff95abde-6d22-4d73-ab93-be2ca4dc73a1">
+                    <TableID>Fact_Violation</TableID>
+                    <ColumnID>datetime_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="312f2007-0866-4d5d-b69c-43e12eafda89">
+          <CubeDimensionID>Vehicle</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e25ef128-c8be-4781-a382-c83c095e4671">
+              <AttributeID>Vehicle Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f4e289b2-6594-4ca8-a148-f08217f860f3">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="cb973448-eed4-4715-9429-6c444106643e">
+                    <TableID>Fact_Violation</TableID>
+                    <ColumnID>vehicle_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="06e9556c-d178-463f-90ef-43a0d85c8131">
+          <CubeDimensionID>Agency</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="8b11494b-6d2c-420b-88c0-85031b294641">
+              <AttributeID>Agency Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="84aca62c-f2bf-4f21-bb6c-34c560fc74ae">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6e7445ec-b480-48f9-8d85-4a7a56d775c4">
+                    <TableID>Fact_Violation</TableID>
+                    <ColumnID>agency_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="564caf2c-efa7-4b01-8d89-3bee4c6ea8f0">
+          <CubeDimensionID>Geography</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="26da4519-1c13-489e-ac87-b511be14704f">
+              <AttributeID>Geography Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="c41002b7-81f1-4cc9-9955-1c7a177a0e93">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="b11f6c67-6d08-4319-aee7-0871e35fb735">
+                    <TableID>Fact_Violation</TableID>
+                    <ColumnID>geography_key</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="50a59f0a-1b40-4b0e-b0b6-5944050c1bda">
+    <DataSourceViewID>DW Traffic</DataSourceViewID>
+  </Source>
+</Cube>
