@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-8ELG7QE</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAC8dE5+fLDEi/mJtZqbI05AAAAAACAAAAAAAQZgAAAAEAACAAAACF5PEBoCzTseEBSVOfkiG3PEsZSaxt/cTB/4WTAIXxtwAAAAAOgAAAAAIAACAAAAAH50n9ZYkhkOSKXUQKWb9AbFM5GwoOp7QTcmGQwDPQ5ZAAAAAjZLJMvWffKh9/9T/haES+pakGkhYMpvPYxtVQx2QB/gLxf9d+zWUVBIKQeEgKi6BfpEEqhdBESw+dKdtsBxdBnLTaWhoudnPB409pH9/qh3nyn6gJJFHhSt6Kx9uS/NbNnsvur+wyDzEaEO+0SlyahXKgQEXoBDo2dGx3lJN/EsVuw7A084AZTxxVM6J+I8FAAAAAnFcsd6+yR/ESubMBLmGLnnRYuEENl8lDhcSqiugB6hzCF/wBNb/2dHfqeCiWhLM6x9FVwQslt1YFtExH7HM5Mg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAC8dE5+fLDEi/mJtZqbI05AAAAAACAAAAAAAQZgAAAAEAACAAAABijWFaOwNmsab4giG8I3K8zoghH6uWuzvY8vKniNfJDQAAAAAOgAAAAAIAACAAAADJ52FLjuvche/2X7RElCm5K9EjoNjVSse44ZunqJ2Rh5AAAABSyZTvt31+SIB5mv9GnxoStFyKfDfckf/KtWEiIwerfxb3nj+SpKU3QuC55w6UrCgqMdgWHZ0pAqcYuBYBScEthaJ0BBeteT+fiJLCh/F0ipL+n3B/76k2tzPha90jyy07X+JlZ6fz/3V+QN4GinKYHbYHPyXupzuRHk2VA8IyU3bcp6MVkqIBTaMIwrhz4XNAAAAAm9ZLOWr93RWojWzk64EpEcyYDhUHarRqGdqJywMud6bympKV5c7mPttNBn7SMG64NHiL6nC1zPDSFh+1KqrX8g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -34,7 +34,7 @@
           <SSIS:Package SSIS:Name="2_log_change_incremental_load.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="4_etl_to_nds.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="3_bronze_layer.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="5_NDS_to_dimension.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="5_Dim_and_Fact.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
@@ -1295,16 +1295,16 @@
                 </SSIS:Parameter>
               </SSIS:Parameters>
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="5_NDS_to_dimension.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="5_Dim_and_Fact.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{06FED57A-580F-4D0D-8955-1F93C1C6A333}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">5_NDS_to_dimension</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">72</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{A8B0F04C-A086-4B6F-84C0-CD347C274320}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{89341BF0-AC52-431E-9C05-A36DE167C9D8}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

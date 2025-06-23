@@ -50,14 +50,13 @@ CREATE TABLE Fact.City_Traffic_Analysis (
     month_name NVARCHAR(20) NOT NULL,
     
     -- Performance Indicators
-    incidents_per_1000_population DECIMAL(10,2) NULL,  -- Traffic incidents per 1000 residents (if population data available)
     safety_score DECIMAL(5,2) NULL,  -- Custom safety score (100 - normalized incident rate)
     
     -- Constraints
     CONSTRAINT FK_CityTraffic_Geography 
         FOREIGN KEY (geography_key) REFERENCES Dim.Geography(geography_key)
 );
-
+go
 -- Create indexes for better performance
 CREATE INDEX IX_CityTraffic_Geography ON Fact.City_Traffic_Analysis(geography_key);
 CREATE INDEX IX_CityTraffic_YearMonth ON Fact.City_Traffic_Analysis(year_month_key);
@@ -124,6 +123,11 @@ AccidentData AS (
         SUM(CASE WHEN a.severity BETWEEN 2 AND 3 THEN 1 ELSE 0 END) AS moderate_accidents,
         SUM(CASE WHEN a.severity = 1 THEN 1 ELSE 0 END) AS minor_accidents,
         
+        -- Accident impact types (using severity as proxy since actual fields may not exist)
+        SUM(CASE WHEN a.severity = 5 THEN 1 ELSE 0 END) AS fatal_accidents,
+        SUM(CASE WHEN a.severity BETWEEN 3 AND 4 THEN 1 ELSE 0 END) AS injury_accidents,
+        SUM(CASE WHEN a.severity BETWEEN 1 AND 2 THEN 1 ELSE 0 END) AS property_damage_accidents,
+        
         -- Safety metrics
         AVG(CAST(a.severity AS DECIMAL(4,2))) AS avg_accident_severity,
         AVG(a.distance_m) AS avg_accident_distance_m
@@ -145,6 +149,12 @@ SELECT top 1000
     COALESCE(v.geography_key, a.geography_key) AS geography_key,
     COALESCE(v.year_month_key, a.year_month_key) AS year_month_key,
     
+    -- Time context
+    COALESCE(v.year, a.year) AS year,
+    COALESCE(v.month, a.month) AS month,
+    COALESCE(v.month_name, a.month_name) AS month_name,
+
+
     -- Violation measures
     COALESCE(v.total_violations, 0) AS total_violations,
     COALESCE(v.severe_violations, 0) AS severe_violations,
@@ -154,34 +164,35 @@ SELECT top 1000
     COALESCE(v.dui_violations, 0) AS dui_violations,
     COALESCE(v.commercial_violations, 0) AS commercial_violations,
     COALESCE(v.work_zone_violations, 0) AS work_zone_violations,
-    
-    -- Accident measures
+      -- Accident measures
     COALESCE(a.total_accidents, 0) AS total_accidents,
     COALESCE(a.severe_accidents, 0) AS severe_accidents,
     COALESCE(a.moderate_accidents, 0) AS moderate_accidents,
     COALESCE(a.minor_accidents, 0) AS minor_accidents,
     
-    -- Combined analysis
+    -- Accident impact measures
+    COALESCE(a.fatal_accidents, 0) AS fatal_accidents,
+    COALESCE(a.injury_accidents, 0) AS injury_accidents,
+    COALESCE(a.property_damage_accidents, 0) AS property_damage_accidents,
+    
+      -- Combined analysis
     COALESCE(v.violations_leading_to_accidents, 0) AS violations_leading_to_accidents,
     CASE 
         WHEN COALESCE(v.total_violations, 0) > 0 
         THEN CAST(COALESCE(a.total_accidents, 0) * 100.0 / v.total_violations AS DECIMAL(10,4))
-        ELSE NULL 
+        ELSE 0.0  -- Changed from NULL to 0.0 for no violations
     END AS accident_violation_ratio,
     
-    -- Safety metrics
-    a.avg_accident_severity,
-    a.avg_accident_distance_m,
-    
-    -- Geographic context
+    -- Safety metrics (handle NULLs)
+    COALESCE(a.avg_accident_severity, 0.0) AS avg_accident_severity,  -- Default to 0 if no accidents
+    COALESCE(a.avg_accident_distance_m, 0.0) AS avg_accident_distance_m,  -- Default to 0 if no accidents
+      -- Geographic context
     COALESCE(v.city_name, a.city_name) AS city_name,
     COALESCE(v.county_name, a.county_name) AS county_name,
     COALESCE(v.state_name, a.state_name) AS state_name,
     
-    -- Time context
-    COALESCE(v.year, a.year) AS year,
-    COALESCE(v.month, a.month) AS month,
-    COALESCE(v.month_name, a.month_name) AS month_name,
+    -- Performance indicators (placeholder for population-based metrics)
+    NULL AS incidents_per_1000_population,  -- Would require population data to calculate
     
     -- Safety score (100 - normalized incident rate)
     CASE 

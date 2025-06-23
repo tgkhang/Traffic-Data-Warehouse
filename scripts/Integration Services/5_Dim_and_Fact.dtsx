@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="5_NDS_to_dimension"
   DTS:PackageType="5"
-  DTS:VersionBuild="69"
-  DTS:VersionGUID="{67B61714-7EDD-4956-92CC-97392563363C}">
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{C23D3858-C4C2-444A-9F04-3ACE3FADC844}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4907,6 +4907,1200 @@ JOIN NDS.State s ON s.state_code = co.state_code;</property>
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\Sequence Container\CIty analysis"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{4D6CD7F2-C061-4715-9229-281D9FF72EC4}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CIty analysis"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\CIty analysis\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Fact].[City_Traffic_Analysis]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geography_key]"
+                          cachedDataType="i4"
+                          cachedName="geography_key"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geography_key]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[geography_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year_month_key]"
+                          cachedDataType="i4"
+                          cachedName="year_month_key"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_month_key]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[year_month_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year]"
+                          cachedDataType="i4"
+                          cachedName="year"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month]"
+                          cachedDataType="i4"
+                          cachedName="month"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month_name]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="month_name"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_name]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_violations]"
+                          cachedDataType="i4"
+                          cachedName="total_violations"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[severe_violations]"
+                          cachedDataType="i4"
+                          cachedName="severe_violations"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severe_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[severe_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[minor_violations]"
+                          cachedDataType="i4"
+                          cachedName="minor_violations"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[minor_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[minor_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[speeding_violations]"
+                          cachedDataType="i4"
+                          cachedName="speeding_violations"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[speeding_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[speeding_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[parking_violations]"
+                          cachedDataType="i4"
+                          cachedName="parking_violations"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parking_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[parking_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[dui_violations]"
+                          cachedDataType="i4"
+                          cachedName="dui_violations"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dui_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[dui_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[commercial_violations]"
+                          cachedDataType="i4"
+                          cachedName="commercial_violations"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[work_zone_violations]"
+                          cachedDataType="i4"
+                          cachedName="work_zone_violations"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[work_zone_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_zone_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_accidents]"
+                          cachedDataType="i4"
+                          cachedName="total_accidents"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_accidents]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[severe_accidents]"
+                          cachedDataType="i4"
+                          cachedName="severe_accidents"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severe_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[severe_accidents]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[moderate_accidents]"
+                          cachedDataType="i4"
+                          cachedName="moderate_accidents"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[moderate_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[moderate_accidents]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[minor_accidents]"
+                          cachedDataType="i4"
+                          cachedName="minor_accidents"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[minor_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[minor_accidents]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[violations_leading_to_accidents]"
+                          cachedDataType="i4"
+                          cachedName="violations_leading_to_accidents"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violations_leading_to_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_leading_to_accidents]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[accident_violation_ratio]"
+                          cachedDataType="numeric"
+                          cachedName="accident_violation_ratio"
+                          cachedPrecision="10"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accident_violation_ratio]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[accident_violation_ratio]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[avg_accident_severity]"
+                          cachedDataType="numeric"
+                          cachedName="avg_accident_severity"
+                          cachedPrecision="38"
+                          cachedScale="6"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[avg_accident_severity]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[avg_accident_severity]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[avg_accident_distance_m]"
+                          cachedDataType="r8"
+                          cachedName="avg_accident_distance_m"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[avg_accident_distance_m]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[avg_accident_distance_m]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city_name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="city_name"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_name]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[county_name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="county_name"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state_name]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="state_name"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[safety_score]"
+                          cachedDataType="numeric"
+                          cachedName="safety_score"
+                          cachedPrecision="13"
+                          cachedScale="1"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[safety_score]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[safety_score]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fatal_accidents]"
+                          cachedDataType="i4"
+                          cachedName="fatal_accidents"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fatal_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[fatal_accidents]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[injury_accidents]"
+                          cachedDataType="i4"
+                          cachedName="injury_accidents"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[injury_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[injury_accidents]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[property_damage_accidents]"
+                          cachedDataType="i4"
+                          cachedName="property_damage_accidents"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[property_damage_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[property_damage_accidents]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_traffic_key]"
+                          dataType="i4"
+                          name="city_traffic_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geography_key]"
+                          dataType="i4"
+                          name="geography_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_month_key]"
+                          dataType="i4"
+                          name="year_month_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_violations]"
+                          dataType="i4"
+                          name="total_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severe_violations]"
+                          dataType="i4"
+                          name="severe_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[minor_violations]"
+                          dataType="i4"
+                          name="minor_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[speeding_violations]"
+                          dataType="i4"
+                          name="speeding_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parking_violations]"
+                          dataType="i4"
+                          name="parking_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dui_violations]"
+                          dataType="i4"
+                          name="dui_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_violations]"
+                          dataType="i4"
+                          name="commercial_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[work_zone_violations]"
+                          dataType="i4"
+                          name="work_zone_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_accidents]"
+                          dataType="i4"
+                          name="total_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[severe_accidents]"
+                          dataType="i4"
+                          name="severe_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[moderate_accidents]"
+                          dataType="i4"
+                          name="moderate_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[minor_accidents]"
+                          dataType="i4"
+                          name="minor_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fatal_accidents]"
+                          dataType="i4"
+                          name="fatal_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[injury_accidents]"
+                          dataType="i4"
+                          name="injury_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[property_damage_accidents]"
+                          dataType="i4"
+                          name="property_damage_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violations_leading_to_accidents]"
+                          dataType="i4"
+                          name="violations_leading_to_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accident_violation_ratio]"
+                          dataType="numeric"
+                          name="accident_violation_ratio"
+                          precision="10"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[avg_accident_severity]"
+                          dataType="numeric"
+                          name="avg_accident_severity"
+                          precision="4"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[avg_accident_distance_m]"
+                          dataType="numeric"
+                          name="avg_accident_distance_m"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="city_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[county_name]"
+                          dataType="wstr"
+                          length="50"
+                          name="county_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          name="state_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          dataType="i2"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                          dataType="ui1"
+                          name="month" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_name]"
+                          dataType="wstr"
+                          length="20"
+                          name="month_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[safety_score]"
+                          dataType="numeric"
+                          name="safety_score"
+                          precision="5"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\CIty analysis\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH ViolationData AS (
+    SELECT 
+        dig.geography_key,
+        dig.city_name,
+        dig.county_name,
+        dig.state_name,
+        CAST(FORMAT(v.datetime_of_stop, 'yyyyMM') AS INT) AS year_month_key,
+        YEAR(v.datetime_of_stop) AS year,
+        MONTH(v.datetime_of_stop) AS month,
+        DATENAME(MONTH, v.datetime_of_stop) AS month_name,
+        
+        -- Violation counts
+        COUNT(*) AS total_violations,
+        SUM(CASE WHEN vo.fatal = 1 OR vo.personal_injury = 1 THEN 1 ELSE 0 END) AS severe_violations,
+        SUM(CASE WHEN vo.fatal = 0 AND vo.personal_injury = 0 THEN 1 ELSE 0 END) AS minor_violations,
+        
+        -- Violation types
+        SUM(CASE WHEN LOWER(v.description) LIKE '%speed%' THEN 1 ELSE 0 END) AS speeding_violations,
+        SUM(CASE WHEN LOWER(v.description) LIKE '%park%' THEN 1 ELSE 0 END) AS parking_violations,
+        SUM(CASE WHEN vd.alcohol = 1 THEN 1 ELSE 0 END) AS dui_violations,
+        SUM(CASE WHEN vd.commercial_vehicle = 1 THEN 1 ELSE 0 END) AS commercial_violations,
+        SUM(CASE WHEN vd.work_zone = 1 THEN 1 ELSE 0 END) AS work_zone_violations,
+        
+        -- Violations leading to accidents
+        SUM(CASE WHEN vo.accident = 1 THEN 1 ELSE 0 END) AS violations_leading_to_accidents
+        
+    FROM NDS.Violation v
+    LEFT JOIN NDS.Violation_Outcome vo ON vo.violation_id = v.violation_id
+    LEFT JOIN NDS.Violation_Detail vd ON vd.violation_id = v.violation_id
+    LEFT JOIN Dim.Geography dig ON dig.city_id = v.city_id
+        AND ROUND(dig.longitude, 7) = ROUND(v.longitude, 7)
+        AND ROUND(dig.latitude, 7) = ROUND(v.latitude, 7)
+    WHERE v.datetime_of_stop IS NOT NULL
+        AND dig.geography_key IS NOT NULL
+    GROUP BY 
+        dig.geography_key, dig.city_name, dig.county_name, dig.state_name,
+        CAST(FORMAT(v.datetime_of_stop, 'yyyyMM') AS INT),
+        YEAR(v.datetime_of_stop), MONTH(v.datetime_of_stop),
+        DATENAME(MONTH, v.datetime_of_stop)
+),
+AccidentData AS (
+    SELECT 
+        dig.geography_key,
+        dig.city_name,
+        dig.county_name,
+        dig.state_name,
+        CAST(FORMAT(a.start_time, 'yyyyMM') AS INT) AS year_month_key,
+        YEAR(a.start_time) AS year,
+        MONTH(a.start_time) AS month,
+        DATENAME(MONTH, a.start_time) AS month_name,
+        
+        -- Accident counts
+        COUNT(*) AS total_accidents,
+        SUM(CASE WHEN a.severity &gt;= 4 THEN 1 ELSE 0 END) AS severe_accidents,
+        SUM(CASE WHEN a.severity BETWEEN 2 AND 3 THEN 1 ELSE 0 END) AS moderate_accidents,
+        SUM(CASE WHEN a.severity = 1 THEN 1 ELSE 0 END) AS minor_accidents,
+        
+        -- Accident impact types (using severity as proxy since actual fields may not exist)
+        SUM(CASE WHEN a.severity = 5 THEN 1 ELSE 0 END) AS fatal_accidents,
+        SUM(CASE WHEN a.severity BETWEEN 3 AND 4 THEN 1 ELSE 0 END) AS injury_accidents,
+        SUM(CASE WHEN a.severity BETWEEN 1 AND 2 THEN 1 ELSE 0 END) AS property_damage_accidents,
+        
+        -- Safety metrics
+        AVG(CAST(a.severity AS DECIMAL(4,2))) AS avg_accident_severity,
+        AVG(a.distance_m) AS avg_accident_distance_m
+        
+    FROM NDS.Accident a
+    LEFT JOIN NDS.Accident_Detail ad ON ad.accident_id = a.accident_id
+    LEFT JOIN Dim.Geography dig ON dig.city_id = a.city_id
+        AND ROUND(dig.longitude, 4) = ROUND(a.start_lng, 7)
+        AND ROUND(dig.latitude, 4) = ROUND(a.start_lat, 7)
+    WHERE a.start_time IS NOT NULL
+        AND dig.geography_key IS NOT NULL
+    GROUP BY 
+        dig.geography_key, dig.city_name, dig.county_name, dig.state_name,
+        CAST(FORMAT(a.start_time, 'yyyyMM') AS INT),
+        YEAR(a.start_time), MONTH(a.start_time),
+        DATENAME(MONTH, a.start_time)
+)
+SELECT 
+    COALESCE(v.geography_key, a.geography_key) AS geography_key,
+    COALESCE(v.year_month_key, a.year_month_key) AS year_month_key,
+    
+    -- Time context
+    COALESCE(v.year, a.year) AS year,
+    COALESCE(v.month, a.month) AS month,
+    COALESCE(v.month_name, a.month_name) AS month_name,
+
+
+      -- Geographic context
+    COALESCE(v.city_name, a.city_name) AS city_name,
+    COALESCE(v.county_name, a.county_name) AS county_name,
+    COALESCE(v.state_name, a.state_name) AS state_name,
+    
+    -- Safety score (100 - normalized incident rate)
+    CASE 
+        WHEN (COALESCE(v.total_violations, 0) + COALESCE(a.total_accidents, 0)) &gt; 0
+        THEN 100.0 - LEAST(100.0, (COALESCE(v.total_violations, 0) + COALESCE(a.total_accidents, 0)) * 0.1)
+        ELSE 100.0
+    END AS safety_score,
+
+    -- Violation measures
+    COALESCE(v.total_violations, 0) AS total_violations,
+    COALESCE(v.severe_violations, 0) AS severe_violations,
+    COALESCE(v.minor_violations, 0) AS minor_violations,
+    COALESCE(v.speeding_violations, 0) AS speeding_violations,
+    COALESCE(v.parking_violations, 0) AS parking_violations,
+    COALESCE(v.dui_violations, 0) AS dui_violations,
+    COALESCE(v.commercial_violations, 0) AS commercial_violations,
+    COALESCE(v.work_zone_violations, 0) AS work_zone_violations,
+      -- Accident measures
+    COALESCE(a.total_accidents, 0) AS total_accidents,
+    COALESCE(a.severe_accidents, 0) AS severe_accidents,
+    COALESCE(a.moderate_accidents, 0) AS moderate_accidents,
+    COALESCE(a.minor_accidents, 0) AS minor_accidents,
+    
+    -- Accident impact measures
+    COALESCE(a.fatal_accidents, 0) AS fatal_accidents,
+    COALESCE(a.injury_accidents, 0) AS injury_accidents,
+    COALESCE(a.property_damage_accidents, 0) AS property_damage_accidents,
+    
+      -- Combined analysis
+    COALESCE(v.violations_leading_to_accidents, 0) AS violations_leading_to_accidents,
+    CASE 
+        WHEN COALESCE(v.total_violations, 0) &gt; 0 
+        THEN CAST(COALESCE(a.total_accidents, 0) * 100.0 / v.total_violations AS DECIMAL(10,4))
+        ELSE 0.0  -- Changed from NULL to 0.0 for no violations
+    END AS accident_violation_ratio,
+    
+    -- Safety metrics (handle NULLs)
+    COALESCE(a.avg_accident_severity, 0.0) AS avg_accident_severity,  -- Default to 0 if no accidents
+    COALESCE(a.avg_accident_distance_m, 0.0) AS avg_accident_distance_m  -- Default to 0 if no accidents
+    
+  
+
+FROM ViolationData v
+FULL OUTER JOIN AccidentData a ON v.geography_key = a.geography_key 
+    AND v.year_month_key = a.year_month_key
+WHERE COALESCE(v.geography_key, a.geography_key) IS NOT NULL</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\CIty analysis\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[geography_key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geography_key]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[geography_key]"
+                          name="geography_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[year_month_key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year_month_key]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[year_month_key]"
+                          name="year_month_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          name="year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]"
+                          name="month"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month_name]"
+                          length="30"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]"
+                          name="month_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_violations]"
+                          name="total_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[severe_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[severe_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[severe_violations]"
+                          name="severe_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[minor_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[minor_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[minor_violations]"
+                          name="minor_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[speeding_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[speeding_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[speeding_violations]"
+                          name="speeding_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[parking_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[parking_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[parking_violations]"
+                          name="parking_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[dui_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dui_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[dui_violations]"
+                          name="dui_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_violations]"
+                          name="commercial_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_zone_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[work_zone_violations]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_zone_violations]"
+                          name="work_zone_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_accidents]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_accidents]"
+                          name="total_accidents"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[severe_accidents]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[severe_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[severe_accidents]"
+                          name="severe_accidents"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[moderate_accidents]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[moderate_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[moderate_accidents]"
+                          name="moderate_accidents"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[minor_accidents]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[minor_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[minor_accidents]"
+                          name="minor_accidents"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_leading_to_accidents]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[violations_leading_to_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_leading_to_accidents]"
+                          name="violations_leading_to_accidents"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[accident_violation_ratio]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accident_violation_ratio]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[accident_violation_ratio]"
+                          name="accident_violation_ratio"
+                          precision="10"
+                          scale="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[avg_accident_severity]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[avg_accident_severity]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[avg_accident_severity]"
+                          name="avg_accident_severity"
+                          precision="38"
+                          scale="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[avg_accident_distance_m]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[avg_accident_distance_m]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[avg_accident_distance_m]"
+                          name="avg_accident_distance_m"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city_name]"
+                          length="255"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[city_name]"
+                          name="city_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                          length="50"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[county_name]"
+                          name="county_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                          length="100"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[state_name]"
+                          name="state_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[safety_score]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[safety_score]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[safety_score]"
+                          name="safety_score"
+                          precision="13"
+                          scale="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[fatal_accidents]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fatal_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[fatal_accidents]"
+                          name="fatal_accidents"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[injury_accidents]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[injury_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[injury_accidents]"
+                          name="injury_accidents"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[property_damage_accidents]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[property_damage_accidents]"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].Columns[property_damage_accidents]"
+                          name="property_damage_accidents"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geography_key]"
+                          dataType="i4"
+                          name="geography_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year_month_key]"
+                          dataType="i4"
+                          name="year_month_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          dataType="i4"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month]"
+                          dataType="i4"
+                          name="month" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month_name]"
+                          dataType="wstr"
+                          length="30"
+                          name="month_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_violations]"
+                          dataType="i4"
+                          name="total_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[severe_violations]"
+                          dataType="i4"
+                          name="severe_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[minor_violations]"
+                          dataType="i4"
+                          name="minor_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[speeding_violations]"
+                          dataType="i4"
+                          name="speeding_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[parking_violations]"
+                          dataType="i4"
+                          name="parking_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dui_violations]"
+                          dataType="i4"
+                          name="dui_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_violations]"
+                          dataType="i4"
+                          name="commercial_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[work_zone_violations]"
+                          dataType="i4"
+                          name="work_zone_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_accidents]"
+                          dataType="i4"
+                          name="total_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[severe_accidents]"
+                          dataType="i4"
+                          name="severe_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[moderate_accidents]"
+                          dataType="i4"
+                          name="moderate_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[minor_accidents]"
+                          dataType="i4"
+                          name="minor_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[violations_leading_to_accidents]"
+                          dataType="i4"
+                          name="violations_leading_to_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accident_violation_ratio]"
+                          dataType="numeric"
+                          name="accident_violation_ratio"
+                          precision="10"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[avg_accident_severity]"
+                          dataType="numeric"
+                          name="avg_accident_severity"
+                          precision="38"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[avg_accident_distance_m]"
+                          dataType="r8"
+                          name="avg_accident_distance_m" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city_name]"
+                          dataType="wstr"
+                          length="255"
+                          name="city_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[county_name]"
+                          dataType="wstr"
+                          length="50"
+                          name="county_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          name="state_name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[safety_score]"
+                          dataType="numeric"
+                          name="safety_score"
+                          precision="13"
+                          scale="1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fatal_accidents]"
+                          dataType="i4"
+                          name="fatal_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[injury_accidents]"
+                          dataType="i4"
+                          name="injury_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[property_damage_accidents]"
+                          dataType="i4"
+                          name="property_damage_accidents" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geography_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geography_key]"
+                          name="geography_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year_month_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year_month_key]"
+                          name="year_month_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          name="year" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month]"
+                          name="month" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month_name]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month_name]"
+                          name="month_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_violations]"
+                          name="total_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[severe_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[severe_violations]"
+                          name="severe_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[minor_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[minor_violations]"
+                          name="minor_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[speeding_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[speeding_violations]"
+                          name="speeding_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[parking_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[parking_violations]"
+                          name="parking_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dui_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dui_violations]"
+                          name="dui_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_violations]"
+                          name="commercial_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[work_zone_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[work_zone_violations]"
+                          name="work_zone_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_accidents]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_accidents]"
+                          name="total_accidents" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[severe_accidents]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[severe_accidents]"
+                          name="severe_accidents" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[moderate_accidents]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[moderate_accidents]"
+                          name="moderate_accidents" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[minor_accidents]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[minor_accidents]"
+                          name="minor_accidents" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[violations_leading_to_accidents]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[violations_leading_to_accidents]"
+                          name="violations_leading_to_accidents" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accident_violation_ratio]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accident_violation_ratio]"
+                          name="accident_violation_ratio"
+                          precision="10"
+                          scale="4" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[avg_accident_severity]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[avg_accident_severity]"
+                          name="avg_accident_severity"
+                          precision="38"
+                          scale="6" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[avg_accident_distance_m]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[avg_accident_distance_m]"
+                          name="avg_accident_distance_m" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fatal_accidents]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fatal_accidents]"
+                          name="fatal_accidents" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[injury_accidents]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[injury_accidents]"
+                          name="injury_accidents" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[property_damage_accidents]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[property_damage_accidents]"
+                          name="property_damage_accidents" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city_name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city_name]"
+                          name="city_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[county_name]"
+                          name="county_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[state_name]"
+                          name="state_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[safety_score]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[safety_score]"
+                          name="safety_score"
+                          precision="13"
+                          scale="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\CIty analysis.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\CIty analysis\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\CIty analysis\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Sequence Container\Fact accident"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
@@ -7489,6 +8683,821 @@ left JOIN Dim.Geography dig
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Vehicle per month"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{3AEB3410-0318-4E96-861D-A3879EEA821D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Vehicle per month"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Vehicle per month\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Fact].[Violation_By_Vehicle_Type_Monthly]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vehicle_key]"
+                          cachedDataType="i4"
+                          cachedName="vehicle_key"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_key]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year_month_key]"
+                          cachedDataType="i4"
+                          cachedName="year_month_key"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_month_key]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[year_month_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[geography_key]"
+                          cachedDataType="i4"
+                          cachedName="geography_key"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geography_key]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[geography_key]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_violations]"
+                          cachedDataType="i4"
+                          cachedName="total_violations"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[speeding_violations]"
+                          cachedDataType="i4"
+                          cachedName="speeding_violations"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[speeding_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[speeding_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[parking_violations]"
+                          cachedDataType="i4"
+                          cachedName="parking_violations"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parking_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[parking_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[traffic_violations]"
+                          cachedDataType="i4"
+                          cachedName="traffic_violations"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traffic_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[traffic_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[other_violations]"
+                          cachedDataType="i4"
+                          cachedName="other_violations"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[other_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[other_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[violations_with_accidents]"
+                          cachedDataType="i4"
+                          cachedName="violations_with_accidents"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violations_with_accidents]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_with_accidents]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[violations_with_injury]"
+                          cachedDataType="i4"
+                          cachedName="violations_with_injury"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violations_with_injury]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_with_injury]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[violations_with_property_damage]"
+                          cachedDataType="i4"
+                          cachedName="violations_with_property_damage"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violations_with_property_damage]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_with_property_damage]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fatal_violations]"
+                          cachedDataType="i4"
+                          cachedName="fatal_violations"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fatal_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[fatal_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[commercial_vehicle_violations]"
+                          cachedDataType="i4"
+                          cachedName="commercial_vehicle_violations"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[alcohol_related_violations]"
+                          cachedDataType="i4"
+                          cachedName="alcohol_related_violations"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alcohol_related_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[alcohol_related_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[work_zone_violations]"
+                          cachedDataType="i4"
+                          cachedName="work_zone_violations"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[work_zone_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_zone_violations]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[avg_violations_per_day]"
+                          cachedDataType="numeric"
+                          cachedName="avg_violations_per_day"
+                          cachedPrecision="21"
+                          cachedScale="13"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[avg_violations_per_day]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[avg_violations_per_day]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[year]"
+                          cachedDataType="i4"
+                          cachedName="year"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month]"
+                          cachedDataType="i4"
+                          cachedName="month"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[month_name]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="month_name"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_name]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violation_vehicle_monthly_key]"
+                          dataType="i4"
+                          name="violation_vehicle_monthly_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vehicle_key]"
+                          dataType="i4"
+                          name="vehicle_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year_month_key]"
+                          dataType="i4"
+                          name="year_month_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geography_key]"
+                          dataType="i4"
+                          name="geography_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_violations]"
+                          dataType="i4"
+                          name="total_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[speeding_violations]"
+                          dataType="i4"
+                          name="speeding_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[parking_violations]"
+                          dataType="i4"
+                          name="parking_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[traffic_violations]"
+                          dataType="i4"
+                          name="traffic_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[other_violations]"
+                          dataType="i4"
+                          name="other_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violations_with_accidents]"
+                          dataType="i4"
+                          name="violations_with_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violations_with_injury]"
+                          dataType="i4"
+                          name="violations_with_injury" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[violations_with_property_damage]"
+                          dataType="i4"
+                          name="violations_with_property_damage" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fatal_violations]"
+                          dataType="i4"
+                          name="fatal_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commercial_vehicle_violations]"
+                          dataType="i4"
+                          name="commercial_vehicle_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[alcohol_related_violations]"
+                          dataType="i4"
+                          name="alcohol_related_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[work_zone_violations]"
+                          dataType="i4"
+                          name="work_zone_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[avg_violations_per_day]"
+                          dataType="numeric"
+                          name="avg_violations_per_day"
+                          precision="10"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                          dataType="i2"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                          dataType="ui1"
+                          name="month" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[month_name]"
+                          dataType="wstr"
+                          length="20"
+                          name="month_name" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Vehicle per month\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    div.vehicle_key,
+    CAST(FORMAT(v.datetime_of_stop, 'yyyyMM') AS INT) AS year_month_key,
+    dig.geography_key,
+    
+    -- Count measures
+    COUNT(*) AS total_violations,
+    SUM(CASE WHEN LOWER(v.description) LIKE '%speed%' THEN 1 ELSE 0 END) AS speeding_violations,
+    SUM(CASE WHEN LOWER(v.description) LIKE '%park%' THEN 1 ELSE 0 END) AS parking_violations,
+    SUM(CASE WHEN LOWER(v.description) LIKE '%traffic%' THEN 1 ELSE 0 END) AS traffic_violations,
+    SUM(CASE WHEN LOWER(v.description) NOT LIKE '%speed%' 
+                  AND LOWER(v.description) NOT LIKE '%park%' 
+                  AND LOWER(v.description) NOT LIKE '%traffic%' THEN 1 ELSE 0 END) AS other_violations,
+    
+    -- Accident-related measures
+    SUM(CASE WHEN vo.accident = 1 THEN 1 ELSE 0 END) AS violations_with_accidents,
+    SUM(CASE WHEN vo.personal_injury = 1 THEN 1 ELSE 0 END) AS violations_with_injury,
+    SUM(CASE WHEN vo.property_damage = 1 THEN 1 ELSE 0 END) AS violations_with_property_damage,
+    SUM(CASE WHEN vo.fatal = 1 THEN 1 ELSE 0 END) AS fatal_violations,
+    
+    -- Special circumstances
+    SUM(CASE WHEN vd.commercial_vehicle = 1 THEN 1 ELSE 0 END) AS commercial_vehicle_violations,
+    SUM(CASE WHEN vd.alcohol = 1 THEN 1 ELSE 0 END) AS alcohol_related_violations,
+    SUM(CASE WHEN vd.work_zone = 1 THEN 1 ELSE 0 END) AS work_zone_violations,
+    
+    -- Average violations per day
+    CAST(COUNT(*) AS DECIMAL(10,2)) / DAY(EOMONTH(v.datetime_of_stop)) AS avg_violations_per_day,
+    
+    -- Date attributes
+    YEAR(v.datetime_of_stop) AS year,
+    MONTH(v.datetime_of_stop) AS month,
+    DATENAME(MONTH, v.datetime_of_stop) AS month_name
+
+FROM NDS.Violation v
+LEFT JOIN NDS.Violation_Outcome vo ON vo.violation_id = v.violation_id
+LEFT JOIN NDS.Violation_Detail vd ON vd.violation_id = v.violation_id
+LEFT JOIN Dim.Vehicle div ON div.vehicle_id = v.vehicle_id
+LEFT JOIN Dim.Geography dig ON dig.city_id = v.city_id
+    AND ROUND(dig.longitude, 7) = ROUND(v.longitude, 7)
+    AND ROUND(dig.latitude, 7) = ROUND(v.latitude, 7)
+WHERE v.datetime_of_stop IS NOT NULL
+GROUP BY 
+    div.vehicle_key,
+    CAST(FORMAT(v.datetime_of_stop, 'yyyyMM') AS INT),
+    dig.geography_key,
+    YEAR(v.datetime_of_stop),
+    MONTH(v.datetime_of_stop),
+    DATENAME(MONTH, v.datetime_of_stop),
+    DAY(EOMONTH(v.datetime_of_stop));</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DWTraffic]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DWTraffic]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vehicle_key]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[vehicle_key]"
+                          name="vehicle_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[year_month_key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year_month_key]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[year_month_key]"
+                          name="year_month_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[geography_key]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geography_key]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[geography_key]"
+                          name="geography_key"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_violations]"
+                          name="total_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[speeding_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[speeding_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[speeding_violations]"
+                          name="speeding_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[parking_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[parking_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[parking_violations]"
+                          name="parking_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[traffic_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[traffic_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[traffic_violations]"
+                          name="traffic_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[other_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[other_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[other_violations]"
+                          name="other_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_with_accidents]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[violations_with_accidents]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_with_accidents]"
+                          name="violations_with_accidents"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_with_injury]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[violations_with_injury]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_with_injury]"
+                          name="violations_with_injury"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_with_property_damage]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[violations_with_property_damage]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[violations_with_property_damage]"
+                          name="violations_with_property_damage"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[fatal_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fatal_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[fatal_violations]"
+                          name="fatal_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_vehicle_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[commercial_vehicle_violations]"
+                          name="commercial_vehicle_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[alcohol_related_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[alcohol_related_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[alcohol_related_violations]"
+                          name="alcohol_related_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_zone_violations]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[work_zone_violations]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[work_zone_violations]"
+                          name="work_zone_violations"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[avg_violations_per_day]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[avg_violations_per_day]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[avg_violations_per_day]"
+                          name="avg_violations_per_day"
+                          precision="21"
+                          scale="13"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[year]"
+                          name="year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month]"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[month]"
+                          name="month"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month_name]"
+                          length="30"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].Columns[month_name]"
+                          name="month_name"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vehicle_key]"
+                          dataType="i4"
+                          name="vehicle_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year_month_key]"
+                          dataType="i4"
+                          name="year_month_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[geography_key]"
+                          dataType="i4"
+                          name="geography_key" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_violations]"
+                          dataType="i4"
+                          name="total_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[speeding_violations]"
+                          dataType="i4"
+                          name="speeding_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[parking_violations]"
+                          dataType="i4"
+                          name="parking_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[traffic_violations]"
+                          dataType="i4"
+                          name="traffic_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[other_violations]"
+                          dataType="i4"
+                          name="other_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[violations_with_accidents]"
+                          dataType="i4"
+                          name="violations_with_accidents" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[violations_with_injury]"
+                          dataType="i4"
+                          name="violations_with_injury" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[violations_with_property_damage]"
+                          dataType="i4"
+                          name="violations_with_property_damage" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fatal_violations]"
+                          dataType="i4"
+                          name="fatal_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[commercial_vehicle_violations]"
+                          dataType="i4"
+                          name="commercial_vehicle_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[alcohol_related_violations]"
+                          dataType="i4"
+                          name="alcohol_related_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[work_zone_violations]"
+                          dataType="i4"
+                          name="work_zone_violations" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[avg_violations_per_day]"
+                          dataType="numeric"
+                          name="avg_violations_per_day"
+                          precision="21"
+                          scale="13" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[year]"
+                          dataType="i4"
+                          name="year" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month]"
+                          dataType="i4"
+                          name="month" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[month_name]"
+                          dataType="wstr"
+                          length="30"
+                          name="month_name" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vehicle_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vehicle_key]"
+                          name="vehicle_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year_month_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year_month_key]"
+                          name="year_month_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geography_key]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[geography_key]"
+                          name="geography_key" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_violations]"
+                          name="total_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[speeding_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[speeding_violations]"
+                          name="speeding_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[parking_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[parking_violations]"
+                          name="parking_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[traffic_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[traffic_violations]"
+                          name="traffic_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[other_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[other_violations]"
+                          name="other_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[violations_with_accidents]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[violations_with_accidents]"
+                          name="violations_with_accidents" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[violations_with_injury]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[violations_with_injury]"
+                          name="violations_with_injury" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[violations_with_property_damage]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[violations_with_property_damage]"
+                          name="violations_with_property_damage" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fatal_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fatal_violations]"
+                          name="fatal_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_vehicle_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[commercial_vehicle_violations]"
+                          name="commercial_vehicle_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[alcohol_related_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[alcohol_related_violations]"
+                          name="alcohol_related_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[work_zone_violations]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[work_zone_violations]"
+                          name="work_zone_violations" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[avg_violations_per_day]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[avg_violations_per_day]"
+                          name="avg_violations_per_day"
+                          precision="21"
+                          scale="13" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[year]"
+                          name="year" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month]"
+                          name="month" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month_name]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[month_name]"
+                          name="month_name" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Vehicle per month.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Vehicle per month\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Vehicle per month\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
@@ -7572,24 +9581,36 @@ left JOIN Dim.Geography dig
           Id="Package\dim"
           TopLeft="60.7653062518023,118.310924266044" />
         <NodeLayout
-          Size="141.6,41.6"
-          Id="Package\Sequence Container\Fact Violation"
-          TopLeft="27.2000012772428,110.373949487906" />
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="161.310204508466,15.3731092491556" />
         <NodeLayout
           Size="140,41.6"
           Id="Package\Sequence Container\Fact accident"
           TopLeft="24.3918379684926,27.7445376561706" />
+        <NodeLayout
+          Size="141.6,41.6"
+          Id="Package\Sequence Container\Fact Violation"
+          TopLeft="27.2000012772428,110.373949487906" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Sequence Container\Vehicle per month"
+          TopLeft="220.990477842782,33.7529410122485" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Sequence Container\CIty analysis"
+          TopLeft="229.323811193855,119.145097800144" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="204.8,207.2"
-          Size="204.8,250.4"
+          PanelSize="403.2,290.4"
+          Size="403.2,333.6"
           Id="Package\Sequence Container"
           TopLeft="555.102041997993,110.336134357068" />
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Execute SQL Task"
-          TopLeft="161.310204508466,15.3731092491556" />
+          Size="138.4,41.6"
+          Id="Package\truncate fact"
+          TopLeft="602.808164585992,3.97394971580594" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="242.510204508466,56.9731092491555">
@@ -7624,36 +9645,32 @@ left JOIN Dim.Geography dig
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\truncate fact"
-          TopLeft="602.808164585992,3.97394971580594" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="672.008164585992,45.5739497158059">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.5061225879994,64.7621846412617"
+              EndConnector="84.6938774120009,64.7621846412621"
               Start="0,0"
-              End="-14.5061225879994,57.2621846412617">
+              End="84.6938774120009,57.2621846412621">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.3810923206308" />
+                    End="0,28.381092320631" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.3810923206308"
-                    Point2="0,32.3810923206308"
-                    Point3="-4,32.3810923206308" />
+                    Point1="0,28.381092320631"
+                    Point2="0,32.381092320631"
+                    Point3="4,32.381092320631" />
                   <mssgle:LineSegment
-                    End="-10.5061225879994,32.3810923206308" />
+                    End="80.6938774120009,32.381092320631" />
                   <mssgle:CubicBezierSegment
-                    Point1="-10.5061225879994,32.3810923206308"
-                    Point2="-14.5061225879994,32.3810923206308"
-                    Point3="-14.5061225879994,36.3810923206308" />
+                    Point1="80.6938774120009,32.381092320631"
+                    Point2="84.6938774120009,32.381092320631"
+                    Point3="84.6938774120009,36.381092320631" />
                   <mssgle:LineSegment
-                    End="-14.5061225879994,57.2621846412617" />
+                    End="84.6938774120009,57.2621846412621" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7669,7 +9686,11 @@ left JOIN Dim.Geography dig
     design-time-name="Package\dim\Agency">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\dim\Agency\Sort"
+          TopLeft="544.999991878867,165.999997526407" />
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\dim\Agency\OLE DB Destination"
@@ -7678,44 +9699,6 @@ left JOIN Dim.Geography dig
           Size="149.6,41.6"
           Id="Package\dim\Agency\OLE DB Source"
           TopLeft="396.999994084239,80.999998793006" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\dim\Agency\Sort"
-          TopLeft="544.999991878867,165.999997526407" />
-        <EdgeLayout
-          Id="Package\dim\Agency.Paths[OLE DB Source Output]"
-          TopLeft="471.799994084239,122.599998793006">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="121.999997794628,43.3999987334013"
-              Start="0,0"
-              End="121.999997794628,35.8999987334013">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.6999993667007" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.6999993667007"
-                    Point2="0,21.6999993667007"
-                    Point3="4,21.6999993667007" />
-                  <mssgle:LineSegment
-                    End="117.999997794628,21.6999993667007" />
-                  <mssgle:CubicBezierSegment
-                    Point1="117.999997794628,21.6999993667007"
-                    Point2="121.999997794628,21.6999993667007"
-                    Point3="121.999997794628,25.6999993667007" />
-                  <mssgle:LineSegment
-                    End="121.999997794628,35.8999987334013" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\dim\Agency.Paths[Sort Output]"
           TopLeft="544.999991878867,186.799997526407">
@@ -7747,7 +9730,45 @@ left JOIN Dim.Geography dig
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim\Agency.Paths[OLE DB Source Output]"
+          TopLeft="471.799994084239,122.599998793006">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.999997794628,43.3999987334013"
+              Start="0,0"
+              End="121.999997794628,35.8999987334013">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6999993667007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6999993667007"
+                    Point2="0,21.6999993667007"
+                    Point3="4,21.6999993667007" />
+                  <mssgle:LineSegment
+                    End="117.999997794628,21.6999993667007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.999997794628,21.6999993667007"
+                    Point2="121.999997794628,21.6999993667007"
+                    Point3="121.999997794628,25.6999993667007" />
+                  <mssgle:LineSegment
+                    End="121.999997794628,35.8999987334013" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7778,7 +9799,7 @@ left JOIN Dim.Geography dig
     design-time-name="Package\dim\Dim Datetime">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\dim\Dim Datetime\OLE DB Destination"
@@ -7822,7 +9843,9 @@ left JOIN Dim.Geography dig
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7856,7 +9879,9 @@ left JOIN Dim.Geography dig
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7887,7 +9912,7 @@ left JOIN Dim.Geography dig
     design-time-name="Package\dim\Dim Geography">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\dim\Dim Geography\OLE DB Destination"
@@ -7927,7 +9952,9 @@ left JOIN Dim.Geography dig
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7958,7 +9985,7 @@ left JOIN Dim.Geography dig
     design-time-name="Package\dim\Dim Vehicle">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\dim\Dim Vehicle\OLE DB Source"
@@ -7971,40 +9998,6 @@ left JOIN Dim.Geography dig
           Size="97.6,41.6"
           Id="Package\dim\Dim Vehicle\Sort"
           TopLeft="335.99999499321,237.199999672174" />
-        <EdgeLayout
-          Id="Package\dim\Dim Vehicle.Paths[OLE DB Source Output]"
-          TopLeft="416.799994903803,172.599998047948">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-31.9999999105927,64.6000016242265"
-              Start="0,0"
-              End="-31.9999999105927,57.1000016242265">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.3000008121132" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.3000008121132"
-                    Point2="0,32.3000008121132"
-                    Point3="-4,32.3000008121132" />
-                  <mssgle:LineSegment
-                    End="-27.9999999105927,32.3000008121132" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-27.9999999105927,32.3000008121132"
-                    Point2="-31.9999999105927,32.3000008121132"
-                    Point3="-31.9999999105927,36.3000008121132" />
-                  <mssgle:LineSegment
-                    End="-31.9999999105927,57.1000016242265" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\dim\Dim Vehicle.Paths[Sort Output]"
           TopLeft="384.79999499321,278.799999672174">
@@ -8036,12 +10029,58 @@ left JOIN Dim.Geography dig
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim\Dim Vehicle.Paths[OLE DB Source Output]"
+          TopLeft="416.799994903803,172.599998047948">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.9999999105927,64.6000016242265"
+              Start="0,0"
+              End="-31.9999999105927,57.1000016242265">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3000008121132" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.3000008121132"
+                    Point2="0,32.3000008121132"
+                    Point3="-4,32.3000008121132" />
+                  <mssgle:LineSegment
+                    End="-27.9999999105927,32.3000008121132" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.9999999105927,32.3000008121132"
+                    Point2="-31.9999999105927,32.3000008121132"
+                    Point3="-31.9999999105927,36.3000008121132" />
+                  <mssgle:LineSegment
+                    End="-31.9999999105927,57.1000016242265" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim\Dim Vehicle\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\dim\Dim Vehicle\OLE DB Destination">
     <Properties>
@@ -8055,19 +10094,11 @@ left JOIN Dim.Geography dig
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim\Dim Vehicle\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\dim\Driver Type">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\dim\Driver Type\Sort"
@@ -8111,7 +10142,9 @@ left JOIN Dim.Geography dig
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8133,7 +10166,9 @@ left JOIN Dim.Geography dig
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8164,7 +10199,7 @@ left JOIN Dim.Geography dig
     design-time-name="Package\dim\Weather">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\dim\Weather\OLE DB Source"
@@ -8204,7 +10239,9 @@ left JOIN Dim.Geography dig
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8232,149 +10269,18 @@ left JOIN Dim.Geography dig
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Sequence Container\Fact Violation">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Sequence Container\Fact Violation\OLE DB Source"
-          TopLeft="198.999997034669,57.9999991357327" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Sequence Container\Fact Violation\OLE DB Destination"
-          TopLeft="609.999990910292,122.999998167157" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Sequence Container\Fact Violation\Sort"
-          TopLeft="353.999994724989,125.999998122454" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Fact Violation.Paths[OLE DB Source Output]"
-          TopLeft="273.799997034669,99.5999991357326">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="128.99999769032,26.3999989867211"
-              Start="0,0"
-              End="128.99999769032,18.8999989867211">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9.19999949336054" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.19999949336054"
-                    Point2="0,13.1999994933605"
-                    Point3="4,13.1999994933605" />
-                  <mssgle:LineSegment
-                    End="124.99999769032,13.1999994933605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124.99999769032,13.1999994933605"
-                    Point2="128.99999769032,13.1999994933605"
-                    Point3="128.99999769032,17.1999994933605" />
-                  <mssgle:LineSegment
-                    End="128.99999769032,18.8999989867211" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Fact Violation.Paths[Sort Output]"
-          TopLeft="451.599994724989,145.299998144805">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="158.399996185303,0"
-              Start="0,0"
-              End="150.899996185303,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="150.899996185303,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Fact Violation\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Fact Violation\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Sequence Container\Fact accident">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Sequence Container\Fact accident\OLE DB Source"
-          TopLeft="521.999992221594,77.9999988377094" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\Sequence Container\Fact accident\Sort"
           TopLeft="418.999993756414,158.999997630715" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Fact accident.Paths[OLE DB Source Output]"
-          TopLeft="596.799992221594,119.599998837709">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-128.99999846518,39.3999987930059"
-              Start="0,0"
-              End="-128.99999846518,31.8999987930059">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.699999396503" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.699999396503"
-                    Point2="0,19.699999396503"
-                    Point3="-4,19.699999396503" />
-                  <mssgle:LineSegment
-                    End="-124.99999846518,19.699999396503" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-124.99999846518,19.699999396503"
-                    Point2="-128.99999846518,19.699999396503"
-                    Point3="-128.99999846518,23.699999396503" />
-                  <mssgle:LineSegment
-                    End="-128.99999846518,31.8999987930059" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Sequence Container\Fact accident\OLE DB Source"
+          TopLeft="521.999992221594,77.9999988377094" />
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Sequence Container\Fact accident\OLE DB Destination"
@@ -8410,7 +10316,45 @@ left JOIN Dim.Geography dig
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Fact accident.Paths[OLE DB Source Output]"
+          TopLeft="596.799992221594,119.599998837709">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-128.99999846518,39.3999987930059"
+              Start="0,0"
+              End="-128.99999846518,31.8999987930059">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.699999396503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.699999396503"
+                    Point2="0,19.699999396503"
+                    Point3="-4,19.699999396503" />
+                  <mssgle:LineSegment
+                    End="-124.99999846518,19.699999396503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.99999846518,19.699999396503"
+                    Point2="-128.99999846518,19.699999396503"
+                    Point3="-128.99999846518,23.699999396503" />
+                  <mssgle:LineSegment
+                    End="-128.99999846518,31.8999987930059" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8434,6 +10378,249 @@ left JOIN Dim.Geography dig
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Fact Violation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Sequence Container\Fact Violation\Sort"
+          TopLeft="353.999994724989,125.999998122454" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Sequence Container\Fact Violation\OLE DB Source"
+          TopLeft="198.999997034669,57.9999991357327" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Sequence Container\Fact Violation\OLE DB Destination"
+          TopLeft="609.999990910292,122.999998167157" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Fact Violation.Paths[Sort Output]"
+          TopLeft="451.599994724989,145.299998144805">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.399996185303,0"
+              Start="0,0"
+              End="150.899996185303,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="150.899996185303,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Fact Violation.Paths[OLE DB Source Output]"
+          TopLeft="273.799997034669,99.5999991357326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.99999769032,26.3999989867211"
+              Start="0,0"
+              End="128.99999769032,18.8999989867211">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.19999949336054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.19999949336054"
+                    Point2="0,13.1999994933605"
+                    Point3="4,13.1999994933605" />
+                  <mssgle:LineSegment
+                    End="124.99999769032,13.1999994933605" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.99999769032,13.1999994933605"
+                    Point2="128.99999769032,13.1999994933605"
+                    Point3="128.99999769032,17.1999994933605" />
+                  <mssgle:LineSegment
+                    End="128.99999769032,18.8999989867211" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Fact Violation\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Fact Violation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Vehicle per month">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Sequence Container\Vehicle per month\OLE DB Source"
+          TopLeft="245.000000521541,34.4117646757191" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Sequence Container\Vehicle per month\OLE DB Destination"
+          TopLeft="311.428572091521,129.99999988605" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Vehicle per month.Paths[OLE DB Source Output]"
+          TopLeft="319.800000521541,76.0117646757191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.8285715699804,53.9882352103308"
+              Start="0,0"
+              End="76.8285715699804,46.4882352103308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.9941176051654" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.9941176051654"
+                    Point2="0,26.9941176051654"
+                    Point3="4,26.9941176051654" />
+                  <mssgle:LineSegment
+                    End="72.8285715699804,26.9941176051654" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72.8285715699804,26.9941176051654"
+                    Point2="76.8285715699804,26.9941176051654"
+                    Point3="76.8285715699804,30.9941176051654" />
+                  <mssgle:LineSegment
+                    End="76.8285715699804,46.4882352103308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Vehicle per month\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Vehicle per month\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\CIty analysis">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Sequence Container\CIty analysis\OLE DB Destination"
+          TopLeft="439.999993443489,184.999997243285" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Sequence Container\CIty analysis\OLE DB Source"
+          TopLeft="151.999997735023,172.999997422099" />
+        <EdgeLayout
+          Id="Package\Sequence Container\CIty analysis.Paths[OLE DB Source Output]"
+          TopLeft="301.599997735024,193.799997422099">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="138.399995708466,11.9999998211861"
+              Start="0,0"
+              End="130.899995708466,11.9999998211861">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.1999978542328,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.1999978542328,0"
+                    Point2="69.1999978542328,0"
+                    Point3="69.1999978542328,4" />
+                  <mssgle:LineSegment
+                    End="69.1999978542328,7.99999982118607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.1999978542328,7.99999982118607"
+                    Point2="69.1999978542328,11.9999998211861"
+                    Point3="73.1999978542328,11.9999998211861" />
+                  <mssgle:LineSegment
+                    End="130.899995708466,11.9999998211861" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\CIty analysis\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\CIty analysis\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

@@ -41,7 +41,7 @@ CREATE TABLE Fact.Violation_By_Vehicle_Type_Monthly (
     CONSTRAINT FK_ViolationMonthly_Geography 
         FOREIGN KEY (geography_key) REFERENCES Dim.Geography(geography_key)
 );
-
+go
 -- Create indexes for better performance
 CREATE INDEX IX_ViolationMonthly_YearMonth ON Fact.Violation_By_Vehicle_Type_Monthly(year_month_key);
 CREATE INDEX IX_ViolationMonthly_Vehicle ON Fact.Violation_By_Vehicle_Type_Monthly(vehicle_key);
@@ -49,14 +49,7 @@ CREATE INDEX IX_ViolationMonthly_Geography ON Fact.Violation_By_Vehicle_Type_Mon
 
 GO
 
--- Insert data into the fact table
-INSERT INTO Fact.Violation_By_Vehicle_Type_Monthly (
-    vehicle_key, year_month_key, geography_key,
-    total_violations, speeding_violations, parking_violations, traffic_violations, other_violations,
-    violations_with_accidents, violations_with_injury, violations_with_property_damage, fatal_violations,
-    commercial_vehicle_violations, alcohol_related_violations, work_zone_violations,
-    avg_violations_per_day, year, month, month_name
-)
+
 SELECT top 1000
     div.vehicle_key,
     CAST(FORMAT(v.datetime_of_stop, 'yyyyMM') AS INT) AS year_month_key,
